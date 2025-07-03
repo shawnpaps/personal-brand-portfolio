@@ -69,6 +69,9 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
+.env 
+AuthKey_F247AY8D6N.p8
+
 # Yarn Integrity file
 .yarn-integrity
 

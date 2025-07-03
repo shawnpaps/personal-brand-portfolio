@@ -1,0 +1,27 @@
+---
+import MusicPlayer from '../react/MusicPlayer';
+---
+
+<section id="music" class="py-20 relative px-4 sm:px-6 lg:px-8 bg-moody-800/30">
+	<div class="absolute inset-0 -z-10">
+		<img
+			src="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Portraits/PAPS3001.jpg"
+			alt="Background image"
+			class="absolute inset-0 w-full h-full object-cover object-center blur-sm"
+		/>
+	</div>
+	<div class="max-w-7xl relative z-10 mx-auto">
+		<div class="text-center mb-16">
+			<h2
+				class="font-display text-4xl md:text-5xl font-bold text-warm-400 mb-4 tracking-wider"
+			>
+				LATEST TRACKS
+			</h2>
+			<div class="w-24 h-1 bg-gradient-to-r from-warm-500 to-warm-600 mx-auto">
+			</div>
+		</div>
+
+		<!-- Music Player Placeholder -->
+		<MusicPlayer client:load />
+	</div>
+</section>
