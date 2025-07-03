@@ -9,7 +9,7 @@ Create a `.env` file in the `astro-client` directory with the following variable
 ```env
 # Notion Integration
 NOTION_API_KEY=your_notion_integration_token_here
-NOTION_WEBHOOK_URL=https://api.notion.com/v1/databases/your_database_id_here
+NOTION_DATABASE_ID=your_database_id_here
 
 # Mailgun Integration
 MAILGUN_API_KEY=your_mailgun_api_key_here
@@ -23,11 +23,13 @@ NOTIFICATION_EMAIL=your_email@example.com
 
 1. **Create a Notion Database** with the following properties:
 
-   - `Name` (Title)
-   - `Email` (Email)
-   - `Subject` (Rich text)
-   - `Message` (Rich text)
-   - `Status` (Select: New, In Progress, Completed)
+   - `Contact Name` (Title)
+   - `Contact Email` (Email)
+   - `Tags` (Multi-select: Professional Photography, Music Production/Audio Engineering, Other...)
+   - `Work Link` (URL) - Optional
+   - `Client Message` (Rich text)
+   - `Subscribe To Emails` (Checkbox)
+   - `Lead Status` (Select: needs contact, In Progress, Completed, etc.)
    - `Date` (Date)
 
 2. **Get Notion API Key**:
@@ -40,10 +42,16 @@ NOTIFICATION_EMAIL=your_email@example.com
 
    - Open your database in Notion
    - Copy the ID from the URL: `https://notion.so/workspace/DATABASE_ID?v=...`
+   - The ID is the part between the last `/` and `?v=`
 
 4. **Share Database with Integration**:
+
    - In your database, click "Share" → "Invite"
    - Add your integration to the database
+
+5. **Test the Connection**:
+   - Visit `/api/test-notion` in your browser
+   - You should see a success response with your database details
 
 ## Mailgun Setup
 
@@ -68,12 +76,18 @@ NOTIFICATION_EMAIL=your_email@example.com
 - ✅ Real-time error feedback
 - ✅ Loading states and success confirmation
 - ✅ Responsive design with warm/moody aesthetic
+- ✅ Work type selection (Photography, Audio, Other)
+- ✅ Work reference link field
+- ✅ Additional notes field
+- ✅ Email consent checkbox (defaulted to true)
 
 ### Notion Integration
 
 - ✅ Automatically creates new entries in your Notion database
 - ✅ Includes all form data with timestamps
 - ✅ Status tracking for lead management
+- ✅ Work type categorization
+- ✅ Email consent tracking
 
 ### Mailgun Integration
 
@@ -81,6 +95,7 @@ NOTIFICATION_EMAIL=your_email@example.com
 - ✅ Sends notification email to you with all form details
 - ✅ Professional HTML email templates
 - ✅ Automatic email formatting and styling
+- ✅ Project-specific email subjects and content
 
 ## Customization
 
@@ -97,6 +112,7 @@ Modify validation rules in `src/components/react/ContactForm.tsx`:
 
 - Required field validation
 - Email format validation
+- URL format validation for work links
 - Custom validation rules
 
 ### Styling
@@ -128,6 +144,7 @@ The form uses your existing warm/moody color palette:
 - Check database ID is correct
 - Ensure integration has access to the database
 - Check Notion API version compatibility
+- Verify database properties match the expected structure
 
 ### Mailgun emails not sending
 

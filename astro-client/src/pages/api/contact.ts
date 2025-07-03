@@ -3,8 +3,10 @@ import type { APIRoute } from 'astro';
 interface ContactFormData {
 	name: string;
 	email: string;
-	subject: string;
-	message: string;
+	workType: string;
+	workLink: string;
+	notes: string;
+	emailConsent: boolean;
 }
 
 export const POST: APIRoute = async ({ request }) => {
@@ -12,12 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
 		const formData: ContactFormData = await request.json();
 
 		// Validate required fields
-		if (
-			!formData.name ||
-			!formData.email ||
-			!formData.subject ||
-			!formData.message
-		) {
+		if (!formData.name || !formData.email || !formData.workType) {
 			return new Response(
 				JSON.stringify({ error: 'Missing required fields' }),
 				{
@@ -36,13 +33,18 @@ export const POST: APIRoute = async ({ request }) => {
 			});
 		}
 
-		// Send to Notion via webhook
-		const notionWebhookUrl = import.meta.env.NOTION_WEBHOOK_URL;
-		if (notionWebhookUrl) {
+		// Send to Notion via API
+		const notionApiKey = import.meta.env.NOTION_API_KEY;
+		const notionDatabaseId = import.meta.env.NOTION_DATABASE_ID;
+
+		if (notionApiKey && notionDatabaseId) {
 			try {
 				const notionPayload = {
+					parent: {
+						database_id: notionDatabaseId,
+					},
 					properties: {
-						Name: {
+						'Company Name': {
 							title: [
 								{
 									text: {
@@ -51,33 +53,48 @@ export const POST: APIRoute = async ({ request }) => {
 								},
 							],
 						},
-						Email: {
+						'Contact Name': {
+							rich_text: [
+								{
+									text: {
+										content: formData.name,
+									},
+								},
+							],
+						},
+						'Contact Email': {
 							email: formData.email,
 						},
-						Subject: {
+						Tags: {
+							multi_select: [
+								{
+									name:
+										formData.workType === 'photography'
+											? 'Photography'
+											: formData.workType === 'audio'
+											? 'Producer'
+											: 'Other',
+								},
+							],
+						},
+						'Client Message': {
 							rich_text: [
 								{
 									text: {
-										content: formData.subject,
+										content: formData.notes || 'No additional notes provided',
 									},
 								},
 							],
 						},
-						Message: {
-							rich_text: [
-								{
-									text: {
-										content: formData.message,
-									},
-								},
-							],
+						'Subscribe to Emails': {
+							checkbox: formData.emailConsent,
 						},
-						Status: {
-							select: {
-								name: 'New',
+						'Lead Status': {
+							status: {
+								name: 'Need To Call',
 							},
 						},
-						Date: {
+						'Date of First Contact': {
 							date: {
 								start: new Date().toISOString(),
 							},
@@ -85,10 +102,10 @@ export const POST: APIRoute = async ({ request }) => {
 					},
 				};
 
-				const notionResponse = await fetch(notionWebhookUrl, {
+				const notionResponse = await fetch('https://api.notion.com/v1/pages', {
 					method: 'POST',
 					headers: {
-						Authorization: `Bearer ${import.meta.env.NOTION_API_KEY}`,
+						Authorization: `Bearer ${notionApiKey}`,
 						'Content-Type': 'application/json',
 						'Notion-Version': '2022-06-28',
 					},
@@ -96,7 +113,16 @@ export const POST: APIRoute = async ({ request }) => {
 				});
 
 				if (!notionResponse.ok) {
-					console.error('Notion webhook failed:', await notionResponse.text());
+					const errorText = await notionResponse.text();
+					console.error('Notion API failed:', {
+						status: notionResponse.status,
+						statusText: notionResponse.statusText,
+						error: errorText,
+						payload: notionPayload,
+						databaseId: notionDatabaseId,
+					});
+				} else {
+					console.log('Successfully created Notion page');
 				}
 			} catch (error) {
 				console.error('Error sending to Notion:', error);
@@ -113,17 +139,29 @@ export const POST: APIRoute = async ({ request }) => {
 				const userEmailData = new URLSearchParams({
 					from: `Shawn Papineau <noreply@${mailgunDomain}>`,
 					to: formData.email,
-					subject: 'Thank you for reaching out!',
+					subject: 'Thank you for your project inquiry!',
 					html: `
 						<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-							<h2 style="color: #f97316;">Thank you for your message!</h2>
+							<h2 style="color: #f97316;">Thank you for your project inquiry!</h2>
 							<p>Hi ${formData.name},</p>
-							<p>I've received your message and will get back to you as soon as possible.</p>
-							<p><strong>Your message:</strong></p>
+							<p>I've received your project inquiry and will review your work. I'll get back to you as soon as possible with next steps.</p>
+							<p><strong>Project Details:</strong></p>
 							<div style="background: #f3f4f6; padding: 15px; border-left: 4px solid #f97316; margin: 20px 0;">
-								<p><strong>Subject:</strong> ${formData.subject}</p>
-								<p><strong>Message:</strong></p>
-								<p>${formData.message.replace(/\n/g, '<br>')}</p>
+								<p><strong>Type of Work:</strong> ${
+									formData.workType.charAt(0).toUpperCase() +
+									formData.workType.slice(1)
+								}</p>
+								<p><strong>Work Reference:</strong> <a href="${
+									formData.workLink
+								}" style="color: #f97316;">${formData.workLink}</a></p>
+								${
+									formData.notes
+										? `<p><strong>Additional Notes:</strong></p><p>${formData.notes.replace(
+												/\n/g,
+												'<br>'
+										  )}</p>`
+										: ''
+								}
 							</div>
 							<p>Best regards,<br>Shawn Papineau</p>
 						</div>
@@ -143,16 +181,29 @@ export const POST: APIRoute = async ({ request }) => {
 				const notificationEmailData = new URLSearchParams({
 					from: `Contact Form <noreply@${mailgunDomain}>`,
 					to: import.meta.env.NOTIFICATION_EMAIL || 'contact@shawnpapineau.com',
-					subject: `New Contact Form Submission: ${formData.subject}`,
+					subject: `New Project Inquiry: ${formData.workType} work from ${formData.name}`,
 					html: `
 						<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-							<h2 style="color: #f97316;">New Contact Form Submission</h2>
+							<h2 style="color: #f97316;">New Project Inquiry</h2>
 							<div style="background: #f3f4f6; padding: 20px; border-radius: 8px;">
 								<p><strong>Name:</strong> ${formData.name}</p>
 								<p><strong>Email:</strong> ${formData.email}</p>
-								<p><strong>Subject:</strong> ${formData.subject}</p>
-								<p><strong>Message:</strong></p>
-								<p>${formData.message.replace(/\n/g, '<br>')}</p>
+								<p><strong>Type of Work:</strong> ${
+									formData.workType.charAt(0).toUpperCase() +
+									formData.workType.slice(1)
+								}</p>
+								<p><strong>Work Reference:</strong> <a href="${
+									formData.workLink
+								}" style="color: #f97316;">${formData.workLink}</a></p>
+								${
+									formData.notes
+										? `<p><strong>Additional Notes:</strong></p><p>${formData.notes.replace(
+												/\n/g,
+												'<br>'
+										  )}</p>`
+										: ''
+								}
+								<p><strong>Email Consent:</strong> ${formData.emailConsent ? 'Yes' : 'No'}</p>
 								<p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
 							</div>
 						</div>
