@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { apiUrl } from '../../data/variables';
 
 interface FormData {
 	name: string;
@@ -67,7 +68,7 @@ const ContactForm = () => {
 
 		try {
 			// TODO: Replace with your actual API endpoint
-			const response = await fetch('/api/contact', {
+			const response = await fetch(`${apiUrl}/contact`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

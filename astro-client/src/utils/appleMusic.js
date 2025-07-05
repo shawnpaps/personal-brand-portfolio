@@ -1,6 +1,6 @@
 const getProducerPlaylist = async () => {
 	try {
-		const res = await fetch('http://localhost:4321/api/apple-token');
+		const res = await fetch(`${apiUrl}/apple-token`);
 		const { token } = await res.json();
 		const musicRes = await fetch(
 			'https://api.music.apple.com/v1/catalog/us/playlists/pl.u-MDAWX4DuWbx1oRA',

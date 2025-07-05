@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import TestimonialCard from './TestimonialCard';
+import { apiUrl } from '../../data/variables';
 
 interface Testimonial {
 	id: string;
@@ -16,7 +17,7 @@ const TestimonialsGrid = () => {
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
-				const response = await fetch('/api/testimonials');
+				const response = await fetch(`${apiUrl}/testimonials`);
 				const data = await response.json();
 				// Shuffle and take only 3 random testimonials
 				const shuffled = data.sort(() => 0.5 - Math.random());
