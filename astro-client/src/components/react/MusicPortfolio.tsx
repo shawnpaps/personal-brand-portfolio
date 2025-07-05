@@ -74,11 +74,11 @@ const MusicPortfolio: React.FC<MusicPortfolioProps> = ({ tracks }) => {
 			{/* Section Header */}
 			<div className="text-center mb-16">
 				<h2 className="font-display text-4xl md:text-5xl font-bold text-warm-400 mb-6 tracking-wider">
-					DISCOVER MY SOUND
+					DEFINE YOUR SONIC IDENTITY
 				</h2>
 				<p className="font-body text-xl text-moody-400 max-w-3xl mx-auto leading-relaxed">
-					From electronic experiments to cinematic soundscapes, each track
-					represents a unique moment in my musical journey.
+					See & hear how I've helped artists & brands just like you bring their
+					vision to life.
 				</p>
 			</div>
 
@@ -162,7 +162,7 @@ const MusicPortfolio: React.FC<MusicPortfolioProps> = ({ tracks }) => {
 								</div>
 
 								{/* Action Buttons */}
-								<div className="flex gap-3 mt-6">
+								{/* <div className="flex gap-3 mt-6">
 									<a
 										href={`/music/${track.id}`}
 										className="flex-1 px-4 py-2 bg-warm-500/10 border border-warm-500/30 text-warm-400 font-heading text-sm tracking-wider uppercase hover:bg-warm-500/20 hover:border-warm-400 transition-all duration-300 rounded-lg text-center">
@@ -180,7 +180,7 @@ const MusicPortfolio: React.FC<MusicPortfolioProps> = ({ tracks }) => {
 											<path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
 										</svg>
 									</a>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</motion.div>

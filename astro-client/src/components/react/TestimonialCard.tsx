@@ -55,19 +55,6 @@ const TestimonialCard = ({
 						initial={{ opacity: 0, x: -20 }}
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ delay: index * 0.2 + 0.4, duration: 0.5 }}>
-						<div className="flex-shrink-0 relative">
-							<div className="w-14 h-14 rounded-full overflow-hidden border-2 border-warm-500/30 group-hover:border-warm-400/60 transition-colors duration-300">
-								<img
-									className="h-full w-full object-cover"
-									src={
-										testimonial.avatar_url || 'https://via.placeholder.com/56'
-									}
-									alt={testimonial.name}
-								/>
-							</div>
-							{/* Avatar glow effect */}
-							<div className="absolute inset-0 rounded-full bg-gradient-to-br from-warm-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-						</div>
 						<div className="ml-4">
 							<h3 className="font-heading text-lg font-semibold text-warm-400 group-hover:text-warm-300 transition-colors duration-300">
 								{testimonial.name}
@@ -163,18 +150,6 @@ const TestimonialCard = ({
 
 							{/* Modal Content */}
 							<div className="flex items-center mb-6">
-								<div className="flex-shrink-0">
-									<div className="w-16 h-16 rounded-full overflow-hidden border-2 border-warm-500/30">
-										<img
-											className="h-full w-full object-cover"
-											src={
-												testimonial.avatar_url ||
-												'https://via.placeholder.com/64'
-											}
-											alt={testimonial.name}
-										/>
-									</div>
-								</div>
 								<div className="ml-6">
 									<h3 className="font-heading text-2xl font-bold text-warm-400">
 										{testimonial.name}
