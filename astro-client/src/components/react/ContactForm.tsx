@@ -4,26 +4,38 @@ import { motion, AnimatePresence } from 'motion/react';
 interface FormData {
 	name: string;
 	email: string;
-	subject: string;
-	message: string;
+	workType: string;
+	workLink: string;
+	notes: string;
+	emailConsent: boolean;
 }
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState<FormData>({
 		name: '',
 		email: '',
-		subject: '',
-		message: '',
+		workType: '',
+		workLink: '',
+		notes: '',
+		emailConsent: true,
 	});
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [errors, setErrors] = useState<Partial<FormData>>({});
 
 	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+		e: React.ChangeEvent<
+			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+		>
 	) => {
-		const { name, value } = e.target;
-		setFormData((prev) => ({ ...prev, [name]: value }));
+		const { name, value, type } = e.target;
+		const checked = (e.target as HTMLInputElement).checked;
+
+		setFormData((prev) => ({
+			...prev,
+			[name]: type === 'checkbox' ? checked : value,
+		}));
+
 		// Clear error when user starts typing
 		if (errors[name as keyof FormData]) {
 			setErrors((prev) => ({ ...prev, [name]: '' }));
@@ -39,8 +51,8 @@ const ContactForm = () => {
 		} else if (!/\S+@\S+\.\S+/.test(formData.email)) {
 			newErrors.email = 'Email is invalid';
 		}
-		if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
-		if (!formData.message.trim()) newErrors.message = 'Message is required';
+		if (!formData.workType) newErrors.workType = 'Please select a type of work';
+		// Work link is now optional, so no validation needed
 
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
@@ -65,7 +77,14 @@ const ContactForm = () => {
 
 			if (response.ok) {
 				setIsSubmitted(true);
-				setFormData({ name: '', email: '', subject: '', message: '' });
+				setFormData({
+					name: '',
+					email: '',
+					workType: '',
+					workLink: '',
+					notes: '',
+					emailConsent: true,
+				});
 			} else {
 				throw new Error('Failed to send message');
 			}
@@ -195,66 +214,141 @@ const ContactForm = () => {
 					</AnimatePresence>
 				</motion.div>
 
-				{/* Subject Field */}
+				{/* Work Type Field */}
 				<motion.div
 					initial={{ opacity: 0, x: -20 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ delay: 0.3 }}
 					className="relative group">
-					<input
-						type="text"
-						name="subject"
-						value={formData.subject}
+					<select
+						name="workType"
+						value={formData.workType}
 						onChange={handleChange}
-						placeholder="Subject"
-						className={`w-full px-6 py-4 bg-moody-800/50 backdrop-blur-sm border-2 rounded-xl text-moody-100 placeholder-moody-500 font-body focus:outline-none focus:border-warm-400 transition-all duration-300 ${
-							errors.subject
+						className={`w-full px-6 py-4 bg-moody-800/50 backdrop-blur-sm border-2 rounded-xl text-moody-100 font-body focus:outline-none focus:border-warm-400 transition-all duration-300 appearance-none cursor-pointer ${
+							errors.workType
 								? 'border-red-500/50'
 								: 'border-warm-500/20 group-hover:border-warm-400/40'
-						}`}
-					/>
+						}`}>
+						<option value="" className="bg-moody-800 text-moody-500">
+							Select Type of Work
+						</option>
+						<option value="photography" className="bg-moody-800 text-moody-100">
+							Professional Photography
+						</option>
+						<option value="audio" className="bg-moody-800 text-moody-100">
+							Music Production/Audio Engineering
+						</option>
+						<option value="other" className="bg-moody-800 text-moody-100">
+							Other...
+						</option>
+					</select>
+					{/* Custom dropdown arrow */}
+					<div className="absolute right-6 top-1/2 transform -translate-y-1/2 pointer-events-none">
+						<svg
+							className="w-5 h-5 text-moody-400"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24">
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M19 9l-7 7-7-7"
+							/>
+						</svg>
+					</div>
 					<AnimatePresence>
-						{errors.subject && (
+						{errors.workType && (
 							<motion.p
 								initial={{ opacity: 0, y: -10 }}
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: -10 }}
 								className="absolute -bottom-6 left-0 text-red-400 text-sm">
-								{errors.subject}
+								{errors.workType}
 							</motion.p>
 						)}
 					</AnimatePresence>
 				</motion.div>
 
-				{/* Message Field */}
+				{/* Work Link Field */}
 				<motion.div
 					initial={{ opacity: 0, x: -20 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ delay: 0.4 }}
 					className="relative group">
-					<textarea
-						name="message"
-						value={formData.message}
+					<input
+						type="url"
+						name="workLink"
+						value={formData.workLink}
 						onChange={handleChange}
-						placeholder="Your Message"
-						rows={6}
-						className={`w-full px-6 py-4 bg-moody-800/50 backdrop-blur-sm border-2 rounded-xl text-moody-100 placeholder-moody-500 font-body focus:outline-none focus:border-warm-400 transition-all duration-300 resize-none ${
-							errors.message
+						placeholder="Link to your existing work/music (optional)"
+						className={`w-full px-6 py-4 bg-moody-800/50 backdrop-blur-sm border-2 rounded-xl text-moody-100 placeholder-moody-500 font-body focus:outline-none focus:border-warm-400 transition-all duration-300 ${
+							errors.workLink
 								? 'border-red-500/50'
 								: 'border-warm-500/20 group-hover:border-warm-400/40'
 						}`}
 					/>
 					<AnimatePresence>
-						{errors.message && (
+						{errors.workLink && (
 							<motion.p
 								initial={{ opacity: 0, y: -10 }}
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: -10 }}
 								className="absolute -bottom-6 left-0 text-red-400 text-sm">
-								{errors.message}
+								{errors.workLink}
 							</motion.p>
 						)}
 					</AnimatePresence>
+				</motion.div>
+
+				{/* Notes Field */}
+				<motion.div
+					initial={{ opacity: 0, x: -20 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ delay: 0.5 }}
+					className="relative group">
+					<textarea
+						name="notes"
+						value={formData.notes}
+						onChange={handleChange}
+						placeholder="Anything else you'd like me to know about your project..."
+						rows={4}
+						className={`w-full px-6 py-4 bg-moody-800/50 backdrop-blur-sm border-2 rounded-xl text-moody-100 placeholder-moody-500 font-body focus:outline-none focus:border-warm-400 transition-all duration-300 resize-none ${
+							errors.notes
+								? 'border-red-500/50'
+								: 'border-warm-500/20 group-hover:border-warm-400/40'
+						}`}
+					/>
+					<AnimatePresence>
+						{errors.notes && (
+							<motion.p
+								initial={{ opacity: 0, y: -10 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -10 }}
+								className="absolute -bottom-6 left-0 text-red-400 text-sm">
+								{errors.notes}
+							</motion.p>
+						)}
+					</AnimatePresence>
+				</motion.div>
+
+				{/* Email Consent Checkbox */}
+				<motion.div
+					initial={{ opacity: 0, x: -20 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ delay: 0.6 }}
+					className="flex items-start space-x-3 group">
+					<input
+						type="checkbox"
+						name="emailConsent"
+						checked={formData.emailConsent}
+						onChange={handleChange}
+						className="mt-1 w-5 h-5 text-warm-500 bg-moody-800/50 border-2 border-warm-500/20 rounded focus:ring-warm-400 focus:ring-2 focus:ring-offset-0 focus:ring-offset-moody-900 transition-all duration-300 group-hover:border-warm-400/40"
+					/>
+					<label className="text-sm text-moody-300 leading-relaxed">
+						I consent to receive email communications from Shawn Paps regarding
+						my project and updates about your services.
+					</label>
 				</motion.div>
 
 				{/* Submit Button */}
@@ -263,7 +357,7 @@ const ContactForm = () => {
 					disabled={isSubmitting}
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.5 }}
+					transition={{ delay: 0.7 }}
 					whileHover={{ scale: 1.02 }}
 					whileTap={{ scale: 0.98 }}
 					className="w-full px-8 py-4 bg-gradient-to-r from-warm-500 to-warm-600 text-moody-900 font-heading font-semibold tracking-wider uppercase hover:from-warm-400 hover:to-warm-500 transition-all duration-300 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group">
