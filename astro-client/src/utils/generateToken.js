@@ -1,20 +1,15 @@
-import fs from 'fs';
 import jwt from 'jsonwebtoken';
-import path from 'path';
 
-const privateKey = fs.readFileSync(
-	path.join(process.cwd(), 'AuthKey_F247AY8D6N.p8')
-);
-
+const privateKey = process.env.APPLE_MUSIC_PRIVATE_KEY;
 export function generateAppleMusicToken() {
 	console.log('Generating token');
 	const token = jwt.sign({}, privateKey, {
 		algorithm: 'ES256',
 		expiresIn: '180d', // Max allowed
-		issuer: 'FA5PHSX25S',
+		issuer: process.env.APPLE_MUSIC_TEAM_ID,
 		header: {
 			alg: 'ES256',
-			kid: 'F247AY8D6N',
+			kid: process.env.APPLE_MUSIC_KEY_ID,
 		},
 	});
 
