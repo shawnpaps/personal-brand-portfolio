@@ -75,7 +75,7 @@ const randomTestimonial =
 
 				<!-- Main Content Grid -->
 				<div class="grid lg:grid-cols-2 gap-12 items-start">
-					<!-- Contact Information -->
+					<!-- Left Column - Contact Information -->
 					<div class="space-y-8 animate-slide-in-left">
 						<!-- What I Do -->
 						<div
@@ -283,25 +283,24 @@ const randomTestimonial =
 							testimonial={randomTestimonial}
 							index={0}
 						/>
-						<div>
-							<!-- Contact Form -->
-							<div
-								class="bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl p-8 animate-slide-in-right"
-							>
-								<div class="mb-8">
-									<h3
-										class="text-3xl font-heading font-bold text-warm-400 mb-4"
-									>
-										Start Your Project
-									</h3>
-									<p class="text-moody-300">
-										Tell me about your vision. I'll review your work and get
-										back to you with next steps.
-									</p>
-								</div>
+					</div>
 
-								<ContactForm client:load />
+					<!-- Right Column - Contact Form -->
+					<div class="animate-slide-in-right">
+						<div
+							class="bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl p-8"
+						>
+							<div class="mb-8">
+								<h3 class="text-3xl font-heading font-bold text-warm-400 mb-4">
+									Start Your Project
+								</h3>
+								<p class="text-moody-300">
+									Tell me about your vision. I'll review your work and get back
+									to you with next steps.
+								</p>
 							</div>
+
+							<ContactForm client:load />
 						</div>
 					</div>
 				</div>
@@ -361,5 +360,5 @@ const randomTestimonial =
 				}
 			</style>
 		</div>
-	</section></RootLayout
->
+	</section>
+</RootLayout>
