@@ -1,10 +1,7 @@
 ---
 import RootLayout from '../../layouts/RootLayout.astro';
-import { getProducerPlaylist } from '../../utils/appleMusic';
 import MusicPortfolio from '../../components/react/MusicPortfolio';
 import Breadcrumbs from '../../components/astro/Breadcrumbs.astro';
-
-const tracks = await getProducerPlaylist();
 ---
 
 <RootLayout
@@ -77,7 +74,7 @@ const tracks = await getProducerPlaylist();
 						class="bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl p-8 text-center"
 					>
 						<div class="text-3xl font-heading font-bold text-warm-400 mb-2">
-							{tracks.length}
+							∞
 						</div>
 						<div class="text-moody-300 font-body">Tracks</div>
 					</div>
@@ -104,7 +101,7 @@ const tracks = await getProducerPlaylist();
 		<!-- Music Portfolio Section -->
 		<section class="py-20 px-4 sm:px-6 lg:px-8">
 			<div class="max-w-7xl mx-auto">
-				<MusicPortfolio tracks={tracks} client:load />
+				<MusicPortfolio client:load />
 			</div>
 		</section>
 

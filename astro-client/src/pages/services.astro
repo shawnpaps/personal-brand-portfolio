@@ -1,0 +1,839 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+import Breadcrumbs from '../components/astro/Breadcrumbs.astro';
+import ServicesOverview from '../components/astro/ServicesOverview.astro';
+import ContactForm from '../components/react/ContactForm';
+---
+
+<RootLayout
+	title="Services | Shawn Papineau - Professional Music Production & Photography Services"
+	description="Comprehensive music production and photography services including songwriting, mixing, mastering, lifestyle photography, and brand photography. Professional creative services for artists and businesses."
+	keywords="music production services, photography services, songwriting, mixing mastering, lifestyle photography, brand photography, professional creative services, Shawn Papineau services"
+	image="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Portraits/PAPS2968.jpg"
+	type="website"
+	tags={[
+		'music production services',
+		'photography services',
+		'songwriting',
+		'mixing mastering',
+		'lifestyle photography',
+		'brand photography',
+	]}
+>
+	<main
+		class="min-h-screen bg-gradient-to-br from-moody-900 via-moody-800 to-moody-900"
+	>
+		<!-- Breadcrumbs -->
+		<section class="py-8 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<Breadcrumbs
+					items={[
+						{ label: 'Home', url: '/' },
+						{ label: 'Services', current: true },
+					]}
+				/>
+			</div>
+		</section>
+
+		<!-- Hero Section -->
+		<section class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+			<!-- Background Elements -->
+			<div
+				class="absolute inset-0 bg-gradient-to-br from-moody-900/50 to-moody-800/30"
+			>
+			</div>
+			<div
+				class="absolute top-20 left-10 w-64 h-64 bg-warm-500/10 rounded-full blur-3xl"
+			>
+			</div>
+			<div
+				class="absolute bottom-20 right-10 w-80 h-80 bg-warm-600/10 rounded-full blur-3xl"
+			>
+			</div>
+
+			<div class="max-w-7xl mx-auto relative z-10">
+				<div class="text-center mb-16">
+					<h1
+						class="font-display text-5xl md:text-7xl font-bold text-warm-400 mb-6 tracking-wider"
+					>
+						SERVICES
+					</h1>
+					<div
+						class="w-32 h-1 bg-gradient-to-r from-warm-500 to-warm-600 mx-auto mb-8"
+					>
+					</div>
+					<p
+						class="font-body text-xl text-moody-400 max-w-3xl mx-auto leading-relaxed"
+					>
+						Professional creative services designed to bring your vision to
+						life. From music production to visual storytelling, I'm here to
+						elevate your creative projects.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Overview Section -->
+		<ServicesOverview />
+
+		<!-- Music Production Services Detail -->
+		<section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+			<div class="max-w-7xl mx-auto">
+				<!-- Section Header -->
+				<div class="text-center mb-16">
+					<h2
+						class="font-display text-4xl md:text-5xl font-bold text-warm-400 mb-6 tracking-wider"
+					>
+						MUSIC PRODUCTION
+					</h2>
+					<div
+						class="w-24 h-1 bg-gradient-to-r from-warm-500 to-warm-600 mx-auto mb-8"
+					>
+					</div>
+					<p
+						class="font-body text-xl text-moody-400 max-w-3xl mx-auto leading-relaxed"
+					>
+						Complete music production services from concept to final master.
+						Every project is approached with creativity, technical expertise,
+						and attention to detail.
+					</p>
+				</div>
+
+				<!-- Production & Songwriting -->
+				<div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+					<div class="space-y-6">
+						<div
+							class="bg-gradient-to-br from-warm-600 to-warm-500 p-8 rounded-2xl text-white"
+						>
+							<div class="text-5xl mb-4">🎼</div>
+							<h3 class="text-3xl font-bold mb-4 font-heading">
+								Production & Songwriting
+							</h3>
+							<p class="text-warm-100 text-lg font-body">
+								Full-service music creation from initial concept to completed
+								track. I work closely with artists to develop their unique sound
+								and bring their musical vision to life.
+							</p>
+						</div>
+
+						<div class="space-y-4">
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Custom Songwriting
+									</h4>
+									<p class="text-moody-300 font-body">
+										Original compositions tailored to your style, message, and
+										artistic vision. From lyrics to melody, every element is
+										crafted with purpose.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Full Production
+									</h4>
+									<p class="text-moody-300 font-body">
+										Complete arrangement, instrumentation, and production. From
+										acoustic to electronic, I create the perfect sonic
+										foundation for your music.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Recording Services
+									</h4>
+									<p class="text-moody-300 font-body">
+										Professional vocal and instrumental recording in a
+										controlled environment. High-quality capture of your
+										performance with expert guidance.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative">
+						<div
+							class="bg-moody-800/50 backdrop-blur-sm rounded-2xl p-8 border border-warm-500/20"
+						>
+							<img
+								src="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Studio/studio-equipment.jpg"
+								alt="Music production studio setup"
+								class="w-full h-64 object-cover rounded-xl mb-6"
+							/>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Studio Environment
+							</h4>
+							<p class="text-moody-300 font-body mb-4">
+								Compact, professional recording space equipped with quality gear
+								for optimal sound quality and creative workflow.
+							</p>
+							<div class="grid grid-cols-2 gap-4 text-sm">
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Logic Pro X</div>
+									<div class="text-moody-400">Professional DAW</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Quality Mics</div>
+									<div class="text-moody-400">Vocal Recording</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Plugin Suite</div>
+									<div class="text-moody-400">Digital Processing</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">
+										Acoustic Treatment
+									</div>
+									<div class="text-moody-400">Optimal Acoustics</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Mixing & Mastering -->
+				<div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+					<div class="relative order-2 lg:order-1">
+						<div
+							class="bg-moody-800/50 backdrop-blur-sm rounded-2xl p-8 border border-warm-500/20"
+						>
+							<img
+								src="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Studio/mixing-console.jpg"
+								alt="Professional mixing console"
+								class="w-full h-64 object-cover rounded-xl mb-6"
+							/>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Mixing Console
+							</h4>
+							<p class="text-moody-300 font-body mb-4">
+								Professional mixing environment with analog and digital
+								processing for the perfect balance and clarity.
+							</p>
+							<div class="grid grid-cols-2 gap-4 text-sm">
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">
+										In-The-Box Mixing
+									</div>
+									<div class="text-moody-400">Digital Workflow</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Plugin Suite</div>
+									<div class="text-moody-400">Digital Processing</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Monitoring</div>
+									<div class="text-moody-400">Precision Audio</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">
+										Reference Tracks
+									</div>
+									<div class="text-moody-400">Industry Standards</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="space-y-6 order-1 lg:order-2">
+						<div
+							class="bg-gradient-to-br from-warm-500 to-warm-400 p-8 rounded-2xl text-white"
+						>
+							<div class="text-5xl mb-4">🎚️</div>
+							<h3 class="text-3xl font-bold mb-4 font-heading">
+								Mixing & Mastering
+							</h3>
+							<p class="text-warm-100 text-lg font-body">
+								Professional audio engineering to polish your music to industry
+								standards. Every mix is crafted for maximum impact across all
+								platforms and listening environments.
+							</p>
+						</div>
+
+						<div class="space-y-4">
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Professional Mixing
+									</h4>
+									<p class="text-moody-300 font-body">
+										Balanced, clear, and dynamic mixes that highlight the best
+										elements of your music while maintaining emotional impact.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Mastering for All Platforms
+									</h4>
+									<p class="text-moody-300 font-body">
+										Optimized masters for streaming, vinyl, CD, and digital
+										download. Each format receives specialized attention for
+										optimal playback.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Quality Assurance
+									</h4>
+									<p class="text-moody-300 font-body">
+										Multiple revisions and thorough testing across different
+										playback systems to ensure your music sounds great
+										everywhere.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Photography Services Detail -->
+		<section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+			<div class="max-w-7xl mx-auto">
+				<!-- Section Header -->
+				<div class="text-center mb-16">
+					<h2
+						class="font-display text-4xl md:text-5xl font-bold text-warm-400 mb-6 tracking-wider"
+					>
+						PHOTOGRAPHY
+					</h2>
+					<div
+						class="w-24 h-1 bg-gradient-to-r from-warm-500 to-warm-600 mx-auto mb-8"
+					>
+					</div>
+					<p
+						class="font-body text-xl text-moody-400 max-w-3xl mx-auto leading-relaxed"
+					>
+						Professional photography services that capture authentic moments and
+						tell compelling visual stories. From personal portraits to brand
+						imagery, every shot is crafted with intention.
+					</p>
+				</div>
+
+				<!-- Lifestyle Photography -->
+				<div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+					<div class="space-y-6">
+						<div
+							class="bg-gradient-to-br from-warm-600 to-warm-500 p-8 rounded-2xl text-white"
+						>
+							<div class="text-5xl mb-4">🌟</div>
+							<h3 class="text-3xl font-bold mb-4 font-heading">
+								Lifestyle Photography
+							</h3>
+							<p class="text-warm-100 text-lg font-body">
+								Authentic moments and personal stories captured in natural
+								settings. I specialize in creating comfortable environments
+								where genuine emotions and connections shine through.
+							</p>
+						</div>
+
+						<div class="space-y-4">
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Personal Portraits
+									</h4>
+									<p class="text-moody-300 font-body">
+										Individual and family portraits that capture personality and
+										relationships in natural, comfortable settings.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Candid Moments
+									</h4>
+									<p class="text-moody-300 font-body">
+										Unposed, authentic moments that tell real stories and
+										capture genuine emotions and interactions.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Event Coverage
+									</h4>
+									<p class="text-moody-300 font-body">
+										Weddings, celebrations, and special events documented with
+										artistic vision and attention to detail.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative">
+						<div
+							class="bg-moody-800/50 backdrop-blur-sm rounded-2xl p-8 border border-warm-500/20"
+						>
+							<img
+								src="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Photography/lifestyle-session.jpg"
+								alt="Lifestyle photography session"
+								class="w-full h-64 object-cover rounded-xl mb-6"
+							/>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Natural Light Photography
+							</h4>
+							<p class="text-moody-300 font-body mb-4">
+								Specializing in natural light photography that creates warm,
+								authentic images with beautiful depth and dimension.
+							</p>
+							<div class="grid grid-cols-2 gap-4 text-sm">
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Golden Hour</div>
+									<div class="text-moody-400">Optimal Lighting</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">
+										Outdoor Sessions
+									</div>
+									<div class="text-moody-400">Natural Settings</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Comfort Focus</div>
+									<div class="text-moody-400">Relaxed Environment</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Storytelling</div>
+									<div class="text-moody-400">Narrative Images</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Brand Photography -->
+				<div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+					<div class="relative order-2 lg:order-1">
+						<div
+							class="bg-moody-800/50 backdrop-blur-sm rounded-2xl p-8 border border-warm-500/20"
+						>
+							<img
+								src="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Photography/brand-session.jpg"
+								alt="Professional brand photography"
+								class="w-full h-64 object-cover rounded-xl mb-6"
+							/>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Professional Brand Imagery
+							</h4>
+							<p class="text-moody-300 font-body mb-4">
+								Strategic brand photography that communicates your values,
+								professionalism, and unique personality to your audience.
+							</p>
+							<div class="grid grid-cols-2 gap-4 text-sm">
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Headshots</div>
+									<div class="text-moody-400">Professional Portraits</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Product Shots</div>
+									<div class="text-moody-400">Commercial Quality</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Team Photos</div>
+									<div class="text-moody-400">Corporate Events</div>
+								</div>
+								<div class="bg-moody-700/50 p-3 rounded-lg">
+									<div class="text-warm-400 font-semibold">Social Media</div>
+									<div class="text-moody-400">Content Creation</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="space-y-6 order-1 lg:order-2">
+						<div
+							class="bg-gradient-to-br from-warm-500 to-warm-400 p-8 rounded-2xl text-white"
+						>
+							<div class="text-5xl mb-4">💼</div>
+							<h3 class="text-3xl font-bold mb-4 font-heading">
+								Brand Photography
+							</h3>
+							<p class="text-warm-100 text-lg font-body">
+								Professional imagery that elevates your brand and communicates
+								your message effectively. From headshots to product photography,
+								every image serves your brand strategy.
+							</p>
+						</div>
+
+						<div class="space-y-4">
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Professional Headshots
+									</h4>
+									<p class="text-moody-300 font-body">
+										Polished, approachable headshots that convey confidence and
+										professionalism for your business needs.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Product Photography
+									</h4>
+									<p class="text-moody-300 font-body">
+										High-quality product shots that showcase your offerings in
+										the best light for marketing and sales.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div
+									class="w-8 h-8 bg-warm-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+								>
+									<svg
+										class="w-4 h-4 text-white"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-heading text-warm-400 font-semibold mb-2">
+										Social Media Content
+									</h4>
+									<p class="text-moody-300 font-body">
+										Engaging visual content designed specifically for social
+										media platforms to grow your online presence.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Editing Services -->
+				<div
+					class="bg-gradient-to-r from-moody-700/50 to-moody-600/50 rounded-2xl p-12 border border-warm-500/20"
+				>
+					<div class="text-center mb-12">
+						<h3
+							class="font-display text-3xl md:text-4xl font-bold text-warm-400 mb-6 tracking-wider"
+						>
+							PROFESSIONAL EDITING
+						</h3>
+						<p
+							class="font-body text-xl text-moody-300 max-w-3xl mx-auto leading-relaxed"
+						>
+							Every image receives professional editing to ensure it meets the
+							highest standards of quality and visual impact.
+						</p>
+					</div>
+
+					<div class="grid md:grid-cols-3 gap-8">
+						<div
+							class="text-center p-6 bg-moody-800/30 rounded-xl border border-warm-500/20"
+						>
+							<div class="text-4xl mb-4">🎨</div>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Color Grading
+							</h4>
+							<p class="text-moody-300 font-body">
+								Professional color correction and enhancement to create the
+								perfect mood and visual consistency across your images.
+							</p>
+						</div>
+
+						<div
+							class="text-center p-6 bg-moody-800/30 rounded-xl border border-warm-500/20"
+						>
+							<div class="text-4xl mb-4">✨</div>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Retouching
+							</h4>
+							<p class="text-moody-300 font-body">
+								Subtle enhancements and professional polish while maintaining
+								natural beauty and authenticity.
+							</p>
+						</div>
+
+						<div
+							class="text-center p-6 bg-moody-800/30 rounded-xl border border-warm-500/20"
+						>
+							<div class="text-4xl mb-4">📱</div>
+							<h4 class="font-heading text-warm-400 text-xl mb-4">
+								Format Optimization
+							</h4>
+							<p class="text-moody-300 font-body">
+								Optimized for web, print, and social media with the perfect
+								resolution and format for each platform.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Process Section -->
+		<section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+			<div class="max-w-7xl mx-auto">
+				<div class="text-center mb-16">
+					<h2
+						class="font-display text-4xl md:text-5xl font-bold text-warm-400 mb-6 tracking-wider"
+					>
+						MY PROCESS
+					</h2>
+					<div
+						class="w-24 h-1 bg-gradient-to-r from-warm-500 to-warm-600 mx-auto mb-8"
+					>
+					</div>
+					<p
+						class="font-body text-xl text-moody-400 max-w-3xl mx-auto leading-relaxed"
+					>
+						A collaborative approach that ensures your vision is realized while
+						maintaining the highest standards of quality and creativity.
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-4 gap-8">
+					<div class="text-center">
+						<div
+							class="w-16 h-16 bg-gradient-to-br from-warm-600 to-warm-500 rounded-full flex items-center justify-center mx-auto mb-6"
+						>
+							<span class="text-2xl font-bold text-white">1</span>
+						</div>
+						<h3 class="font-heading text-warm-400 text-xl mb-4">
+							Consultation
+						</h3>
+						<p class="text-moody-300 font-body">
+							We discuss your vision, goals, and requirements to ensure we're
+							aligned on the creative direction.
+						</p>
+					</div>
+
+					<div class="text-center">
+						<div
+							class="w-16 h-16 bg-gradient-to-br from-warm-500 to-warm-400 rounded-full flex items-center justify-center mx-auto mb-6"
+						>
+							<span class="text-2xl font-bold text-white">2</span>
+						</div>
+						<h3 class="font-heading text-warm-400 text-xl mb-4">Planning</h3>
+						<p class="text-moody-300 font-body">
+							Detailed planning and preparation to ensure the session or
+							production runs smoothly and efficiently.
+						</p>
+					</div>
+
+					<div class="text-center">
+						<div
+							class="w-16 h-16 bg-gradient-to-br from-warm-400 to-warm-300 rounded-full flex items-center justify-center mx-auto mb-6"
+						>
+							<span class="text-2xl font-bold text-white">3</span>
+						</div>
+						<h3 class="font-heading text-warm-400 text-xl mb-4">Creation</h3>
+						<p class="text-moody-300 font-body">
+							The creative process where we bring your vision to life with
+							attention to detail and artistic excellence.
+						</p>
+					</div>
+
+					<div class="text-center">
+						<div
+							class="w-16 h-16 bg-gradient-to-br from-warm-300 to-warm-200 rounded-full flex items-center justify-center mx-auto mb-6"
+						>
+							<span class="text-2xl font-bold text-white">4</span>
+						</div>
+						<h3 class="font-heading text-warm-400 text-xl mb-4">Delivery</h3>
+						<p class="text-moody-300 font-body">
+							Final delivery of your completed project with any necessary
+							revisions and ongoing support.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+			<div
+				class="absolute inset-0 bg-gradient-to-t from-moody-900/80 to-transparent"
+			>
+			</div>
+			<div class="max-w-4xl mx-auto text-center relative z-10">
+				<h2
+					class="font-display text-4xl md:text-5xl font-bold text-warm-400 mb-6 tracking-wider"
+				>
+					READY TO GET STARTED?
+				</h2>
+				<p class="font-body text-xl text-moody-400 mb-8 leading-relaxed">
+					Let's discuss your project and create something extraordinary
+					together. I'm here to bring your creative vision to life.
+				</p>
+
+				<!-- Contact Form -->
+				<div
+					class="bg-moody-800/50 backdrop-blur-sm rounded-2xl p-8 border border-warm-500/20"
+				>
+					<ContactForm client:load />
+				</div>
+			</div>
+		</section>
+	</main>
+</RootLayout>

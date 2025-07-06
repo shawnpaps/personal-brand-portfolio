@@ -24,6 +24,33 @@
 	--color-moody-800: #212529;
 	--color-moody-900: #0d1117;
 
+	/* Tailwind v4 Color Definitions */
+	--color-warm: {
+		50: #fef7f0;
+		100: #fdecd8;
+		200: #fbd5b0;
+		300: #f8b87d;
+		400: #f5934a;
+		500: #f27522;
+		600: #e35a18;
+		700: #bc4416;
+		800: #963718;
+		900: #7a3018;
+	}
+
+	--color-moody: {
+		50: #f8f9fa;
+		100: #e9ecef;
+		200: #dee2e6;
+		300: #ced4da;
+		400: #adb5bd;
+		500: #6c757d;
+		600: #495057;
+		700: #343a40;
+		800: #212529;
+		900: #0d1117;
+	}
+
 	/* Font Families */
 	--font-display: 'Orbitron', monospace;
 	--font-heading: 'Space Grotesk', sans-serif;

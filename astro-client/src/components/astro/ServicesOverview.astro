@@ -1,0 +1,372 @@
+---
+import ContactForm from '../react/ContactForm';
+---
+
+<section
+	class="services-overview py-16 bg-gradient-to-br from-moody-900 to-moody-800"
+>
+	<div class="container mx-auto px-4">
+		<div class="text-center mb-12">
+			<h2 class="text-4xl font-bold text-warm-400 mb-4 font-heading">
+				My Services
+			</h2>
+			<p class="text-xl text-moody-300 max-w-2xl mx-auto font-body">
+				Choose your trade to explore the specialized services I offer
+			</p>
+		</div>
+
+		<div class="max-w-4xl mx-auto">
+			<!-- Trade Selection Tabs -->
+			<div class="flex justify-center mb-8">
+				<div
+					class="bg-moody-800/50 backdrop-blur-sm rounded-lg p-1 shadow-lg border border-warm-500/20"
+				>
+					<button
+						id="music-tab"
+						class="trade-tab px-6 py-3 rounded-md font-semibold transition-all duration-300 active font-heading"
+						data-trade="music"
+					>
+						🎵 Music
+					</button>
+					<button
+						id="photography-tab"
+						class="trade-tab px-6 py-3 rounded-md font-semibold transition-all duration-300 font-heading"
+						data-trade="photography"
+					>
+						📸 Photography
+					</button>
+				</div>
+			</div>
+
+			<!-- Services Content -->
+			<div
+				id="services-content"
+				class="bg-moody-800/50 backdrop-blur-sm rounded-xl shadow-xl p-8 border border-warm-500/20"
+			>
+				<!-- Music Services -->
+				<div id="music-services" class="trade-content active">
+					<div class="text-center mb-8">
+						<h3 class="text-3xl font-bold text-warm-400 mb-2 font-heading">
+							Music Production & Services
+						</h3>
+						<p class="text-moody-300 font-body">
+							Professional music production and creative services
+						</p>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-8">
+						<!-- Production & Songwriting -->
+						<div class="service-card group">
+							<div
+								class="bg-gradient-to-br from-warm-600 to-warm-500 p-6 rounded-lg text-white mb-4"
+							>
+								<div class="text-4xl mb-3">🎼</div>
+								<h4 class="text-xl font-bold mb-2 font-heading">
+									Production & Songwriting
+								</h4>
+								<p class="text-warm-100 font-body">
+									Full-service music creation from concept to completion
+								</p>
+							</div>
+							<ul class="space-y-2 text-moody-200 font-body">
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Custom songwriting and composition
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Full production and arrangement
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Instrumental and vocal recording
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Creative direction and collaboration
+								</li>
+							</ul>
+						</div>
+
+						<!-- Mixing Services -->
+						<div class="service-card group">
+							<div
+								class="bg-gradient-to-br from-warm-500 to-warm-400 p-6 rounded-lg text-white mb-4"
+							>
+								<div class="text-4xl mb-3">🎚️</div>
+								<h4 class="text-xl font-bold mb-2 font-heading">
+									Mixing & Mastering
+								</h4>
+								<p class="text-warm-100 font-body">
+									Professional audio engineering and polish
+								</p>
+							</div>
+							<ul class="space-y-2 text-moody-200 font-body">
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Professional mixing services
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Mastering for all platforms
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Sound design and effects
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Quality assurance and revisions
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- CTA Button -->
+					<div class="text-center mt-12">
+						<button
+							id="music-cta"
+							class="cta-button px-8 py-4 bg-warm-500/20 hover:bg-warm-500/30 border-2 border-warm-500/50 hover:border-warm-400 rounded-lg font-heading text-warm-400 hover:text-warm-300 transition-all duration-300 backdrop-blur-sm hover:scale-105 transform"
+						>
+							Get Started with Music Production
+						</button>
+					</div>
+				</div>
+
+				<!-- Photography Services -->
+				<div id="photography-services" class="trade-content hidden">
+					<div class="text-center mb-8">
+						<h3 class="text-3xl font-bold text-warm-400 mb-2 font-heading">
+							Photography & Visual Storytelling
+						</h3>
+						<p class="text-moody-300 font-body">
+							Capturing authentic moments and brand stories
+						</p>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-8">
+						<!-- Lifestyle Photography -->
+						<div class="service-card group">
+							<div
+								class="bg-gradient-to-br from-warm-600 to-warm-500 p-6 rounded-lg text-white mb-4"
+							>
+								<div class="text-4xl mb-3">🌟</div>
+								<h4 class="text-xl font-bold mb-2 font-heading">
+									Lifestyle Photography
+								</h4>
+								<p class="text-warm-100 font-body">
+									Authentic moments and personal stories
+								</p>
+							</div>
+							<ul class="space-y-2 text-moody-200 font-body">
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Personal and family portraits
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Lifestyle and candid moments
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Event and celebration coverage
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-500 rounded-full mr-3"></span>
+									Natural light and outdoor sessions
+								</li>
+							</ul>
+						</div>
+
+						<!-- Brand Photography -->
+						<div class="service-card group">
+							<div
+								class="bg-gradient-to-br from-warm-500 to-warm-400 p-6 rounded-lg text-white mb-4"
+							>
+								<div class="text-4xl mb-3">💼</div>
+								<h4 class="text-xl font-bold mb-2 font-heading">
+									Brand Photography
+								</h4>
+								<p class="text-warm-100 font-body">
+									Professional imagery for your brand
+								</p>
+							</div>
+							<ul class="space-y-2 text-moody-200 font-body">
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Professional headshots and portraits
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Product and service photography
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Corporate and team photography
+								</li>
+								<li class="flex items-center">
+									<span class="w-2 h-2 bg-warm-400 rounded-full mr-3"></span>
+									Social media content creation
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Editing Services -->
+					<div
+						class="mt-8 p-6 bg-gradient-to-r from-moody-700/50 to-moody-600/50 rounded-lg border border-warm-500/20"
+					>
+						<h4
+							class="text-2xl font-bold text-warm-400 mb-4 text-center font-heading"
+						>
+							Professional Editing
+						</h4>
+						<div class="grid md:grid-cols-3 gap-4 text-center">
+							<div class="p-4">
+								<div class="text-2xl mb-2">🎨</div>
+								<h5 class="font-semibold text-warm-300 font-heading">
+									Color Grading
+								</h5>
+								<p class="text-sm text-moody-300 font-body">
+									Professional color correction and enhancement
+								</p>
+							</div>
+							<div class="p-4">
+								<div class="text-2xl mb-2">✨</div>
+								<h5 class="font-semibold text-warm-300 font-heading">
+									Retouching
+								</h5>
+								<p class="text-sm text-moody-300 font-body">
+									Subtle enhancements and professional polish
+								</p>
+							</div>
+							<div class="p-4">
+								<div class="text-2xl mb-2">📱</div>
+								<h5 class="font-semibold text-warm-300 font-heading">
+									Format Optimization
+								</h5>
+								<p class="text-sm text-moody-300 font-body">
+									Optimized for web, print, and social media
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- CTA Button -->
+					<div class="text-center mt-12">
+						<button
+							id="photography-cta"
+							class="cta-button px-8 py-4 bg-warm-500/20 hover:bg-warm-500/30 border-2 border-warm-500/50 hover:border-warm-400 rounded-lg font-heading text-warm-400 hover:text-warm-300 transition-all duration-300 backdrop-blur-sm hover:scale-105 transform"
+						>
+							Book Your Photography Session
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="fixed inset-0 z-50 hidden">
+	<div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+	<div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+		<div
+			class="bg-moody-900/95 backdrop-blur-md rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-warm-500/20"
+		>
+			<div class="p-8">
+				<div class="flex justify-between items-center mb-6">
+					<h3 class="text-2xl font-bold text-warm-400 font-heading">
+						Get In Touch
+					</h3>
+					<button
+						id="close-modal"
+						class="text-moody-400 hover:text-warm-400 transition-colors duration-300"
+					>
+						<svg
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"></path>
+						</svg>
+					</button>
+				</div>
+				<ContactForm client:load />
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const tabs = document.querySelectorAll('.trade-tab');
+		const contents = document.querySelectorAll('.trade-content');
+		const modal = document.getElementById('contact-modal') as HTMLElement;
+		const closeModal = document.getElementById('close-modal') as HTMLElement;
+		const ctaButtons = document.querySelectorAll('.cta-button');
+
+		// Tab switching functionality
+		tabs.forEach((tab: Element) => {
+			tab.addEventListener('click', function (this: HTMLButtonElement) {
+				const trade = this.dataset.trade;
+
+				// Update tab states
+				tabs.forEach((t: Element) => t.classList.remove('active'));
+				this.classList.add('active');
+
+				// Update content visibility
+				contents.forEach((content: Element) => {
+					content.classList.remove('active');
+					content.classList.add('hidden');
+				});
+
+				const targetContent = document.getElementById(`${trade}-services`);
+				if (targetContent) {
+					targetContent.classList.remove('hidden');
+					setTimeout(() => {
+						targetContent.classList.add('active');
+					}, 50);
+				}
+			});
+		});
+
+		// Modal functionality
+		function openModal() {
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeModalFunc() {
+			modal.classList.add('hidden');
+			document.body.style.overflow = 'auto';
+		}
+
+		// CTA button event listeners
+		ctaButtons.forEach((button: Element) => {
+			button.addEventListener('click', openModal);
+		});
+
+		// Close modal event listeners
+		closeModal.addEventListener('click', closeModalFunc);
+
+		// Close modal when clicking outside
+		modal.addEventListener('click', function (e: Event) {
+			if (e.target === modal) {
+				closeModalFunc();
+			}
+		});
+
+		// Close modal with Escape key
+		document.addEventListener('keydown', function (e: KeyboardEvent) {
+			if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+				closeModalFunc();
+			}
+		});
+	});
+</script>

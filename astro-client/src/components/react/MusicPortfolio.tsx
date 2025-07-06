@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { getProducerPlaylist } from '../../utils/appleMusic';
 
 interface Track {
 	id: string;
@@ -18,13 +19,26 @@ interface Track {
 	};
 }
 
-interface MusicPortfolioProps {
-	tracks: Track[];
-}
-
-const MusicPortfolio: React.FC<MusicPortfolioProps> = ({ tracks }) => {
+const MusicPortfolio: React.FC = () => {
+	const [tracks, setTracks] = useState<Track[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
 	const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+	useEffect(() => {
+		const fetchTracks = async () => {
+			try {
+				const musicData = await getProducerPlaylist();
+				setTracks(musicData);
+			} catch (error) {
+				console.error('Error fetching tracks:', error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchTracks();
+	}, []);
 
 	const handlePlayPreview = async (track: Track) => {
 		const previewUrl = track.attributes.previews?.[0]?.url;
@@ -82,87 +96,111 @@ const MusicPortfolio: React.FC<MusicPortfolioProps> = ({ tracks }) => {
 				</p>
 			</div>
 
+			{/* Loading State */}
+			{isLoading && (
+				<div className="text-center py-20">
+					{/* Spinner */}
+					<div className="relative w-16 h-16 mx-auto mb-4">
+						{/* Outer ring */}
+						<div className="absolute inset-0 border-4 border-warm-500/20 rounded-full"></div>
+						{/* Spinning ring */}
+						<div className="absolute inset-0 border-4 border-transparent border-t-warm-400 rounded-full animate-spin"></div>
+						{/* Inner glow */}
+						<div className="absolute inset-2 bg-gradient-to-br from-warm-500/10 to-transparent rounded-full animate-pulse"></div>
+					</div>
+
+					{/* Loading text */}
+					<div className="text-warm-400 font-heading text-lg tracking-wider">
+						LOADING TRACKS
+					</div>
+					<div className="text-moody-400 text-sm mt-2">
+						Spinning up the vinyl...
+					</div>
+				</div>
+			)}
+
 			{/* Tracks Grid */}
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{tracks.map((track, index) => (
-					<motion.div
-						key={track.id}
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: index * 0.1, duration: 0.6 }}
-						className="group">
-						<div className="relative bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl overflow-hidden hover:border-warm-400/40 transition-all duration-500">
-							{/* Artwork Container */}
-							<div className="relative aspect-square overflow-hidden">
-								<img
-									src={track.attributes.artwork.url
-										.replace('{w}', '600')
-										.replace('{h}', '600')}
-									alt={`${track.attributes.name} by ${track.attributes.artistName}`}
-									className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-								/>
+			{!isLoading && (
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{tracks.map((track, index) => (
+						<motion.div
+							key={track.id}
+							initial={{ opacity: 0, y: 30 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: index * 0.1, duration: 0.6 }}
+							className="group">
+							<div className="relative bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl overflow-hidden hover:border-warm-400/40 transition-all duration-500">
+								{/* Artwork Container */}
+								<div className="relative aspect-square overflow-hidden">
+									<img
+										src={track.attributes.artwork.url
+											.replace('{w}', '600')
+											.replace('{h}', '600')}
+										alt={`${track.attributes.name} by ${track.attributes.artistName}`}
+										className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+									/>
 
-								{/* Overlay with Play Button */}
-								<div className="absolute inset-0 bg-gradient-to-t from-moody-900/80 via-moody-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-									<button
-										onClick={() => handlePlayPreview(track)}
-										className="absolute inset-0 flex items-center justify-center text-warm-400 hover:text-warm-300 transition-colors duration-300">
-										{currentlyPlaying === track.id ? (
-											<motion.div
-												animate={{ rotate: 360 }}
-												transition={{
-													duration: 1,
-													repeat: Infinity,
-													ease: 'linear',
-												}}
-												className="w-16 h-16 bg-moody-900/80 rounded-full flex items-center justify-center border-2 border-warm-400">
-												<svg
-													className="w-8 h-8"
-													fill="currentColor"
-													viewBox="0 0 24 24">
-													<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-												</svg>
-											</motion.div>
-										) : (
-											<div className="w-16 h-16 bg-moody-900/80 rounded-full flex items-center justify-center border-2 border-warm-400 group-hover:scale-110 transition-transform duration-300">
-												<svg
-													className="w-8 h-8 ml-1"
-													fill="currentColor"
-													viewBox="0 0 24 24">
-													<path d="M8 5v14l11-7z" />
-												</svg>
-											</div>
-										)}
-									</button>
-								</div>
-
-								{/* Preview Available Badge */}
-								{track.attributes.previews?.[0]?.url && (
-									<div className="absolute top-3 right-3 bg-warm-500/90 text-moody-900 text-xs font-heading font-semibold px-2 py-1 rounded-full">
-										PREVIEW
+									{/* Overlay with Play Button */}
+									<div className="absolute inset-0 bg-gradient-to-t from-moody-900/80 via-moody-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+										<button
+											onClick={() => handlePlayPreview(track)}
+											className="absolute inset-0 flex items-center justify-center text-warm-400 hover:text-warm-300 transition-colors duration-300">
+											{currentlyPlaying === track.id ? (
+												<motion.div
+													animate={{ rotate: 360 }}
+													transition={{
+														duration: 1,
+														repeat: Infinity,
+														ease: 'linear',
+													}}
+													className="w-16 h-16 bg-moody-900/80 rounded-full flex items-center justify-center border-2 border-warm-400">
+													<svg
+														className="w-8 h-8"
+														fill="currentColor"
+														viewBox="0 0 24 24">
+														<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+													</svg>
+												</motion.div>
+											) : (
+												<div className="w-16 h-16 bg-moody-900/80 rounded-full flex items-center justify-center border-2 border-warm-400 group-hover:scale-110 transition-transform duration-300">
+													<svg
+														className="w-8 h-8 ml-1"
+														fill="currentColor"
+														viewBox="0 0 24 24">
+														<path d="M8 5v14l11-7z" />
+													</svg>
+												</div>
+											)}
+										</button>
 									</div>
-								)}
-							</div>
 
-							{/* Track Info */}
-							<div className="p-6">
-								<div className="space-y-3">
-									<h3 className="font-heading text-xl font-bold text-warm-400 tracking-wider line-clamp-2">
-										{track.attributes.name}
-									</h3>
-									<p className="text-moody-300 font-body">
-										{track.attributes.artistName}
-									</p>
-									<p className="text-moody-400 text-sm font-body">
-										{track.attributes.albumName}
-									</p>
-									<p className="text-moody-500 text-xs font-body">
-										{formatReleaseDate(track.attributes.releaseDate)}
-									</p>
+									{/* Preview Available Badge */}
+									{track.attributes.previews?.[0]?.url && (
+										<div className="absolute top-3 right-3 bg-warm-500/90 text-moody-900 text-xs font-heading font-semibold px-2 py-1 rounded-full">
+											PREVIEW
+										</div>
+									)}
 								</div>
 
-								{/* Action Buttons */}
-								{/* <div className="flex gap-3 mt-6">
+								{/* Track Info */}
+								<div className="p-6">
+									<div className="space-y-3">
+										<h3 className="font-heading text-xl font-bold text-warm-400 tracking-wider line-clamp-2">
+											{track.attributes.name}
+										</h3>
+										<p className="text-moody-300 font-body">
+											{track.attributes.artistName}
+										</p>
+										<p className="text-moody-400 text-sm font-body">
+											{track.attributes.albumName}
+										</p>
+										<p className="text-moody-500 text-xs font-body">
+											{formatReleaseDate(track.attributes.releaseDate)}
+										</p>
+									</div>
+
+									{/* Action Buttons */}
+									{/* <div className="flex gap-3 mt-6">
 									<a
 										href={`/music/${track.id}`}
 										className="flex-1 px-4 py-2 bg-warm-500/10 border border-warm-500/30 text-warm-400 font-heading text-sm tracking-wider uppercase hover:bg-warm-500/20 hover:border-warm-400 transition-all duration-300 rounded-lg text-center">
@@ -181,14 +219,15 @@ const MusicPortfolio: React.FC<MusicPortfolioProps> = ({ tracks }) => {
 										</svg>
 									</a>
 								</div> */}
+								</div>
 							</div>
-						</div>
-					</motion.div>
-				))}
-			</div>
+						</motion.div>
+					))}
+				</div>
+			)}
 
 			{/* Empty State */}
-			{tracks.length === 0 && (
+			{!isLoading && tracks.length === 0 && (
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
