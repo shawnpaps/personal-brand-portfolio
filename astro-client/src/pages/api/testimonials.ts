@@ -31,15 +31,3 @@ export const GET: APIRoute = async ({ request }) => {
 		);
 	}
 };
-
-// Handle OPTIONS requests for CORS preflight
-export const OPTIONS: APIRoute = async () => {
-	return new Response(null, {
-		status: 200,
-		headers: {
-			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-			'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-		},
-	});
-};

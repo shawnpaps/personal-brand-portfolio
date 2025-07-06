@@ -133,20 +133,9 @@ const POST = async ({ request }) => {
     });
   }
 };
-const OPTIONS = async () => {
-  return new Response(null, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Authorization"
-    }
-  });
-};
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
-	OPTIONS,
 	POST
 }, Symbol.toStringTag, { value: 'Module' }));
 

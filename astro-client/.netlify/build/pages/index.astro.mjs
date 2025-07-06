@@ -70,8 +70,7 @@ const TestimonialsGrid = () => {
         const response = await fetch(`${apiUrl}/testimonials`, {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            "Content-Type": "application/json"
           }
         });
         const data = await response.json();

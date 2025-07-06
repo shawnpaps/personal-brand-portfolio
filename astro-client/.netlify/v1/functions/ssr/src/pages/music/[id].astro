@@ -1,11 +1,12 @@
 ---
 import RootLayout from '../../layouts/RootLayout.astro';
 import TrackCaseStudy from '../../components/react/TrackCaseStudy';
+import { apiUrl } from '../../data/variables';
 
 export async function getStaticPaths() {
 	try {
-		const tracks = await fetch('http://localhost:4321/api/fetch-music').then(
-			(res) => res.json()
+		const tracks = await fetch(`${apiUrl}/fetch-music`).then((res) =>
+			res.json()
 		);
 
 		return tracks.map((track) => ({

@@ -3,6 +3,7 @@ import { $ as $$RootLayout } from '../../chunks/RootLayout_EsXPiWtw.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { a as apiUrl } from '../../chunks/variables_bKpKuaxM.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const TrackCaseStudy = ({ track }) => {
@@ -278,7 +279,7 @@ const TrackCaseStudy = ({ track }) => {
 const $$Astro = createAstro("https://shawnpapsmedia.com");
 async function getStaticPaths() {
   try {
-    const tracks = await fetch("http://localhost:4321/api/fetch-music").then(
+    const tracks = await fetch(`${apiUrl}/fetch-music`).then(
       (res) => res.json()
     );
     return tracks.map((track) => ({
