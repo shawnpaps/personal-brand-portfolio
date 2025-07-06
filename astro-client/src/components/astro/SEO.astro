@@ -20,7 +20,7 @@ const {
 	title = 'Shawn Papineau | Music Producer & Photographer | Creative Professional',
 	description = 'Shawn Papineau is a professional music producer and photographer based in [Your Location]. Specializing in atmospheric beats, moody photography, and creative direction. View portfolio and book sessions.',
 	keywords = 'music producer, photographer, creative director, atmospheric music, moody photography, professional photographer, music production, creative services, portfolio',
-	image = 'https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Portraits/PAPS2968.jpg',
+	image = 'https://shawnpapsmedia.com/og-image.svg',
 	url = Astro.url.href,
 	type = 'website',
 	author = 'Shawn Papineau',
@@ -158,8 +158,21 @@ const localBusinessSchema = {
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={image} />
+<meta
+	property="twitter:image:alt"
+	content="Shawn Papineau - Music Producer & Photographer"
+/>
 <meta property="twitter:site" content={twitterHandle} />
 <meta property="twitter:creator" content={twitterHandle} />
+
+<!-- Additional Social Media -->
+<meta
+	property="og:image:alt"
+	content="Shawn Papineau - Music Producer & Photographer"
+/>
+<meta property="og:image:type" content="image/svg+xml" />
+<meta name="twitter:image:width" content="1200" />
+<meta name="twitter:image:height" content="630" />
 
 <!-- Additional Meta Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
