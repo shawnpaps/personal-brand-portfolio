@@ -17,7 +17,13 @@ const TestimonialsGrid = () => {
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
-				const response = await fetch(`${apiUrl}/testimonials`);
+				const response = await fetch(`${apiUrl}/testimonials`, {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'Access-Control-Allow-Origin': '*',
+					},
+				});
 				const data = await response.json();
 				// Shuffle and take only 3 random testimonials
 				const shuffled = data.sort(() => 0.5 - Math.random());
