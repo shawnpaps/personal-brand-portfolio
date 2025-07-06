@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import TestimonialCard from './TestimonialCard';
-import { apiUrl } from '../../data/variables';
 
 interface Testimonial {
 	id: string;

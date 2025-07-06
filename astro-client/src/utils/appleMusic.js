@@ -1,4 +1,4 @@
-import { apiUrl } from '../data/variables';
+// No longer needed - using direct relative paths
 const getProducerPlaylist = async () => {
 	try {
 		const res = await fetch('/api/apple-token');

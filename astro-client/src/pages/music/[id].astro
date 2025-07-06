@@ -1,13 +1,31 @@
 ---
 import RootLayout from '../../layouts/RootLayout.astro';
 import TrackCaseStudy from '../../components/react/TrackCaseStudy';
-import { apiUrl } from '../../data/variables';
+
+interface Track {
+	id: string;
+	attributes: {
+		name: string;
+		artistName: string;
+		albumName: string;
+		artwork: {
+			url: string;
+		};
+		previews?: Array<{
+			url: string;
+		}>;
+		releaseDate: string;
+		url: string;
+	};
+}
 
 export async function getStaticPaths() {
 	try {
-		const tracks = await fetch(`/api/fetch-music`).then((res) => res.json());
+		// Import the API function directly instead of using fetch
+		const { getProducerPlaylist } = await import('../../utils/appleMusic');
+		const tracks = await getProducerPlaylist();
 
-		return tracks.map((track) => ({
+		return tracks.map((track: Track) => ({
 			params: { id: track.id },
 			props: { track },
 		}));
@@ -17,10 +35,10 @@ export async function getStaticPaths() {
 	}
 }
 
-const { track } = Astro.props;
+const { track }: { track: Track } = Astro.props;
 ---
 
-<RootLayout title={`${track.name} - Case Study - Shawn Papineau`}>
+<RootLayout title={`${track.attributes.name} - Case Study - Shawn Papineau`}>
 	<main
 		class="min-h-screen bg-gradient-to-br from-moody-900 via-moody-800 to-moody-900"
 	>
