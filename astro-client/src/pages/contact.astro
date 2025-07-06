@@ -278,7 +278,11 @@ const randomTestimonial =
 						</div>
 
 						<!-- Testimonial -->
-						<TestimonialCard testimonial={randomTestimonial} index={0} />
+						<TestimonialCard
+							client:load
+							testimonial={randomTestimonial}
+							index={0}
+						/>
 						<div>
 							<!-- Contact Form -->
 							<div
