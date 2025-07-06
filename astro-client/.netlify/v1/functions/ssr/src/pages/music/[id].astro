@@ -1,0 +1,47 @@
+---
+import RootLayout from '../../layouts/RootLayout.astro';
+import TrackCaseStudy from '../../components/react/TrackCaseStudy';
+
+interface Track {
+	id: string;
+	attributes: {
+		name: string;
+		artistName: string;
+		albumName: string;
+		artwork: {
+			url: string;
+		};
+		previews?: Array<{
+			url: string;
+		}>;
+		releaseDate: string;
+		url: string;
+	};
+}
+
+export async function getStaticPaths() {
+	try {
+		// Import the API function directly instead of using fetch
+		const { getProducerPlaylist } = await import('../../utils/appleMusic');
+		const tracks = await getProducerPlaylist();
+
+		return tracks.map((track: Track) => ({
+			params: { id: track.id },
+			props: { track },
+		}));
+	} catch (error) {
+		console.error('Error generating static paths:', error);
+		return [];
+	}
+}
+
+const { track }: { track: Track } = Astro.props;
+---
+
+<RootLayout title={`${track.attributes.name} - Case Study - Shawn Papineau`}>
+	<main
+		class="min-h-screen bg-gradient-to-br from-moody-900 via-moody-800 to-moody-900"
+	>
+		<TrackCaseStudy track={track} client:load />
+	</main>
+</RootLayout>

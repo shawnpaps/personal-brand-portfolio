@@ -1,0 +1,55 @@
+---
+import RootLayout from '../../layouts/RootLayout.astro';
+import PicTimeEmbed from '../../components/astro/PicTimeEmbed.astro';
+import Breadcrumbs from '../../components/astro/Breadcrumbs.astro';
+---
+
+<RootLayout
+	title="Photography Portfolio | Shawn Papineau - Professional Photographer & Creative Director"
+	description="Explore Shawn Papineau's photography portfolio featuring moody, warm-toned portraits and creative direction. Professional photographer specializing in capturing raw emotion and authentic moments. Book photography sessions."
+	keywords="photographer, moody photography, portrait photography, creative director, professional photographer, Shawn Papineau photography, warm tones, authentic portraits"
+	image="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Portraits/PAPS2968.jpg"
+	type="website"
+	tags={[
+		'photographer',
+		'moody photography',
+		'portrait photography',
+		'creative director',
+	]}
+>
+	<!-- Breadcrumbs -->
+	<section class="py-8 px-4 sm:px-6 lg:px-8">
+		<div class="max-w-7xl mx-auto">
+			<Breadcrumbs
+				items={[
+					{ label: 'Home', url: '/' },
+					{ label: 'Photography Portfolio', current: true },
+				]}
+			/>
+		</div>
+	</section>
+
+	<section>
+		<PicTimeEmbed />
+	</section>
+	<section>
+		<script>
+			const searchread_6865a6f71b602b072058df74 = `General
+			Recording Studio Brand Shoot
+			July 2, 2025
+			So, let me tell you about this self-photoshoot adventure I recently went on! A buddy of mine mentioned that I really needed some fresh photos for my website to help build my personal brand. You know, the whole "put yourself out there" deal, which can feel a bit daunting at times. But they had a point, so I decided to get busy at my recording studio and make it happen.
+			
+			The place is nestled in this gorgeous setting filled with lush bamboo and swaying palms—total Florida vibes! I thought it would be super cool to incorporate the tropical landscape into my outdoor shots. It’s like, why not show off the unique surroundings that inspire my music? I found this sweet spot where the light peeked through the leaves just right, and it gave the perfect dreamy effect. I could just picture the shots telling my story, you know?
+			
+			Then, I headed indoors to capture that cozy, artistic vibe I was aiming for. I wanted to create a warmer, cinematic feel that matched the darker aesthetic of my music. I played around with the lighting, trying to make it feel inviting yet mysterious—a space where creativity flows and ideas come to life. It’s amazing how much the environment can influence the feel of a photo!
+			
+			Honestly, it was a super fun shoot, even though juggling the camera and trying to hit that right pose was a bit of a challenge. Taking self-portraits is definitely no walk in the park. But I’m thrilled with how everything turned out, and I can't wait to share the final shots. They really showcase what my brand is all about—music, creativity, and a laid-back vibe that feels authentic to me. I hope you enjoy the photos as much as I enjoyed creating them!
+			View Full Gallery`;
+		</script><template
+			data-pt-type="blog"
+			data-pt-slideshowid="6865a6f71b602b072058df74"></template><script
+			src="https://photo.shawnpaps.dev/-studiophotoshoot/slideswebcomponentembed.js/6865a6f71b602b072058df74?features=lightbox,pinterest&filtertags="
+			type="text/javascript"
+			data-pt-scriptslideshowid="6865a6f71b602b072058df74"></script>
+	</section>
+</RootLayout>
