@@ -2,10 +2,9 @@
 import RootLayout from '../../layouts/RootLayout.astro';
 import { getProducerPlaylist } from '../../utils/appleMusic';
 import MusicPortfolio from '../../components/react/MusicPortfolio';
+import { apiUrl } from '../../data/variables';
 
-const tracks = await fetch('http://localhost:4321/api/fetch-music').then(
-	(res) => res.json()
-);
+const tracks = await fetch(`${apiUrl}/fetch-music`).then((res) => res.json());
 ---
 
 <RootLayout title="Music Portfolio - Shawn Papineau">
