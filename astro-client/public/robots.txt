@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://shawnpapineau.com/sitemap-index.xml
+Sitemap: https://shawnpapsmedia.com/sitemap-index.xml
 
 # Crawl-delay
 Crawl-delay: 1
