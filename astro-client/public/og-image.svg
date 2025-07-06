@@ -1,1 +1,59 @@
- 
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1117;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f27522;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e35a18;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="150" r="100" fill="url(#accent)" opacity="0.1"/>
+  <circle cx="1000" cy="480" r="80" fill="url(#accent)" opacity="0.1"/>
+  <circle cx="300" cy="500" r="60" fill="url(#accent)" opacity="0.05"/>
+  
+  <!-- Main content -->
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#f27522">
+    SHAWN PAPINEAU
+  </text>
+  
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#9ca3af">
+    Music Producer & Photographer
+  </text>
+  
+  <!-- Accent line -->
+  <rect x="450" y="380" width="300" height="4" fill="url(#accent)"/>
+  
+  <!-- Icons -->
+  <g transform="translate(500, 420)">
+    <!-- Music note -->
+    <path d="M0 0 L0 -20 L10 -20 L10 -10 L20 -10 L20 0 Z" fill="#f27522"/>
+    <circle cx="15" cy="-25" r="5" fill="#f27522"/>
+  </g>
+  
+  <g transform="translate(600, 420)">
+    <!-- Camera -->
+    <rect x="-15" y="-10" width="30" height="20" rx="3" fill="none" stroke="#f27522" stroke-width="2"/>
+    <circle cx="0" cy="-5" r="8" fill="none" stroke="#f27522" stroke-width="2"/>
+    <rect x="-5" y="5" width="10" height="5" fill="#f27522"/>
+  </g>
+  
+  <g transform="translate(700, 420)">
+    <!-- Creative brush -->
+    <path d="M-10 0 L10 0 L5 -15 L-5 -15 Z" fill="#f27522"/>
+    <circle cx="0" cy="-20" r="3" fill="#f27522"/>
+  </g>
+  
+  <!-- Website URL -->
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#6b7280">
+    shawnpapsmedia.com
+  </text>
+</svg> 
