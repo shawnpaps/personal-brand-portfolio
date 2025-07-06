@@ -17,7 +17,7 @@ const TestimonialsGrid = () => {
 	useEffect(() => {
 		const fetchTestimonials = async () => {
 			try {
-				const response = await fetch(`${apiUrl}/testimonials`, {
+				const response = await fetch(`/api/testimonials`, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',

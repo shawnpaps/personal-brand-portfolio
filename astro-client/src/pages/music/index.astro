@@ -5,7 +5,7 @@ import MusicPortfolio from '../../components/react/MusicPortfolio';
 import Breadcrumbs from '../../components/astro/Breadcrumbs.astro';
 import { apiUrl } from '../../data/variables';
 
-const tracks = await fetch(`${apiUrl}/fetch-music`).then((res) => res.json());
+const tracks = await fetch(`/api/fetch-music`).then((res) => res.json());
 ---
 
 <RootLayout

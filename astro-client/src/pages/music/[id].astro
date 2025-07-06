@@ -5,9 +5,7 @@ import { apiUrl } from '../../data/variables';
 
 export async function getStaticPaths() {
 	try {
-		const tracks = await fetch(`${apiUrl}/fetch-music`).then((res) =>
-			res.json()
-		);
+		const tracks = await fetch(`/api/fetch-music`).then((res) => res.json());
 
 		return tracks.map((track) => ({
 			params: { id: track.id },
