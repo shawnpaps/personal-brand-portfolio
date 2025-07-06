@@ -1,0 +1,21 @@
+{
+	"name": "Shawn Papineau - Music Producer & Photographer",
+	"short_name": "Shawn Paps",
+	"description": "Professional music producer and photographer specializing in atmospheric beats and moody photography",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0d1117",
+	"theme_color": "#f27522",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "/favicon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any maskable"
+		}
+	],
+	"categories": ["music", "photography", "creative"],
+	"lang": "en",
+	"dir": "ltr"
+}

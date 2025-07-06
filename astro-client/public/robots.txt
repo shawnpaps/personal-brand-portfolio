@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shawnpapineau.com/sitemap-index.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+
+# Allow important pages
+Allow: /music/
+Allow: /photography/
+Allow: /work/
+Allow: /contact/ 

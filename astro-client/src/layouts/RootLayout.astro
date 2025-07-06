@@ -1,22 +1,74 @@
 ---
 import '../styles/global.css';
 import Header from '../components/astro/Header.astro';
+import SEO from '../components/astro/SEO.astro';
+import GoogleAnalytics from '../components/astro/GoogleAnalytics.astro';
+import PerformanceOptimizer from '../components/astro/PerformanceOptimizer.astro';
 
 export interface Props {
 	title?: string;
+	description?: string;
+	keywords?: string;
+	image?: string;
+	url?: string;
+	type?: 'website' | 'article' | 'profile';
+	author?: string;
+	publishedTime?: string;
+	modifiedTime?: string;
+	section?: string;
+	tags?: string[];
+	canonical?: string;
+	noindex?: boolean;
+	nofollow?: boolean;
 }
 
-const { title = 'Shawn Papineau | Music Producer & Photographer' } =
-	Astro.props;
+const {
+	title = 'Shawn Papineau | Music Producer & Photographer',
+	description,
+	keywords,
+	image,
+	url,
+	type,
+	author,
+	publishedTime,
+	modifiedTime,
+	section,
+	tags,
+	canonical,
+	noindex,
+	nofollow,
+} = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="manifest" href="/manifest.json" />
 		<meta name="generator" content="Astro" />
-		<title>{title}</title>
+
+		<SEO
+			title={title}
+			description={description}
+			keywords={keywords}
+			image={image}
+			url={url}
+			type={type}
+			author={author}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
+			section={section}
+			tags={tags}
+			canonical={canonical}
+			noindex={noindex}
+			nofollow={nofollow}
+		/>
+
+		<!-- Google Analytics -->
+		<GoogleAnalytics />
+
+		<!-- Performance Optimizer -->
+		<PerformanceOptimizer />
 
 		<!-- Google Fonts - Edgy Typefaces -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />

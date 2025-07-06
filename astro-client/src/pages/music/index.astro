@@ -2,15 +2,40 @@
 import RootLayout from '../../layouts/RootLayout.astro';
 import { getProducerPlaylist } from '../../utils/appleMusic';
 import MusicPortfolio from '../../components/react/MusicPortfolio';
+import Breadcrumbs from '../../components/astro/Breadcrumbs.astro';
 import { apiUrl } from '../../data/variables';
 
 const tracks = await fetch(`${apiUrl}/fetch-music`).then((res) => res.json());
 ---
 
-<RootLayout title="Music Portfolio - Shawn Papineau">
+<RootLayout
+	title="Music Portfolio | Shawn Papineau - Professional Music Producer & Atmospheric Beats"
+	description="Explore Shawn Papineau's music portfolio featuring original productions, atmospheric beats, and sonic experiments. Professional music producer specializing in moody, atmospheric soundscapes. Listen to tracks and book collaborations."
+	keywords="music producer, atmospheric music, original productions, sonic experiments, Shawn Papineau music, professional music production, atmospheric beats, music portfolio"
+	image="https://iiyjiikbtsckevydbcsj.supabase.co/storage/v1/object/public/portfolio-assets/Images/Portraits/PAPS2968.jpg"
+	type="website"
+	tags={[
+		'music producer',
+		'atmospheric music',
+		'original productions',
+		'sonic experiments',
+	]}
+>
 	<main
 		class="min-h-screen bg-gradient-to-br from-moody-900 via-moody-800 to-moody-900"
 	>
+		<!-- Breadcrumbs -->
+		<section class="py-8 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<Breadcrumbs
+					items={[
+						{ label: 'Home', url: '/' },
+						{ label: 'Music Portfolio', current: true },
+					]}
+				/>
+			</div>
+		</section>
+
 		<!-- Hero Section -->
 		<section class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
 			<!-- Background Elements -->
