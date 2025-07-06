@@ -8,7 +8,6 @@ const MusicPlayer = () => {
 	const [previewData, setPreviewData] = useState<any>(null);
 	const getMusic = async () => {
 		const musicData = await getProducerPlaylist();
-		console.log(musicData);
 
 		// Sort by release date (newest first)
 		const sortedMusic = musicData.sort((a: any, b: any) => {

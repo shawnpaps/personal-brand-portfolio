@@ -1,3 +1,4 @@
+import { apiUrl } from '../data/variables';
 const getProducerPlaylist = async () => {
 	try {
 		const res = await fetch(`${apiUrl}/apple-token`);
