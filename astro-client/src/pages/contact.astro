@@ -1,6 +1,11 @@
 ---
 import RootLayout from '../layouts/RootLayout.astro';
 import ContactForm from '../components/react/ContactForm';
+import TestimonialCard from '../components/react/TestimonialCard';
+import { getTestimonials } from '../supabase/supabase';
+const testimonials = await getTestimonials();
+const randomTestimonial =
+	testimonials?.[Math.floor(Math.random() * testimonials.length)];
 ---
 
 <RootLayout title="Contact - Shawn Papineau">
@@ -211,7 +216,7 @@ import ContactForm from '../components/react/ContactForm';
 											href="mailto:contact@shawnpapineau.com"
 											class="text-warm-400 hover:text-warm-300 transition-colors"
 										>
-											contact@shawnpapineau.com
+											spapineau@spaptechnology.com
 										</a>
 									</div>
 								</div>
@@ -242,7 +247,7 @@ import ContactForm from '../components/react/ContactForm';
 									<div>
 										<p class="text-moody-300 font-medium">Location</p>
 										<p class="text-moody-400">
-											Based in Canada, working worldwide
+											Based in Tampa, FL, working worldwide
 										</p>
 									</div>
 								</div>
@@ -273,114 +278,84 @@ import ContactForm from '../components/react/ContactForm';
 						</div>
 
 						<!-- Testimonial -->
-						<div
-							class="bg-gradient-to-br from-warm-500/10 to-warm-600/10 border border-warm-500/30 rounded-2xl p-8"
-						>
-							<div class="flex items-start space-x-4">
-								<div
-									class="w-12 h-12 bg-warm-500/20 rounded-full flex items-center justify-center flex-shrink-0"
-								>
-									<svg
-										class="w-6 h-6 text-warm-400"
-										fill="currentColor"
-										viewBox="0 0 24 24"
+						<TestimonialCard testimonial={randomTestimonial} index={0} />
+						<div>
+							<!-- Contact Form -->
+							<div
+								class="bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl p-8 animate-slide-in-right"
+							>
+								<div class="mb-8">
+									<h3
+										class="text-3xl font-heading font-bold text-warm-400 mb-4"
 									>
-										<path
-											d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-										></path>
-									</svg>
-								</div>
-								<div>
-									<p class="text-moody-300 italic mb-4">
-										"Shawn's attention to detail and creative vision brought our
-										project to life in ways we never imagined. Professional,
-										responsive, and incredibly talented."
+										Start Your Project
+									</h3>
+									<p class="text-moody-300">
+										Tell me about your vision. I'll review your work and get
+										back to you with next steps.
 									</p>
-									<div>
-										<p class="text-warm-400 font-heading font-semibold">
-											Sarah Johnson
-										</p>
-										<p class="text-moody-400 text-sm">
-											Marketing Director, TechCorp
-										</p>
-									</div>
 								</div>
+
+								<ContactForm client:load />
 							</div>
 						</div>
 					</div>
-
-					<!-- Contact Form -->
-					<div
-						class="bg-moody-800/30 backdrop-blur-sm border border-warm-500/20 rounded-2xl p-8 animate-slide-in-right"
-					>
-						<div class="mb-8">
-							<h3 class="text-3xl font-heading font-bold text-warm-400 mb-4">
-								Start Your Project
-							</h3>
-							<p class="text-moody-300">
-								Tell me about your vision. I'll review your work and get back to
-								you with next steps.
-							</p>
-						</div>
-
-						<ContactForm client:load />
-					</div>
 				</div>
 			</div>
+
+			<style>
+				@keyframes fadeIn {
+					from {
+						opacity: 0;
+						transform: translateY(30px);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+
+				@keyframes slideInLeft {
+					from {
+						opacity: 0;
+						transform: translateX(-50px);
+					}
+					to {
+						opacity: 1;
+						transform: translateX(0);
+					}
+				}
+
+				@keyframes slideInRight {
+					from {
+						opacity: 0;
+						transform: translateX(50px);
+					}
+					to {
+						opacity: 1;
+						transform: translateX(0);
+					}
+				}
+
+				.animate-fade-in {
+					animation: fadeIn 0.8s ease-out forwards;
+				}
+
+				.animate-fade-in-delay {
+					animation: fadeIn 0.8s ease-out 0.2s forwards;
+					opacity: 0;
+				}
+
+				.animate-slide-in-left {
+					animation: slideInLeft 0.8s ease-out 0.4s forwards;
+					opacity: 0;
+				}
+
+				.animate-slide-in-right {
+					animation: slideInRight 0.8s ease-out 0.6s forwards;
+					opacity: 0;
+				}
+			</style>
 		</div>
-	</section>
-
-	<style>
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				transform: translateY(30px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		@keyframes slideInLeft {
-			from {
-				opacity: 0;
-				transform: translateX(-50px);
-			}
-			to {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		}
-
-		@keyframes slideInRight {
-			from {
-				opacity: 0;
-				transform: translateX(50px);
-			}
-			to {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		}
-
-		.animate-fade-in {
-			animation: fadeIn 0.8s ease-out forwards;
-		}
-
-		.animate-fade-in-delay {
-			animation: fadeIn 0.8s ease-out 0.2s forwards;
-			opacity: 0;
-		}
-
-		.animate-slide-in-left {
-			animation: slideInLeft 0.8s ease-out 0.4s forwards;
-			opacity: 0;
-		}
-
-		.animate-slide-in-right {
-			animation: slideInRight 0.8s ease-out 0.6s forwards;
-			opacity: 0;
-		}
-	</style>
-</RootLayout>
+	</section></RootLayout
+>
