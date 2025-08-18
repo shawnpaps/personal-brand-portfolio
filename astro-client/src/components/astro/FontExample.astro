@@ -1,0 +1,54 @@
+---
+// Font Example Component - Demonstrates the three font families
+---
+
+<div class="p-8 space-y-6">
+	<!-- Orbitron for Headers -->
+	<div class="space-y-4">
+		<h1 class="font-orbitron text-4xl font-bold text-primary">
+			Main Header (Orbitron)
+		</h1>
+		<h2 class="font-orbitron text-2xl font-semibold text-secondary">
+			Sub Header (Orbitron)
+		</h2>
+		<h3 class="font-orbitron text-xl font-medium text-accent">
+			Section Header (Orbitron)
+		</h3>
+	</div>
+
+	<!-- Iceland for Regular Text -->
+	<div class="space-y-3">
+		<p class="font-iceland text-lg leading-relaxed">
+			This is regular body text using Iceland font. It's perfect for paragraphs,
+			descriptions, and general content that needs to be easily readable.
+		</p>
+		<p class="font-iceland text-base">
+			Smaller text also uses Iceland for consistency across all regular content.
+		</p>
+	</div>
+
+	<!-- Doto for Accent Text -->
+	<div class="space-y-3">
+		<p class="font-doto text-lg font-medium text-warning">
+			This is accent text using Doto font. Perfect for highlights, important
+			information, or special emphasis.
+		</p>
+		<span class="font-doto text-sm bg-base-200 px-2 py-1 rounded">
+			Accent labels and badges
+		</span>
+	</div>
+
+	<!-- Mixed Usage Example -->
+	<div class="border border-base-300 rounded-lg p-4">
+		<h4 class="font-orbitron text-lg font-semibold mb-2">
+			Mixed Content Example
+		</h4>
+		<p class="font-iceland text-base mb-2">
+			Regular content with <span class="font-doto font-medium text-info"
+				>accent highlights</span
+			>
+			and <span class="font-doto font-medium text-success">important notes</span
+			>.
+		</p>
+	</div>
+</div>
