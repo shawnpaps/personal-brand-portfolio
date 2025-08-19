@@ -1,0 +1,75 @@
+---
+import RootLayout from '../../../layouts/RootLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Generate static paths from the collection
+export async function getStaticPaths() {
+	try {
+		const entries = await getCollection(
+			'caseStudies',
+			({ data }) => !data.draft
+		);
+		console.log('Found case studies:', entries.length);
+		console.log(
+			'Case study slugs:',
+			entries.map((e) => e.slug)
+		);
+		return entries.map((entry) => ({
+			params: { slug: entry.slug },
+			props: { entry },
+		}));
+	} catch (error) {
+		console.error('Error generating static paths:', error);
+		return [];
+	}
+}
+
+const { entry } = Astro.props;
+console.log('Entry received:', entry?.slug, entry?.data);
+
+// render() transforms markdown → component
+const { Content, headings } = await entry.render();
+const { title, excerpt, date, client, services, coverImage, tags } = entry.data;
+---
+
+<RootLayout>
+	<article class="prose mx-auto py-10">
+		<header class="mb-8">
+			{
+				coverImage && (
+					<img src={coverImage} alt={title} class="rounded-2xl w-full mb-6" />
+				)
+			}
+			<h1 class="!mb-2">{title}</h1>
+			<p class="text-sm opacity-70">
+				{date.toLocaleDateString()}
+				{client && ` • ${client}`}
+			</p>
+			{
+				services?.length > 0 && (
+					<ul class="flex gap-2 mt-3 flex-wrap">
+						{services.map((s) => (
+							<li class="px-3 py-1 rounded-full bg-gray-100 text-xs">{s}</li>
+						))}
+					</ul>
+				)
+			}
+		</header>
+
+		{/* The markdown/MDX body */}
+		<Content />
+
+		{
+			tags?.length > 0 && (
+				<footer class="mt-10">
+					<h3 class="text-sm uppercase tracking-wide opacity-70 mb-2">Tags</h3>
+					<ul class="flex gap-2 flex-wrap">
+						{tags.map((t) => (
+							<li class="px-2 py-1 bg-gray-100 rounded text-xs">#{t}</li>
+						))}
+					</ul>
+				</footer>
+			)
+		}
+	</article>
+</RootLayout>
