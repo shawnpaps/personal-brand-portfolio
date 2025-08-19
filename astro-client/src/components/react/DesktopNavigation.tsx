@@ -1,5 +1,3 @@
-import React from 'react';
-
 const DesktopNavigation = () => {
 	return (
 		<div className="grid grid-cols-3 w-full pb-32 pt-8 border-b-2 border-base-500 px-16">
