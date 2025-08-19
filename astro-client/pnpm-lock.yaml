@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@astrojs/react':
         specifier: ^4.3.0
-        version: 4.3.0(@types/react-dom@19.1.7)(@types/react@19.1.10)(react-dom@19.1.1)(react@19.1.1)
+        version: 4.3.0(@types/node@24.3.0)(@types/react-dom@19.1.7(@types/react@19.1.10))(@types/react@19.1.10)(jiti@2.5.1)(lightningcss@1.30.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@tailwindcss/vite':
         specifier: ^4.1.12
-        version: 4.1.12(vite@6.3.5)
+        version: 4.1.12(vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1))
       '@tanstack/react-query':
         specifier: ^5.85.3
         version: 5.85.3(react@19.1.1)
@@ -25,13 +25,13 @@ importers:
         version: 19.1.7(@types/react@19.1.10)
       astro:
         specifier: ^5.13.2
-        version: 5.13.2(typescript@5.9.2)
+        version: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.46.3)(typescript@5.9.2)
       daisyui:
         specifier: ^5.0.50
         version: 5.0.50
       motion:
         specifier: ^12.23.12
-        version: 12.23.12(react-dom@19.1.1)(react@19.1.1)
+        version: 12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react:
         specifier: ^19.1.1
         version: 19.1.1
@@ -803,8 +803,8 @@ packages:
   brotli@1.3.3:
     resolution: {integrity: sha512-oTKjJdShmDuGW94SyyaoQvAjf30dZaHnjJ8uAF+u2/vGJkJbJPJAT1gDiOJP5v1Zb6f9KEyW/1HpuaWIXtGHPg==}
 
-  browserslist@4.25.2:
-    resolution: {integrity: sha512-0si2SJK3ooGzIawRu61ZdPCO1IncZwS8IzuX73sPZsXW6EQ/w/DAfPyKI8l1ETTCr2MnvqWitmlCUxgdul45jA==}
+  browserslist@4.25.3:
+    resolution: {integrity: sha512-cDGv1kkDI4/0e5yON9yM5G/0A5u8sf5TnmdX5C9qHzI9PPu++sQ9zjm1k9NiOrf3riY4OkK0zSGqfvJyJsgCBQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -1972,15 +1972,15 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@4.3.0(@types/react-dom@19.1.7)(@types/react@19.1.10)(react-dom@19.1.1)(react@19.1.1)':
+  '@astrojs/react@4.3.0(@types/node@24.3.0)(@types/react-dom@19.1.7(@types/react@19.1.10))(@types/react@19.1.10)(jiti@2.5.1)(lightningcss@1.30.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@types/react': 19.1.10
       '@types/react-dom': 19.1.7(@types/react@19.1.10)
-      '@vitejs/plugin-react': 4.7.0(vite@6.3.5)
+      '@vitejs/plugin-react': 4.7.0(vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1))
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
       ultrahtml: 1.6.0
-      vite: 6.3.5
+      vite: 6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -2047,7 +2047,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.28.0
       '@babel/helper-validator-option': 7.27.1
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       lru-cache: 5.1.1
       semver: 6.3.1
 
@@ -2312,11 +2312,13 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.0-beta.27': {}
 
-  '@rollup/pluginutils@5.2.0':
+  '@rollup/pluginutils@5.2.0(rollup@4.46.3)':
     dependencies:
       '@types/estree': 1.0.8
       estree-walker: 2.0.2
       picomatch: 4.0.3
+    optionalDependencies:
+      rollup: 4.46.3
 
   '@rollup/rollup-android-arm-eabi@4.46.3':
     optional: true
@@ -2479,12 +2481,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.1.12
       '@tailwindcss/oxide-win32-x64-msvc': 4.1.12
 
-  '@tailwindcss/vite@4.1.12(vite@6.3.5)':
+  '@tailwindcss/vite@4.1.12(vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1))':
     dependencies:
       '@tailwindcss/node': 4.1.12
       '@tailwindcss/oxide': 4.1.12
       tailwindcss: 4.1.12
-      vite: 6.3.5
+      vite: 6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)
 
   '@tanstack/query-core@5.85.3': {}
 
@@ -2554,7 +2556,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-react@4.7.0(vite@6.3.5)':
+  '@vitejs/plugin-react@4.7.0(vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1))':
     dependencies:
       '@babel/core': 7.28.3
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.3)
@@ -2562,7 +2564,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 6.3.5
+      vite: 6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -2589,7 +2591,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.13.2(typescript@5.9.2):
+  astro@5.13.2(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)(rollup@4.46.3)(typescript@5.9.2):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.2
@@ -2597,7 +2599,7 @@ snapshots:
       '@astrojs/telemetry': 3.3.0
       '@capsizecss/unpack': 2.4.0
       '@oslojs/encoding': 1.1.0
-      '@rollup/pluginutils': 5.2.0
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.3)
       acorn: 8.15.0
       aria-query: 5.3.2
       axobject-query: 4.1.0
@@ -2645,8 +2647,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.16.1
       vfile: 6.0.3
-      vite: 6.3.5
-      vitefu: 1.1.1(vite@6.3.5)
+      vite: 6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)
+      vitefu: 1.1.1(vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -2715,12 +2717,12 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
 
-  browserslist@4.25.2:
+  browserslist@4.25.3:
     dependencies:
       caniuse-lite: 1.0.30001735
       electron-to-chromium: 1.5.204
       node-releases: 2.0.19
-      update-browserslist-db: 1.1.3(browserslist@4.25.2)
+      update-browserslist-db: 1.1.3(browserslist@4.25.3)
 
   camelcase@8.0.0: {}
 
@@ -2896,7 +2898,7 @@ snapshots:
   fast-deep-equal@3.1.3: {}
 
   fdir@6.5.0(picomatch@4.0.3):
-    dependencies:
+    optionalDependencies:
       picomatch: 4.0.3
 
   flattie@1.1.1: {}
@@ -2918,13 +2920,14 @@ snapshots:
       unicode-properties: 1.4.1
       unicode-trie: 2.0.0
 
-  framer-motion@12.23.12(react-dom@19.1.1)(react@19.1.1):
+  framer-motion@12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       motion-dom: 12.23.12
       motion-utils: 12.23.6
+      tslib: 2.8.1
+    optionalDependencies:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
-      tslib: 2.8.1
 
   fsevents@2.3.3:
     optional: true
@@ -3471,12 +3474,13 @@ snapshots:
 
   motion-utils@12.23.6: {}
 
-  motion@12.23.12(react-dom@19.1.1)(react@19.1.1):
+  motion@12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
-      framer-motion: 12.23.12(react-dom@19.1.1)(react@19.1.1)
+      framer-motion: 12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      tslib: 2.8.1
+    optionalDependencies:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
-      tslib: 2.8.1
 
   mrmime@2.0.1: {}
 
@@ -3826,7 +3830,7 @@ snapshots:
   trough@2.2.0: {}
 
   tsconfck@3.1.6(typescript@5.9.2):
-    dependencies:
+    optionalDependencies:
       typescript: 5.9.2
 
   tslib@2.8.1: {}
@@ -3922,9 +3926,9 @@ snapshots:
       ofetch: 1.4.1
       ufo: 1.6.1
 
-  update-browserslist-db@1.1.3(browserslist@4.25.2):
+  update-browserslist-db@1.1.3(browserslist@4.25.3):
     dependencies:
-      browserslist: 4.25.2
+      browserslist: 4.25.3
       escalade: 3.2.0
       picocolors: 1.1.1
 
@@ -3943,7 +3947,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@6.3.5:
+  vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1):
     dependencies:
       esbuild: 0.25.9
       fdir: 6.5.0(picomatch@4.0.3)
@@ -3952,11 +3956,14 @@ snapshots:
       rollup: 4.46.3
       tinyglobby: 0.2.14
     optionalDependencies:
+      '@types/node': 24.3.0
       fsevents: 2.3.3
+      jiti: 2.5.1
+      lightningcss: 1.30.1
 
-  vitefu@1.1.1(vite@6.3.5):
-    dependencies:
-      vite: 6.3.5
+  vitefu@1.1.1(vite@6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)):
+    optionalDependencies:
+      vite: 6.3.5(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)
 
   web-namespaces@2.0.1: {}
 
