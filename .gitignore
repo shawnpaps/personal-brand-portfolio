@@ -1,3 +1,9 @@
+.env 
+AuthKey_F247AY8D6N.p8
+/apps/cms/.env
+/apps/cms/storage/database.sqlite
+/apps/cms/storage/media/**
+
 # Logs
 logs
 *.log

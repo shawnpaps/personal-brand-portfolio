@@ -1,0 +1,87 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroSection from '@/components/HeroSection.astro';
+import SectionRenderer from '@/components/SectionRenderer.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import ServiceCategoryGrid from '@/components/ServiceCategoryGrid.astro';
+import {
+	loadPageContent,
+	loadServiceCategories,
+	loadSiteSettings,
+} from '@/lib/cms';
+
+export const prerender = false;
+
+const slugParam = Astro.params.slug;
+const slug = Array.isArray(slugParam)
+	? slugParam.join('/')
+	: (slugParam ?? 'home');
+
+const [{ brandName, tagline }, pageContent] = await Promise.all([
+	loadSiteSettings(),
+	loadPageContent(slug === '' ? 'home' : slug),
+]);
+
+if (!pageContent) {
+	Astro.response.status = 404;
+}
+
+const pageTitle = pageContent
+	? `${pageContent.title} | ${brandName}`
+	: `Page not found | ${brandName}`;
+const pageDescription = pageContent?.seo?.description ?? tagline;
+const shouldShowServices =
+	pageContent &&
+	['home', 'marketing', 'visual-media'].includes(pageContent.slug);
+const serviceCategories = shouldShowServices
+	? await loadServiceCategories()
+	: [];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	{
+		pageContent ? (
+			<>
+				<HeroSection hero={pageContent.hero} />
+				<section class="py-16">
+					<SectionRenderer sections={pageContent.sections} />
+				</section>
+				{shouldShowServices && serviceCategories.length > 0 && (
+					<section class="pb-16">
+						<ServiceCategoryGrid
+							categories={serviceCategories}
+							headline={
+								pageContent.slug === 'home'
+									? 'Services built to scale your experience'
+									: undefined
+							}
+						/>
+					</section>
+				)}
+				{pageContent.slug === 'contact' && (
+					<section class="pb-20">
+						<ContactForm />
+					</section>
+				)}
+			</>
+		) : (
+			<section class="container-xl flex flex-col items-center justify-center py-24 text-center">
+				<h1 class="font-display text-5xl text-white">404</h1>
+				<p class="mt-4 max-w-lg text-neutral-300">
+					We couldn’t find the page you’re after. Head back to the home page or
+					explore our services.
+				</p>
+				<div class="mt-8 flex gap-4">
+					<a class="button-primary" href="/">
+						Return home
+					</a>
+					<a
+						class="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-neutral-200 transition hover:border-white/30 hover:text-white"
+						href="/marketing">
+						View services
+					</a>
+				</div>
+			</section>
+		)
+	}
+</BaseLayout>

@@ -1,0 +1,21 @@
+{
+	"name": "personal-brand-portfolio",
+	"private": true,
+	"version": "0.1.0",
+	"description": "Monorepo for Shawn Paps Media marketing site (Astro) and Payload CMS backend.",
+	"workspaces": [
+		"apps/cms",
+		"apps/web"
+	],
+	"scripts": {
+		"dev": "concurrently \"npm run dev --workspace apps/cms\" \"npm run dev --workspace apps/web\"",
+		"dev:cms": "npm run dev --workspace apps/cms",
+		"dev:web": "npm run dev --workspace apps/web",
+		"build": "npm run build --workspaces",
+		"lint": "npm run lint --workspaces",
+		"format": "npm run format --workspaces"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"name": "@spm/cms",
+	"private": true,
+	"version": "0.1.0",
+	"description": "Payload CMS backend for Shawn Paps Media.",
+	"scripts": {
+		"dev": "payload dev",
+		"build": "payload build",
+		"serve": "payload serve",
+		"generate:types": "payload generate:types",
+		"lint": "tsc --noEmit",
+		"format": "prettier --check ."
+	},
+	"dependencies": {
+		"@payloadcms/db-sqlite": "^3.58.0",
+		"@payloadcms/next": "^3.58.0",
+		"@payloadcms/plugin-seo": "^3.58.0",
+		"@payloadcms/richtext-lexical": "^3.58.0",
+		"better-sqlite3": "^9.0.0",
+		"dotenv": "^16.4.5",
+		"express": "^4.19.2",
+		"graphql": "^16.11.0",
+		"payload": "^3.58.0",
+		"sharp": "^0.34.4"
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.21",
+		"@types/node": "^20.12.7",
+		"prettier": "^3.2.5",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.4.2"
+	}
+}

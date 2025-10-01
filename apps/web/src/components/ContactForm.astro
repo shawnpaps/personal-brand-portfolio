@@ -1,0 +1,195 @@
+---
+const interestOptions = [
+	{ label: 'Website development', value: 'website-development' },
+	{ label: 'App & integration development', value: 'app-integration' },
+	{ label: 'Photography', value: 'photography' },
+	{ label: 'Videography', value: 'videography' },
+	{ label: 'Brand strategy', value: 'brand-strategy' },
+	{ label: 'IT support', value: 'it-support' },
+];
+
+const budgetOptions = [
+	{ label: 'Under $2k', value: 'under-2k' },
+	{ label: '$2k - $5k', value: '2-5k' },
+	{ label: '$5k - $10k', value: '5-10k' },
+	{ label: '$10k+', value: '10k-plus' },
+];
+---
+
+<section class="container-xl">
+	<div
+		class="grid gap-8 rounded-3xl border border-white/10 bg-surface-muted/70 p-10 shadow-[0_0_90px_rgba(76,89,246,0.25)] lg:grid-cols-[1.1fr_0.9fr]"
+	>
+		<div class="space-y-4">
+			<h2 class="font-display text-3xl text-white">
+				Let’s build your next flagship experience
+			</h2>
+			<p class="text-sm text-neutral-300">
+				Tell us about your goals, vibe, and timeline. We’ll follow up within two
+				business days with an intro plan and next steps.
+			</p>
+			<ul class="grid gap-3 text-sm text-neutral-300">
+				<li>↳ Strategy and discovery call tailored to your concept.</li>
+				<li>↳ Moodboards, tech recommendations, and production plan.</li>
+				<li>
+					↳ Transparent roadmap with milestones, deliverables, and investment.
+				</li>
+			</ul>
+		</div>
+		<form
+			id="contact-form"
+			class="space-y-6"
+			method="post"
+			action="/api/contact"
+		>
+			<div class="grid gap-4 md:grid-cols-2">
+				<label class="space-y-2 text-sm text-neutral-200">
+					<span>Full name*</span>
+					<input
+						name="name"
+						required
+						type="text"
+						class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+					/>
+				</label>
+				<label class="space-y-2 text-sm text-neutral-200">
+					<span>Email*</span>
+					<input
+						name="email"
+						required
+						type="email"
+						class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+					/>
+				</label>
+				<label class="space-y-2 text-sm text-neutral-200">
+					<span>Company / brand</span>
+					<input
+						name="company"
+						type="text"
+						class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+					/>
+				</label>
+				<label class="space-y-2 text-sm text-neutral-200">
+					<span>Phone</span>
+					<input
+						name="phone"
+						type="tel"
+						class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+					/>
+				</label>
+			</div>
+			<fieldset class="space-y-3">
+				<legend class="text-sm font-semibold text-neutral-200"
+					>What can we help with?</legend
+				>
+				<div class="grid gap-3 md:grid-cols-2">
+					{
+						interestOptions.map((option) => (
+							<label class="flex items-center gap-3 rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-300 transition hover:border-primary-400/40">
+								<input
+									type="checkbox"
+									name="serviceInterest"
+									value={option.value}
+									class="h-4 w-4 rounded border-white/20 bg-transparent text-primary-400 focus:ring-primary-400"
+								/>
+								<span>{option.label}</span>
+							</label>
+						))
+					}
+				</div>
+			</fieldset>
+			<div class="grid gap-4 md:grid-cols-2">
+				<label class="space-y-2 text-sm text-neutral-200">
+					<span>Budget range</span>
+					<select
+						name="budgetRange"
+						class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+					>
+						<option value="">Select a range</option>
+						{
+							budgetOptions.map((option) => (
+								<option value={option.value}>{option.label}</option>
+							))
+						}
+					</select>
+				</label>
+				<label class="space-y-2 text-sm text-neutral-200">
+					<span>Ideal timeline</span>
+					<input
+						name="timeline"
+						type="text"
+						placeholder="Ex. Mid November launch"
+						class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+					/>
+				</label>
+			</div>
+			<label class="space-y-2 text-sm text-neutral-200">
+				<span>Tell us about the project*</span>
+				<textarea
+					name="message"
+					required
+					rows="5"
+					class="w-full rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-neutral-100 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/40"
+				></textarea>
+			</label>
+			<label class="flex items-start gap-3 text-sm text-neutral-300">
+				<input
+					type="checkbox"
+					name="subscribe"
+					value="true"
+					class="mt-1 h-4 w-4 rounded border-white/20 bg-transparent text-primary-400 focus:ring-primary-400"
+				/>
+				<span>Keep me posted on studio updates, resources, and events.</span>
+			</label>
+			<div class="space-y-3 text-sm">
+				<button type="submit" class="button-primary w-full justify-center"
+					>Submit project details</button
+				>
+				<p id="contact-form-feedback" class="hidden text-center text-sm"></p>
+			</div>
+		</form>
+	</div>
+</section>
+
+<script>
+	const form = document.getElementById('contact-form');
+	const feedback = document.getElementById('contact-form-feedback');
+
+	if (form instanceof HTMLFormElement && feedback) {
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			feedback.classList.remove(
+				'text-pink-400',
+				'text-teal-300',
+				'text-red-400'
+			);
+			feedback.textContent = 'Sending your message…';
+			feedback.classList.remove('hidden');
+
+			const formData = new FormData(form);
+			try {
+				const response = await fetch(
+					form.getAttribute('action') ?? '/api/contact',
+					{
+						method: 'POST',
+						body: formData,
+					}
+				);
+
+				if (!response.ok) {
+					throw new Error('Failed to submit contact form');
+				}
+
+				form.reset();
+				feedback.textContent =
+					'Thanks! We’ll reach out within two business days.';
+				feedback.classList.add('text-teal-300');
+			} catch (error) {
+				console.error(error);
+				feedback.textContent =
+					'Something went wrong. Please email hello@shawnpapsmedia.com.';
+				feedback.classList.add('text-red-400');
+			}
+		});
+	}
+</script>

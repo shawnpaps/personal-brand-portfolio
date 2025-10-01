@@ -1,0 +1,94 @@
+---
+import type { PageSection } from '@/lib/types';
+
+interface Props {
+	sections: PageSection[];
+}
+
+const { sections }: Props = Astro.props;
+---
+
+<div class="space-y-16">
+	{
+		sections.map((section) => {
+			if (section.type === 'copy') {
+				return (
+					<section class="container-xl grid gap-6 md:grid-cols-[1fr_1.2fr]">
+						{section.title && (
+							<div>
+								<h2 class="font-display text-3xl text-white md:text-4xl">
+									{section.title}
+								</h2>
+							</div>
+						)}
+						<div class="space-y-4 text-neutral-300">
+							{section.body.map((paragraph) => (
+								<p>{paragraph}</p>
+							))}
+						</div>
+					</section>
+				);
+			}
+
+			if (section.type === 'feature-grid') {
+				return (
+					<section class="container-xl space-y-8">
+						{section.title && (
+							<h2 class="font-display text-3xl text-white md:text-4xl">
+								{section.title}
+							</h2>
+						)}
+						{section.intro && (
+							<p class="max-w-2xl text-neutral-300">{section.intro}</p>
+						)}
+						<div class="grid gap-6 md:grid-cols-3">
+							{section.items.map((feature) => (
+								<div class="group relative overflow-hidden rounded-3xl border border-white/5 bg-surface-muted/80 p-6 transition hover:border-primary-400/40 hover:shadow-glow">
+									{feature.icon && (
+										<span class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-500/20 text-2xl">
+											{feature.icon}
+										</span>
+									)}
+									<h3 class="font-display text-xl text-white">
+										{feature.title}
+									</h3>
+									<p class="mt-2 text-sm text-neutral-300">
+										{feature.description}
+									</p>
+								</div>
+							))}
+						</div>
+					</section>
+				);
+			}
+
+			if (section.type === 'cta-banner') {
+				return (
+					<section class="relative overflow-hidden">
+						<div class="container-xl">
+							<div class="relative overflow-hidden rounded-3xl border border-primary-500/40 bg-gradient-to-r from-primary-600/60 via-primary-500/40 to-accent-orange/40 p-10 text-center shadow-glow">
+								<h2 class="font-display text-3xl text-white md:text-4xl">
+									{section.title}
+								</h2>
+								{section.body && (
+									<p class="mx-auto mt-3 max-w-2xl text-base text-neutral-200">
+										{section.body}
+									</p>
+								)}
+								{section.ctaLabel && section.ctaHref && (
+									<a
+										class="button-primary mt-6 inline-flex justify-center"
+										href={section.ctaHref}>
+										{section.ctaLabel}
+									</a>
+								)}
+							</div>
+						</div>
+					</section>
+				);
+			}
+
+			return null;
+		})
+	}
+</div>

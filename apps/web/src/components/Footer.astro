@@ -1,0 +1,79 @@
+---
+import { defaultNavigation, socialLinks } from '@/lib/navigation';
+
+interface FooterProps {
+	navLinks?: { label: string; href: string }[];
+}
+
+const { navLinks = defaultNavigation }: FooterProps = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/5 bg-surface text-neutral-400">
+	<div class="container-xl grid gap-10 py-12 md:grid-cols-[2fr,1fr]">
+		<div class="space-y-4">
+			<a href="/" class="inline-flex items-center gap-3 text-neutral-200">
+				<span
+					class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-500 text-lg font-bold text-white shadow-glow"
+				>
+					SP
+				</span>
+				<span class="font-display text-lg tracking-wide text-white">
+					Shawn Paps Media
+				</span>
+			</a>
+			<p class="max-w-xl text-sm text-neutral-400">
+				Visual media and digital experiences crafted for creative culture
+				brands. Photography, videography, web development, and IT services under
+				one studio roof.
+			</p>
+		</div>
+		<div class="grid gap-6 sm:grid-cols-2">
+			<div>
+				<h3
+					class="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-200"
+				>
+					Navigate
+				</h3>
+				<ul class="mt-4 space-y-2 text-sm">
+					{
+						navLinks.map(({ href, label }) => (
+							<li>
+								<a class="transition hover:text-white" href={href}>
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div>
+				<h3
+					class="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-200"
+				>
+					Connect
+				</h3>
+				<ul class="mt-4 space-y-2 text-sm">
+					{
+						socialLinks.map(({ platform, url }) => (
+							<li>
+								<a
+									class="transition hover:text-white"
+									href={url}
+									target="_blank"
+									rel="noreferrer">
+									{platform}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div
+		class="border-t border-white/5 py-6 text-center text-xs text-neutral-500"
+	>
+		© {currentYear} Shawn Paps Media. All rights reserved.
+	</div>
+</footer>

@@ -1,0 +1,52 @@
+---
+import type { ServiceCategoryContent } from '@/lib/types';
+
+interface Props {
+	categories: ServiceCategoryContent[];
+	headline?: string;
+}
+
+const { categories, headline = 'Explore our studio solutions' }: Props =
+	Astro.props;
+---
+
+<section class="container-xl space-y-10">
+	<div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+		<div>
+			<h2 class="font-display text-3xl text-white md:text-4xl">{headline}</h2>
+			<p class="mt-2 max-w-2xl text-sm text-neutral-300">
+				Choose the experience you need—each service is built to stack together
+				across strategy, production, and support.
+			</p>
+		</div>
+	</div>
+	<div class="grid gap-6 md:grid-cols-2">
+		{
+			categories.map((category) => (
+				<a
+					href={`/${category.slug}`}
+					class="group relative overflow-hidden rounded-3xl border border-white/10 bg-surface-muted/80 p-8 transition hover:border-primary-400/40 hover:shadow-glow">
+					<div class="flex items-center justify-between">
+						<span class="text-sm uppercase tracking-[0.3em] text-neutral-400">
+							{category.slug}
+						</span>
+						<span class="text-xl">→</span>
+					</div>
+					<h3 class="mt-4 font-display text-2xl text-white">
+						{category.title}
+					</h3>
+					<p class="mt-3 text-sm text-neutral-300">{category.description}</p>
+					{category.services.length > 0 && (
+						<ul class="mt-6 flex flex-wrap gap-2 text-xs uppercase tracking-[0.25em] text-neutral-400">
+							{category.services.map((service) => (
+								<li class="rounded-full border border-white/10 px-3 py-1">
+									{service.title}
+								</li>
+							))}
+						</ul>
+					)}
+				</a>
+			))
+		}
+	</div>
+</section>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroSection from '@/components/HeroSection.astro';
+import SectionRenderer from '@/components/SectionRenderer.astro';
+import ServiceCategoryGrid from '@/components/ServiceCategoryGrid.astro';
+import {
+	loadPageContent,
+	loadServiceCategories,
+	loadSiteSettings,
+} from '@/lib/cms';
+
+const slug = 'home';
+const [{ brandName, tagline }, pageContent, serviceCategories] =
+	await Promise.all([
+		loadSiteSettings(),
+		loadPageContent(slug),
+		loadServiceCategories(),
+	]);
+
+if (!pageContent) {
+	throw new Error(
+		'Home page content missing. Check Payload CMS or fallback content.'
+	);
+}
+
+const pageTitle = `${pageContent.title} | ${brandName}`;
+const pageDescription = pageContent.seo?.description ?? tagline;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<HeroSection hero={pageContent.hero} />
+	<section class="py-16">
+		<SectionRenderer sections={pageContent.sections} />
+	</section>
+	{
+		serviceCategories.length > 0 && (
+			<section class="pb-16">
+				<ServiceCategoryGrid
+					categories={serviceCategories}
+					headline="Services built to scale your experience"
+				/>
+			</section>
+		)
+	}
+</BaseLayout>

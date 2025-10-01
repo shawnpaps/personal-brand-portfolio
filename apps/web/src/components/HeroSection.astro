@@ -1,0 +1,77 @@
+---
+import type { Hero } from '@/lib/types';
+
+interface Props {
+	hero: Hero;
+}
+
+const { hero }: Props = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-surface">
+	<div
+		class="container-xl grid gap-10 py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center"
+	>
+		<div class="space-y-6">
+			{
+				hero.eyebrow && (
+					<span class="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-primary-200">
+						{hero.eyebrow}
+					</span>
+				)
+			}
+			<h1 class="font-display text-4xl leading-tight text-white md:text-5xl">
+				{hero.headline}
+			</h1>
+			{
+				hero.subheadline && (
+					<p class="max-w-xl text-base text-neutral-300">{hero.subheadline}</p>
+				)
+			}
+			<div class="flex flex-wrap items-center gap-4">
+				{
+					hero.ctaPrimary && (
+						<a class="button-primary" href={hero.ctaPrimary.href}>
+							{hero.ctaPrimary.label}
+						</a>
+					)
+				}
+				{
+					hero.ctaSecondary && (
+						<a
+							class="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-neutral-200 transition hover:border-white/30 hover:text-white"
+							href={hero.ctaSecondary.href}>
+							{hero.ctaSecondary.label}
+						</a>
+					)
+				}
+			</div>
+		</div>
+		{
+			hero.media && hero.media.type === 'image' && (
+				<div class="relative order-first aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-surface-muted shadow-[0_0_120px_rgba(76,89,246,0.25)] md:order-last">
+					<img
+						src={hero.media.url}
+						alt={hero.media.alt ?? hero.headline}
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				</div>
+			)
+		}
+		{
+			hero.media && hero.media.type === 'video' && (
+				<div class="relative order-first overflow-hidden rounded-3xl border border-white/10 bg-black shadow-[0_0_120px_rgba(56,246,225,0.2)] md:order-last">
+					<video
+						class="h-full w-full"
+						autoplay
+						loop
+						muted
+						playsinline
+						poster={hero.media.alt}>
+						<source src={hero.media.url} type="video/mp4" />
+					</video>
+				</div>
+			)
+		}
+	</div>
+</section>
