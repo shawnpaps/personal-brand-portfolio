@@ -27,7 +27,7 @@ export default async function HomePage() {
             width={65}
           />
         </picture>
-        {!user && <h1>Shawn Paps Media</h1>}
+        {!user && <h1>sudo.create</h1>}
         {user && <h1>Welcome back, {user.email}</h1>}
         <div className="links">
           <a
