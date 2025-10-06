@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
 const { title, description } = Astro.props;
 ---
 
@@ -11,7 +12,25 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen w-full relative">
+		{/* Dark Dot Matrix */}
+		<div
+			class="absolute inset-0 z-0"
+			style={{
+				backgroundColor: '#0a0a0a',
+				backgroundImage: `
+       radial-gradient(circle at 25% 25%, #222222 0.5px, transparent 1px),
+       radial-gradient(circle at 75% 75%, #111111 0.5px, transparent 1px)
+     `,
+				backgroundSize: '10px 10px',
+				imageRendering: 'pixelated',
+			}}
+		>
+		</div>
+		{/* Your Content Here */}
+		<header>
+			<Navigation />
+		</header>
 		<slot />
 	</body>
 </html>
