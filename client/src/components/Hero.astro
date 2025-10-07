@@ -1,0 +1,61 @@
+---
+const { title, videoPath, subtitle, buttonText } = Astro.props;
+---
+
+<div class="h-screen flex flex-col w-screen relative">
+	<video
+		src={videoPath}
+		autoplay
+		muted
+		loop
+		class="w-full absolute h-full object-cover z-0"></video>
+	<div
+		class="flex-grow absolute flex flex-col items-center justify-center bg-slate-900/80 w-full z-10 text-white h-full text-center"
+	>
+		<div class="max-w-2xl">
+			<figure>
+				<img
+					src="/logos/sudo_create_script_white.png"
+					alt="sudo.create logo"
+					class="w-48 h-48 mx-auto"
+				/>
+			</figure>
+			<h1 class="text-7xl font-bold">
+				Big Tech <span
+					class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-orange-500 animate-pulse"
+					>Power.</span
+				>
+				<br />Creative Studio <span
+					class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-yellow-200"
+					>Soul.</span
+				>
+			</h1>
+			<h2 class="text-2xl max-w-xl mx-auto">{subtitle}</h2>
+			<button
+				class="btn btn-primary btn-lg text-nowrap block mx-auto mt-8 rounded-full"
+				>{buttonText}</button
+			>
+		</div>
+		<!-- Scroll indicator -->
+		<div class="z-20 mt-8">
+			<button
+				class="flex flex-col items-center text-white animate-bounce hover:text-orange-400 transition-colors cursor-pointer"
+				onclick="document.getElementById('next-section').scrollIntoView({ behavior: 'smooth' })"
+			>
+				<span class="text-sm mb-2">Scroll down</span>
+				<svg
+					class="w-6 h-6"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+				</svg>
+			</button>
+		</div>
+	</div>
+</div>

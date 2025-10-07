@@ -1,0 +1,25 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+
+import Hero from '../components/Hero.astro';
+import Intro from '../components/blocks/Intro.astro';
+import Diff from '../components/Diff.astro';
+import Card from '../components/Card.astro';
+import About from '../components/blocks/About.astro';
+import Services from '../components/blocks/Services.astro';
+---
+
+<RootLayout
+	title="Home | sudo.create - Custom Systems for Creatives"
+	description="Welcome to my personal brand and portfolio website. Explore my services, case studies, and get in touch to see how I can help elevate your brand."
+>
+	<Hero
+		title="Big Tech Power. Creative Studio Soul."
+		subtitle="We build custom systems that scale like enterprise, move like indie, and look damn good doing it."
+		buttonText="Let's build your unfair advantage."
+		videoPath="/video/water.mp4"
+	/>
+	<Intro />
+	<About />
+	<Services />
+</RootLayout>

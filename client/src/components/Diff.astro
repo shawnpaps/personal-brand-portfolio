@@ -1,0 +1,16 @@
+---
+const { firstDiffItem, secondDiffItem } = Astro.props;
+import Card from './Card.astro';
+---
+
+<Card>
+	<figure class="diff aspect-16/9" tabindex="0">
+		<div class="diff-item-1 blur" role="img" tabindex="0">
+			<img alt="daisy" src={firstDiffItem} />
+		</div>
+		<div class="diff-item-2" role="img">
+			<img alt="daisy" src={secondDiffItem} />
+		</div>
+		<div class="diff-resizer"></div>
+	</figure>
+</Card>
