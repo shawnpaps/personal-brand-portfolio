@@ -1,0 +1,68 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+---
+
+<RootLayout
+	title="404 - Page Not Found | sudo.create"
+	description="The page you're looking for doesn't exist. Let's get you back on track."
+>
+	<main class="relative z-10 min-h-screen flex items-center justify-center px-4">
+		<div class="max-w-4xl mx-auto text-center">
+			<!-- 404 Large Number -->
+			<div class="mb-8">
+				<h1 class="text-[12rem] md:text-[20rem] font-bold leading-none tracking-tighter opacity-20 select-none">
+					404
+				</h1>
+			</div>
+
+			<!-- Error Message -->
+			<div class="relative -mt-32 md:-mt-48 mb-8">
+				<h2 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+					Page Not Found
+				</h2>
+				<p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+					Looks like this page took a wrong turn in the matrix.
+					Let's get you back to building something awesome.
+				</p>
+			</div>
+
+			<!-- Action Buttons -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+				<a
+					href="/"
+					class="btn btn-primary px-8 py-3 text-lg font-semibold rounded-lg transition-all hover:scale-105"
+				>
+					← Back to Home
+				</a>
+				<a
+					href="/contact"
+					class="btn btn-outline px-8 py-3 text-lg font-semibold rounded-lg transition-all hover:scale-105"
+				>
+					Get in Touch
+				</a>
+			</div>
+
+			<!-- Helpful Links -->
+			<div class="mt-16 pt-16 border-t border-gray-800">
+				<p class="text-sm text-gray-500 mb-6">You might be looking for:</p>
+				<div class="flex flex-wrap justify-center gap-4 text-sm">
+					<a href="/" class="text-gray-400 hover:text-white transition-colors underline">
+						Home
+					</a>
+					<span class="text-gray-700">•</span>
+					<a href="/case-studies" class="text-gray-400 hover:text-white transition-colors underline">
+						Case Studies
+					</a>
+					<span class="text-gray-700">•</span>
+					<a href="/products" class="text-gray-400 hover:text-white transition-colors underline">
+						Products
+					</a>
+					<span class="text-gray-700">•</span>
+					<a href="/contact" class="text-gray-400 hover:text-white transition-colors underline">
+						Contact
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</RootLayout>

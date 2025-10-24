@@ -2,47 +2,44 @@
 const { title, videoPath, subtitle, buttonText } = Astro.props;
 ---
 
-<div class="h-screen flex flex-col w-screen relative">
+<div class="h-screen flex flex-col w-screen relative overflow-hidden">
 	<video
 		src={videoPath}
 		autoplay
 		muted
 		loop
+		playsinline
 		class="w-full absolute h-full object-cover z-0"></video>
 	<div
-		class="flex-grow absolute flex flex-col items-center justify-center bg-slate-900/80 w-full z-10 text-white h-full text-center"
+		class="flex-grow absolute flex flex-col items-center justify-center bg-slate-900/80 w-full z-10 text-white h-full text-center px-4"
 	>
-		<div class="max-w-2xl">
+		<div class="max-w-2xl w-full">
 			<figure>
 				<img
 					src="/logos/sudo_create_script_white.png"
 					alt="sudo.create logo"
-					class="w-48 h-48 mx-auto"
+					class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto"
 				/>
 			</figure>
-			<h1 class="text-7xl font-bold">
-				Big Tech <span
-					class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-orange-500 animate-pulse"
-					>Power.</span
-				>
-				<br />Creative Studio <span
-					class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-yellow-200"
-					>Soul.</span
-				>
+			<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+				{title}
 			</h1>
-			<h2 class="text-2xl max-w-xl mx-auto">{subtitle}</h2>
-			<button
-				class="btn btn-primary btn-lg text-nowrap block mx-auto mt-8 rounded-full"
-				>{buttonText}</button
+			<h2 class="text-lg sm:text-xl md:text-2xl max-w-xl mx-auto mt-4">
+				{subtitle}
+			</h2>
+			<a
+				href="/contact"
+				class="btn btn-primary btn-md sm:btn-lg block mx-auto mt-8 rounded-full max-w-xs"
+				>{buttonText}</a
 			>
 		</div>
 		<!-- Scroll indicator -->
-		<div class="z-20 mt-8">
+		<div class="z-20 mt-8 hidden sm:block">
 			<button
 				class="flex flex-col items-center text-white animate-bounce hover:text-orange-400 transition-colors cursor-pointer"
 				onclick="document.getElementById('next-section').scrollIntoView({ behavior: 'smooth' })"
 			>
-				<span class="text-sm mb-2">Scroll down</span>
+				<span class="text-xs sm:text-sm mb-2">Scroll down</span>
 				<svg
 					class="w-6 h-6"
 					fill="none"

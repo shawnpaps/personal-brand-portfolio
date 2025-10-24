@@ -1,7 +1,6 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
 import Hero from "../components/Hero.astro";
-import Card from "../components/Card.astro";
 ---
 
 <RootLayout
@@ -9,275 +8,217 @@ import Card from "../components/Card.astro";
 	description="Real results from real projects. See how we've helped businesses, creators, and studios scale with custom systems."
 >
 	<Hero
-		title="Real Projects. Real Results."
-		subtitle="See how custom systems transform operations and unlock growth."
-		buttonText="Start Your Success Story"
+		title="Case Studies Are Cooking"
+		subtitle="(We're too busy shipping client work to write about it)"
+		buttonText="Be Part of the Next One"
 		videoPath="/video/water.mp4"
 	/>
 
 	<section id="next-section" class="relative z-10 py-20 px-6">
-		<div class="max-w-7xl mx-auto">
-			<h2 class="text-5xl font-bold text-center mb-4 text-white">
-				Case <span class="text-primary">Studies</span>
-			</h2>
-			<p
-				class="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto"
+		<div class="max-w-5xl mx-auto">
+			<!-- Coming Soon Hero -->
+			<div class="text-center mb-20">
+				<div class="text-9xl mb-8 animate-bounce">🚧</div>
+				<h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+					Coming Soon™
+				</h2>
+				<p class="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+					We've been so busy building cool stuff for clients that we
+					forgot to document it. Classic developer move.
+				</p>
+			</div>
+
+			<!-- Funny Excuses Grid -->
+			<div class="grid md:grid-cols-3 gap-6 mb-20">
+				<div
+					class="card bg-gradient-to-br from-primary/20 to-transparent border border-primary/20 backdrop-blur-xl"
+				>
+					<div class="card-body items-center text-center">
+						<div class="text-5xl mb-4">📸</div>
+						<h3 class="card-title text-white text-xl mb-2">
+							Forgot Screenshots
+						</h3>
+						<p class="text-gray-300">
+							We were too focused on shipping to take before/after
+							pics. Our bad.
+						</p>
+					</div>
+				</div>
+
+				<div
+					class="card bg-gradient-to-br from-secondary/20 to-transparent border border-secondary/20 backdrop-blur-xl"
+				>
+					<div class="card-body items-center text-center">
+						<div class="text-5xl mb-4">🤝</div>
+						<h3 class="card-title text-white text-xl mb-2">
+							NDAs Are Real
+						</h3>
+						<p class="text-gray-300">
+							Some of our coolest work is under wraps. We're
+							waiting on client approvals.
+						</p>
+					</div>
+				</div>
+
+				<div
+					class="card bg-gradient-to-br from-accent/20 to-transparent border border-accent/20 backdrop-blur-xl"
+				>
+					<div class="card-body items-center text-center">
+						<div class="text-5xl mb-4">⚡</div>
+						<h3 class="card-title text-white text-xl mb-2">
+							Always Shipping
+						</h3>
+						<p class="text-gray-300">
+							Writing case studies &lt; building the next system.
+							Priorities.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- What We're Working On -->
+			<div
+				class="card bg-base-200/50 backdrop-blur-xl border border-white/10 mb-20"
 			>
-				From manual chaos to automated excellence. Here's how we've
-				helped clients build their unfair advantage.
-			</p>
-
-			<!-- Case Study 1 -->
-			<div class="mb-20">
-				<Card>
-					<div class="grid md:grid-cols-2 gap-8">
-						<div>
-							<div class="badge badge-primary mb-4">
-								E-Commerce
-							</div>
-							<h3 class="text-3xl font-bold text-white mb-4">
-								DTC Brand: 10x Order Processing Speed
-							</h3>
-							<p class="text-gray-300 mb-6">
-								A growing DTC skincare brand was drowning in
-								manual order processing, inventory tracking, and
-								customer service. Every day felt like
-								firefighting.
+				<div class="card-body">
+					<h3 class="card-title text-3xl text-white mb-6">
+						But Here's What We're Working On:
+					</h3>
+					<div class="space-y-4 text-lg text-gray-300">
+						<div class="flex items-start gap-4">
+							<span class="text-2xl">☕</span>
+							<p>
+								<strong class="text-white"
+									>Coffee roaster eCommerce platform</strong
+								> — Subscriptions, inventory, and wholesale all in
+								one place
 							</p>
-							<h4 class="text-xl font-bold text-white mb-3">
-								The Solution
-							</h4>
-							<ul class="space-y-2 text-gray-300 mb-6">
-								<li>
-									🔗 Integrated Shopify, fulfillment, and
-									customer support systems
-								</li>
-								<li>
-									📦 Automated order processing and shipping
-									label generation
-								</li>
-								<li>
-									📊 Built real-time inventory dashboard with
-									automated reorder triggers
-								</li>
-								<li>
-									💬 Automated customer service for order
-									tracking and common questions
-								</li>
-							</ul>
-							<h4 class="text-xl font-bold text-white mb-3">
-								The Results
-							</h4>
-							<div
-								class="stats stats-vertical lg:stats-horizontal shadow bg-base-300 w-full"
-							>
-								<div class="stat">
-									<div class="stat-title">Time Saved</div>
-									<div class="stat-value text-primary">
-										40hrs/wk
-									</div>
-								</div>
-								<div class="stat">
-									<div class="stat-title">
-										Processing Speed
-									</div>
-									<div class="stat-value text-secondary">
-										10x faster
-									</div>
-								</div>
-								<div class="stat">
-									<div class="stat-title">Error Rate</div>
-									<div class="stat-value text-accent">
-										-95%
-									</div>
-								</div>
-							</div>
 						</div>
-						<div
-							class="flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8"
-						>
-							<div class="text-center">
-								<div class="text-6xl mb-4">📦</div>
-								<p class="text-2xl font-bold text-white">
-									"We went from chaos to clockwork in 6
-									weeks."
-								</p>
-								<p class="text-gray-300 mt-2">
-									— Sarah K., Founder
-								</p>
-							</div>
+						<div class="flex items-start gap-4">
+							<span class="text-2xl">🎸</span>
+							<p>
+								<strong class="text-white"
+									>Music gear shop automation</strong
+								> — From Shopify to fulfillment to analytics dashboards
+							</p>
+						</div>
+						<div class="flex items-start gap-4">
+							<span class="text-2xl">🎤</span>
+							<p>
+								<strong class="text-white"
+									><a
+										href="https://tourpass-app.com"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="hover:text-primary transition-colors"
+										>Tourpass</a
+									></strong
+								> — A music industry networking app connecting artists,
+								venues, and fans
+							</p>
+						</div>
+						<div class="flex items-start gap-4">
+							<span class="text-2xl">🃏</span>
+							<p>
+								<strong class="text-white"
+									>Trading Card Game (TCG) Board State Tracker</strong
+								> — Digital companion for tracking game states and
+								statistics
+							</p>
+						</div>
+						<div class="flex items-start gap-4">
+							<span class="text-2xl">🎨</span>
+							<p>
+								<strong class="text-white"
+									>Design studio client portal</strong
+								> — Project management that doesn't suck
+							</p>
+						</div>
+						<div class="flex items-start gap-4">
+							<span class="text-2xl">🎬</span>
+							<p>
+								<strong class="text-white"
+									>Creator automation system</strong
+								> — Multi-platform publishing on autopilot
+							</p>
 						</div>
 					</div>
-				</Card>
+				</div>
 			</div>
 
-			<!-- Case Study 2 -->
-			<div class="mb-20">
-				<Card>
-					<div class="grid md:grid-cols-2 gap-8">
+			<!-- Trust Signals -->
+			<div class="text-center mb-20">
+				<h3 class="text-3xl font-bold text-white mb-8">
+					In the Meantime, Here's What's Real:
+				</h3>
+				<div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+					<div>
 						<div
-							class="flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-8 order-2 md:order-1"
+							class="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2"
 						>
-							<div class="text-center">
-								<div class="text-6xl mb-4">🎥</div>
-								<p class="text-2xl font-bold text-white">
-									"I doubled my content output without hiring
-									anyone."
-								</p>
-								<p class="text-gray-300 mt-2">
-									— Marcus T., Creator (500K followers)
-								</p>
-							</div>
+							15+
 						</div>
-						<div class="order-1 md:order-2">
-							<div class="badge badge-secondary mb-4">
-								Content Creator
-							</div>
-							<h3 class="text-3xl font-bold text-white mb-4">
-								YouTube Creator: 2x Output, Half the Effort
-							</h3>
-							<p class="text-gray-300 mb-6">
-								A 500K+ subscriber YouTuber was maxed out at 2
-								videos per week. Publishing, repurposing, and
-								engagement took more time than creating.
-							</p>
-							<h4 class="text-xl font-bold text-white mb-3">
-								The Solution
-							</h4>
-							<ul class="space-y-2 text-gray-300 mb-6">
-								<li>
-									📱 Automated cross-posting to 5 platforms
-								</li>
-								<li>
-									✂️ Built AI-powered clip generation for
-									shorts/reels
-								</li>
-								<li>
-									💬 Automated comment aggregation and
-									response tracking
-								</li>
-								<li>
-									📧 Newsletter auto-generated from video
-									transcripts
-								</li>
-							</ul>
-							<h4 class="text-xl font-bold text-white mb-3">
-								The Results
-							</h4>
-							<div
-								class="stats stats-vertical lg:stats-horizontal shadow bg-base-300 w-full"
-							>
-								<div class="stat">
-									<div class="stat-title">Content Output</div>
-									<div class="stat-value text-primary">
-										2x
-									</div>
-								</div>
-								<div class="stat">
-									<div class="stat-title">Time Saved</div>
-									<div class="stat-value text-secondary">
-										25hrs/wk
-									</div>
-								</div>
-								<div class="stat">
-									<div class="stat-title">Revenue Growth</div>
-									<div class="stat-value text-accent">
-										+180%
-									</div>
-								</div>
-							</div>
-						</div>
+						<p class="text-xl text-gray-300">
+							Systems Shipped This Year
+						</p>
 					</div>
-				</Card>
-			</div>
-
-			<!-- Case Study 3 -->
-			<div class="mb-20">
-				<Card>
-					<div class="grid md:grid-cols-2 gap-8">
-						<div>
-							<div class="badge badge-accent mb-4">
-								Creative Studio
-							</div>
-							<h3 class="text-3xl font-bold text-white mb-4">
-								Design Studio: From Chaos to 50 Clients
-							</h3>
-							<p class="text-gray-300 mb-6">
-								A 5-person design studio was turning away
-								clients because their project management was a
-								mess. They needed to scale without adding
-								overhead.
-							</p>
-							<h4 class="text-xl font-bold text-white mb-3">
-								The Solution
-							</h4>
-							<ul class="space-y-2 text-gray-300 mb-6">
-								<li>
-									🎨 Custom client portal with branded
-									experience
-								</li>
-								<li>
-									📋 Automated project onboarding and kickoff
-								</li>
-								<li>
-									💳 Integrated invoicing and payment
-									collection
-								</li>
-								<li>
-									📂 Asset delivery system with version
-									control
-								</li>
-							</ul>
-							<h4 class="text-xl font-bold text-white mb-3">
-								The Results
-							</h4>
-							<div
-								class="stats stats-vertical lg:stats-horizontal shadow bg-base-300 w-full"
-							>
-								<div class="stat">
-									<div class="stat-title">
-										Client Capacity
-									</div>
-									<div class="stat-value text-primary">
-										3x
-									</div>
-								</div>
-								<div class="stat">
-									<div class="stat-title">Admin Time</div>
-									<div class="stat-value text-secondary">
-										-60%
-									</div>
-								</div>
-								<div class="stat">
-									<div class="stat-title">Revenue</div>
-									<div class="stat-value text-accent">
-										+250%
-									</div>
-								</div>
-							</div>
-						</div>
+					<div>
 						<div
-							class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl p-8"
+							class="text-5xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent mb-2"
 						>
-							<div class="text-center">
-								<div class="text-6xl mb-4">🎨</div>
-								<p class="text-2xl font-bold text-white">
-									"We tripled our client count without
-									hiring."
-								</p>
-								<p class="text-gray-300 mt-2">
-									— David L., Creative Director
-								</p>
-							</div>
+							100%
 						</div>
+						<p class="text-xl text-gray-300">
+							Client Satisfaction Rate
+						</p>
 					</div>
-				</Card>
+					<div>
+						<div
+							class="text-5xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent mb-2"
+						>
+							0
+						</div>
+						<p class="text-xl text-gray-300">
+							BS. Just Real Solutions.
+						</p>
+					</div>
+				</div>
 			</div>
 
-			<div class="text-center mt-16">
-				<a href="/contact" class="btn btn-primary btn-lg rounded-full">
-					Write Your Success Story
-				</a>
+			<!-- Cheeky CTA -->
+			<div
+				class="hero bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl border border-white/10 overflow-hidden mb-12"
+			>
+				<div class="hero-content text-center py-16">
+					<div class="max-w-3xl">
+						<h3 class="text-4xl font-bold text-white mb-6">
+							Want to Be in Our Next Case Study?
+						</h3>
+						<p class="text-xl text-gray-300 mb-8">
+							We're looking for ambitious businesses, creators,
+							and studios ready to level up. You bring the vision,
+							we'll bring the systems.
+						</p>
+						<p class="text-lg text-gray-400 mb-8 italic">
+							(And yes, we promise to take screenshots this time.)
+						</p>
+						<a
+							href="/contact"
+							class="btn btn-primary btn-lg rounded-full text-lg px-8"
+						>
+							Let's Talk About Your Project
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer Note -->
+			<div class="text-center text-gray-400 text-sm">
+				<p>
+					P.S. — This page will actually have real case studies soon.
+					We're just perfectionists who'd rather ship client work than
+					brag about it. 🤷‍♂️
+				</p>
 			</div>
 		</div>
 	</section>

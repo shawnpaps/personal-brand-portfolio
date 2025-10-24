@@ -1,11 +1,13 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
 import ContactForm from "../components/blocks/react/ContactForm.tsx";
+import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <RootLayout
-	title="Contact | sudo.create - Custom Systems for Creatives"
-	description="Get in touch with sudo.create to discuss how we can help build custom systems that elevate your brand and streamline your operations."
+	title="Contact Tampa Web Designer | Get a Quote | sudo.create"
+	description="Contact our Tampa-based web design and development team. Serving businesses and creators in Tampa, Plant City, Lakeland, and Central Florida. Free consultations available."
+	keywords="contact web designer Tampa, Tampa web design quote, web development consultation Tampa Bay, Plant City web designer contact, Lakeland web development, Tampa web agency contact"
 >
 	<section class="py-20 mt-16 px-8 pt-24 z-30 text-white relative">
 		<div class="max-w-4xl mx-auto text-center space-y-6">
@@ -20,6 +22,18 @@ import ContactForm from "../components/blocks/react/ContactForm.tsx";
 		</div>
 		<div class="mt-8">
 			<ContactForm client:load />
+		</div>
+
+		<!-- Social Links Section -->
+		<div class="max-w-4xl mx-auto mt-16 pt-16 border-t border-white/10">
+			<div class="text-center space-y-6">
+				<h3 class="text-2xl font-bold">Connect With Me</h3>
+				<p class="text-gray-300 max-w-md mx-auto">
+					Follow along for updates, behind-the-scenes, and technical
+					insights.
+				</p>
+				<SocialLinks variant="contact" size="lg" />
+			</div>
 		</div>
 	</section>
 </RootLayout>
