@@ -1,5 +1,5 @@
 ---
-import { Zap, SquareMenu } from 'lucide-astro';
+import { Zap, SquareMenu } from "lucide-astro";
 ---
 
 <nav
@@ -10,18 +10,36 @@ import { Zap, SquareMenu } from 'lucide-astro';
 			class="btn btn-ghost md:hidden normal-case text-xl text-white navbar-start"
 			><SquareMenu /></button
 		>
-		<button class="btn btn-ghost text-xl text-white">sudo.create</button>
+		<a href="/" class="btn btn-ghost text-xl text-white">sudo.create</a>
 	</div>
 	<div class="navbar-center hidden md:flex space-x-6">
-		<a class="btn btn-ghost hover:text-primary rounded-full">For Businesses</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">For Creators</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">For Studios</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">Case Studies</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">Products</a>
+		<a
+			href="/solutions/businesses"
+			class="btn btn-ghost hover:text-primary rounded-full"
+			>For Businesses</a
+		>
+		<a
+			href="/solutions/creators"
+			class="btn btn-ghost hover:text-primary rounded-full"
+			>For Creators</a
+		>
+		<a
+			href="/solutions/studios"
+			class="btn btn-ghost hover:text-primary rounded-full">For Studios</a
+		>
+		<a
+			href="/case-studies"
+			class="btn btn-ghost hover:text-primary rounded-full"
+			>Case Studies</a
+		>
+		<a
+			href="/products"
+			class="btn btn-ghost hover:text-primary rounded-full">Products</a
+		>
 	</div>
 	<div class="navbar-end">
-		<button class="btn btn-primary rounded-full btn-outline"
-			>Let's build your unfair advantage.</button
+		<a href="/contact" class="btn btn-primary rounded-full btn-outline"
+			>Let's build your unfair advantage.</a
 		>
 	</div>
 </nav>
