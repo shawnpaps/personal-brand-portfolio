@@ -1,0 +1,284 @@
+---
+import RootLayout from "../layouts/RootLayout.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+---
+
+<RootLayout
+	title="Case Studies | sudo.create"
+	description="Real results from real projects. See how we've helped businesses, creators, and studios scale with custom systems."
+>
+	<Hero
+		title="Real Projects. Real Results."
+		subtitle="See how custom systems transform operations and unlock growth."
+		buttonText="Start Your Success Story"
+		videoPath="/video/water.mp4"
+	/>
+
+	<section id="next-section" class="relative z-10 py-20 px-6">
+		<div class="max-w-7xl mx-auto">
+			<h2 class="text-5xl font-bold text-center mb-4 text-white">
+				Case <span class="text-primary">Studies</span>
+			</h2>
+			<p
+				class="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto"
+			>
+				From manual chaos to automated excellence. Here's how we've
+				helped clients build their unfair advantage.
+			</p>
+
+			<!-- Case Study 1 -->
+			<div class="mb-20">
+				<Card>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div>
+							<div class="badge badge-primary mb-4">
+								E-Commerce
+							</div>
+							<h3 class="text-3xl font-bold text-white mb-4">
+								DTC Brand: 10x Order Processing Speed
+							</h3>
+							<p class="text-gray-300 mb-6">
+								A growing DTC skincare brand was drowning in
+								manual order processing, inventory tracking, and
+								customer service. Every day felt like
+								firefighting.
+							</p>
+							<h4 class="text-xl font-bold text-white mb-3">
+								The Solution
+							</h4>
+							<ul class="space-y-2 text-gray-300 mb-6">
+								<li>
+									🔗 Integrated Shopify, fulfillment, and
+									customer support systems
+								</li>
+								<li>
+									📦 Automated order processing and shipping
+									label generation
+								</li>
+								<li>
+									📊 Built real-time inventory dashboard with
+									automated reorder triggers
+								</li>
+								<li>
+									💬 Automated customer service for order
+									tracking and common questions
+								</li>
+							</ul>
+							<h4 class="text-xl font-bold text-white mb-3">
+								The Results
+							</h4>
+							<div
+								class="stats stats-vertical lg:stats-horizontal shadow bg-base-300 w-full"
+							>
+								<div class="stat">
+									<div class="stat-title">Time Saved</div>
+									<div class="stat-value text-primary">
+										40hrs/wk
+									</div>
+								</div>
+								<div class="stat">
+									<div class="stat-title">
+										Processing Speed
+									</div>
+									<div class="stat-value text-secondary">
+										10x faster
+									</div>
+								</div>
+								<div class="stat">
+									<div class="stat-title">Error Rate</div>
+									<div class="stat-value text-accent">
+										-95%
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8"
+						>
+							<div class="text-center">
+								<div class="text-6xl mb-4">📦</div>
+								<p class="text-2xl font-bold text-white">
+									"We went from chaos to clockwork in 6
+									weeks."
+								</p>
+								<p class="text-gray-300 mt-2">
+									— Sarah K., Founder
+								</p>
+							</div>
+						</div>
+					</div>
+				</Card>
+			</div>
+
+			<!-- Case Study 2 -->
+			<div class="mb-20">
+				<Card>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div
+							class="flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-8 order-2 md:order-1"
+						>
+							<div class="text-center">
+								<div class="text-6xl mb-4">🎥</div>
+								<p class="text-2xl font-bold text-white">
+									"I doubled my content output without hiring
+									anyone."
+								</p>
+								<p class="text-gray-300 mt-2">
+									— Marcus T., Creator (500K followers)
+								</p>
+							</div>
+						</div>
+						<div class="order-1 md:order-2">
+							<div class="badge badge-secondary mb-4">
+								Content Creator
+							</div>
+							<h3 class="text-3xl font-bold text-white mb-4">
+								YouTube Creator: 2x Output, Half the Effort
+							</h3>
+							<p class="text-gray-300 mb-6">
+								A 500K+ subscriber YouTuber was maxed out at 2
+								videos per week. Publishing, repurposing, and
+								engagement took more time than creating.
+							</p>
+							<h4 class="text-xl font-bold text-white mb-3">
+								The Solution
+							</h4>
+							<ul class="space-y-2 text-gray-300 mb-6">
+								<li>
+									📱 Automated cross-posting to 5 platforms
+								</li>
+								<li>
+									✂️ Built AI-powered clip generation for
+									shorts/reels
+								</li>
+								<li>
+									💬 Automated comment aggregation and
+									response tracking
+								</li>
+								<li>
+									📧 Newsletter auto-generated from video
+									transcripts
+								</li>
+							</ul>
+							<h4 class="text-xl font-bold text-white mb-3">
+								The Results
+							</h4>
+							<div
+								class="stats stats-vertical lg:stats-horizontal shadow bg-base-300 w-full"
+							>
+								<div class="stat">
+									<div class="stat-title">Content Output</div>
+									<div class="stat-value text-primary">
+										2x
+									</div>
+								</div>
+								<div class="stat">
+									<div class="stat-title">Time Saved</div>
+									<div class="stat-value text-secondary">
+										25hrs/wk
+									</div>
+								</div>
+								<div class="stat">
+									<div class="stat-title">Revenue Growth</div>
+									<div class="stat-value text-accent">
+										+180%
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</Card>
+			</div>
+
+			<!-- Case Study 3 -->
+			<div class="mb-20">
+				<Card>
+					<div class="grid md:grid-cols-2 gap-8">
+						<div>
+							<div class="badge badge-accent mb-4">
+								Creative Studio
+							</div>
+							<h3 class="text-3xl font-bold text-white mb-4">
+								Design Studio: From Chaos to 50 Clients
+							</h3>
+							<p class="text-gray-300 mb-6">
+								A 5-person design studio was turning away
+								clients because their project management was a
+								mess. They needed to scale without adding
+								overhead.
+							</p>
+							<h4 class="text-xl font-bold text-white mb-3">
+								The Solution
+							</h4>
+							<ul class="space-y-2 text-gray-300 mb-6">
+								<li>
+									🎨 Custom client portal with branded
+									experience
+								</li>
+								<li>
+									📋 Automated project onboarding and kickoff
+								</li>
+								<li>
+									💳 Integrated invoicing and payment
+									collection
+								</li>
+								<li>
+									📂 Asset delivery system with version
+									control
+								</li>
+							</ul>
+							<h4 class="text-xl font-bold text-white mb-3">
+								The Results
+							</h4>
+							<div
+								class="stats stats-vertical lg:stats-horizontal shadow bg-base-300 w-full"
+							>
+								<div class="stat">
+									<div class="stat-title">
+										Client Capacity
+									</div>
+									<div class="stat-value text-primary">
+										3x
+									</div>
+								</div>
+								<div class="stat">
+									<div class="stat-title">Admin Time</div>
+									<div class="stat-value text-secondary">
+										-60%
+									</div>
+								</div>
+								<div class="stat">
+									<div class="stat-title">Revenue</div>
+									<div class="stat-value text-accent">
+										+250%
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="flex items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl p-8"
+						>
+							<div class="text-center">
+								<div class="text-6xl mb-4">🎨</div>
+								<p class="text-2xl font-bold text-white">
+									"We tripled our client count without
+									hiring."
+								</p>
+								<p class="text-gray-300 mt-2">
+									— David L., Creative Director
+								</p>
+							</div>
+						</div>
+					</div>
+				</Card>
+			</div>
+
+			<div class="text-center mt-16">
+				<a href="/contact" class="btn btn-primary btn-lg rounded-full">
+					Write Your Success Story
+				</a>
+			</div>
+		</div>
+	</section>
+</RootLayout>

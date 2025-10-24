@@ -1,0 +1,25 @@
+---
+import RootLayout from "../layouts/RootLayout.astro";
+import ContactForm from "../components/blocks/react/ContactForm.tsx";
+---
+
+<RootLayout
+	title="Contact | sudo.create - Custom Systems for Creatives"
+	description="Get in touch with sudo.create to discuss how we can help build custom systems that elevate your brand and streamline your operations."
+>
+	<section class="py-20 mt-16 px-8 pt-24 z-30 text-white relative">
+		<div class="max-w-4xl mx-auto text-center space-y-6">
+			<h2 class="text-5xl font-bold mb-4">
+				Let's build something amazing together.
+			</h2>
+			<p class="text-xl max-w-xl mx-auto font-semibold">
+				Whether you have a project in mind or just want to say hello,
+				we'd love to hear from you. Fill out the form below, and we'll
+				get back to you as soon as possible.
+			</p>
+		</div>
+		<div class="mt-8">
+			<ContactForm client:load />
+		</div>
+	</section>
+</RootLayout>

@@ -1,0 +1,153 @@
+---
+import RootLayout from "../../layouts/RootLayout.astro";
+import Hero from "../../components/Hero.astro";
+import Card from "../../components/Card.astro";
+---
+
+<RootLayout
+	title="For Creators | sudo.create"
+	description="Content systems that turn your creative chaos into consistent output. Build, automate, and scale your creator business."
+>
+	<Hero
+		title="Create More. Manage Less."
+		subtitle="Custom systems that handle the boring stuff so you can focus on creating."
+		buttonText="Automate Your Creator Business"
+		videoPath="/video/water.mp4"
+	/>
+
+	<section id="next-section" class="relative z-10 py-20 px-6">
+		<div class="max-w-7xl mx-auto">
+			<h2 class="text-5xl font-bold text-center mb-4 text-white">
+				Systems for <span class="text-primary">Creators</span>
+			</h2>
+			<p
+				class="text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto"
+			>
+				You're great at creating. Let's build systems that handle
+				everything else—publishing, engagement, monetization, analytics.
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-8 mb-20">
+				<Card>
+					<div class="text-4xl mb-4">📱</div>
+					<h3 class="text-2xl font-bold text-white mb-3">
+						Content Distribution
+					</h3>
+					<p class="text-gray-300">
+						Create once, publish everywhere. Automate cross-posting
+						to YouTube, Twitter, Instagram, LinkedIn, TikTok, and
+						your newsletter.
+					</p>
+				</Card>
+
+				<Card>
+					<div class="text-4xl mb-4">💰</div>
+					<h3 class="text-2xl font-bold text-white mb-3">
+						Monetization Systems
+					</h3>
+					<p class="text-gray-300">
+						Turn followers into revenue. Custom funnels, digital
+						product delivery, membership systems, and payment
+						automation.
+					</p>
+				</Card>
+
+				<Card>
+					<div class="text-4xl mb-4">📈</div>
+					<h3 class="text-2xl font-bold text-white mb-3">
+						Analytics Dashboard
+					</h3>
+					<p class="text-gray-300">
+						All your metrics in one place. See what's working across
+						platforms without logging into 10 different apps.
+					</p>
+				</Card>
+			</div>
+
+			<div
+				class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl p-12 backdrop-blur-xl border border-white/10"
+			>
+				<h3 class="text-3xl font-bold text-white mb-6">
+					What Creators Get
+				</h3>
+				<div class="space-y-4">
+					<div class="flex items-start gap-4">
+						<div class="text-2xl">✅</div>
+						<div>
+							<h4 class="text-xl font-bold text-white">
+								More Time Creating
+							</h4>
+							<p class="text-gray-300">
+								Spend 80% of your time creating instead of 20%
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-4">
+						<div class="text-2xl">✅</div>
+						<div>
+							<h4 class="text-xl font-bold text-white">
+								Consistent Output
+							</h4>
+							<p class="text-gray-300">
+								Never miss a publishing schedule again
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-4">
+						<div class="text-2xl">✅</div>
+						<div>
+							<h4 class="text-xl font-bold text-white">
+								Professional Infrastructure
+							</h4>
+							<p class="text-gray-300">
+								Look and operate like a media company, not a
+								solo creator
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-20">
+				<h3 class="text-3xl font-bold text-white mb-8 text-center">
+					Perfect For
+				</h3>
+				<div class="grid md:grid-cols-3 gap-6">
+					<Card>
+						<h4 class="text-xl font-bold text-white mb-3">
+							🎥 Video Creators
+						</h4>
+						<p class="text-gray-300">
+							YouTube, TikTok, Instagram—automate thumbnails,
+							descriptions, and multi-platform distribution.
+						</p>
+					</Card>
+					<Card>
+						<h4 class="text-xl font-bold text-white mb-3">
+							✍️ Writers & Bloggers
+						</h4>
+						<p class="text-gray-300">
+							Newsletter automation, SEO optimization, content
+							calendars that actually work.
+						</p>
+					</Card>
+					<Card>
+						<h4 class="text-xl font-bold text-white mb-3">
+							🎙️ Podcasters
+						</h4>
+						<p class="text-gray-300">
+							Episode publishing, show notes generation, sponsor
+							management, and audience growth tools.
+						</p>
+					</Card>
+				</div>
+			</div>
+
+			<div class="text-center mt-16">
+				<a href="/contact" class="btn btn-primary btn-lg rounded-full">
+					Build My Creator System
+				</a>
+			</div>
+		</div>
+	</section>
+</RootLayout>
