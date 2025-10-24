@@ -1,27 +1,80 @@
 ---
-import { Zap, SquareMenu } from 'lucide-astro';
+import { Zap, SquareMenu, X } from "lucide-astro";
+import SocialLinks from "./SocialLinks.astro";
 ---
 
 <nav
-	class="navbar max-w-screen-xl mx-auto rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10"
+	class="navbar max-w-screen-2xl mx-auto rounded-full bg-white/20 backdrop-blur-md text-white border border-white/10 px-4"
 >
 	<div class="navbar-start">
-		<button
-			class="btn btn-ghost md:hidden normal-case text-xl text-white navbar-start"
-			><SquareMenu /></button
+		<div class="dropdown">
+			<label tabindex="0" class="btn btn-ghost md:hidden">
+				<SquareMenu />
+			</label>
+			<ul
+				tabindex="0"
+				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+			>
+				<li>
+					<a href="/solutions/businesses">For Businesses</a>
+				</li>
+				<li>
+					<a href="/solutions/creators">For Creators</a>
+				</li>
+				<li>
+					<a href="/solutions/studios">For Studios</a>
+				</li>
+				<li>
+					<a href="/case-studies">Case Studies</a>
+				</li>
+				<li>
+					<a href="/products">Products</a>
+				</li>
+				<li>
+					<a href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+		<a href="/" class="btn btn-ghost text-xl text-white">sudo.create</a>
+	</div>
+	<div class="navbar-center hidden md:flex space-x-2 lg:space-x-4">
+		<a
+			href="/solutions/businesses"
+			class="btn btn-ghost hover:text-primary rounded-full text-sm lg:text-base"
+			>For Businesses</a
 		>
-		<button class="btn btn-ghost text-xl text-white">sudo.create</button>
+		<a
+			href="/solutions/creators"
+			class="btn btn-ghost hover:text-primary rounded-full text-sm lg:text-base"
+			>For Creators</a
+		>
+		<a
+			href="/solutions/studios"
+			class="btn btn-ghost hover:text-primary rounded-full text-sm lg:text-base"
+			>For Studios</a
+		>
+		<a
+			href="/case-studies"
+			class="btn btn-ghost hover:text-primary rounded-full text-sm lg:text-base"
+			>Case Studies</a
+		>
+		<a
+			href="/products"
+			class="btn btn-ghost hover:text-primary rounded-full text-sm lg:text-base"
+			>Products</a
+		>
 	</div>
-	<div class="navbar-center hidden md:flex space-x-6">
-		<a class="btn btn-ghost hover:text-primary rounded-full">For Businesses</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">For Creators</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">For Studios</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">Case Studies</a>
-		<a class="btn btn-ghost hover:text-primary rounded-full">Products</a>
-	</div>
-	<div class="navbar-end">
-		<button class="btn btn-primary rounded-full btn-outline"
-			>Let's build your unfair advantage.</button
+	<div class="navbar-end flex items-center gap-2">
+		<div class="hidden lg:flex">
+			<SocialLinks variant="navbar" size="sm" />
+		</div>
+		<a
+			href="/contact"
+			class="btn btn-primary rounded-full btn-outline btn-sm lg:btn-md hidden sm:flex"
+			>Let's build</a
+		>
+		<a href="/contact" class="btn btn-primary rounded-full btn-sm sm:hidden"
+			>Contact</a
 		>
 	</div>
 </nav>
