@@ -1,29 +1,27 @@
 ---
-import Card from "../Card.astro";
-import Carousel from "../Carousel.astro";
-import DropdownCards from "../DropdownCards.astro";
+import Card from '../Card.astro';
+import Carousel from '../Carousel.astro';
+import DropdownCards from '../DropdownCards.astro';
 ---
 
 <section class="relative py-24 px-6 sm:px-10 lg:px-14 overflow-hidden">
 	<div class="relative max-w-6xl mx-auto text-white space-y-20">
 		<!-- intro copy -->
 		<div class="space-y-6 text-center">
-			<h2
-				class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
-			>
+			<h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
 				We’re a creative tech studio for brands who give a damn.
 			</h2>
 			<p class="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto">
-				Founded by people who’ve been on both sides of the glass — tech
-				and creative — we build high-powered digital systems that
-				actually make sense for studios, agencies, and modern brands.
+				Founded by people who’ve been on both sides of the glass — tech and
+				creative — we build high-powered digital systems that actually make
+				sense for studios, agencies, and modern brands.
 			</p>
 			<div
 				class="flex flex-col sm:flex-row items-center justify-center gap-4 text-lg text-white/70"
 			>
 				<p class="max-w-xl">
-					Whether you’re scaling up or starting out, our work sits at
-					the intersection of
+					Whether you’re scaling up or starting out, our work sits at the
+					intersection of
 					<span
 						class="mx-1 bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent font-semibold"
 						>engineering precision</span
@@ -36,14 +34,11 @@ import DropdownCards from "../DropdownCards.astro";
 				</p>
 				<span class="text-3xl">⸻</span>
 				<p class="max-w-xl">
-					Because your systems should amplify your craft, not slow it
-					down.
+					Because your systems should amplify your craft, not slow it down.
 				</p>
 			</div>
 		</div>
-		<div
-			class="flex items-start justify-between flex-col md:flex-row gap-6"
-		>
+		<div class="flex items-start justify-between flex-col md:flex-row gap-6">
 			<div class="max-w-2xl w-full space-y-2">
 				<DropdownCards />
 				<button class="btn btn-primary rounded-full mt-8 w-full"
@@ -62,7 +57,7 @@ import DropdownCards from "../DropdownCards.astro";
 		</div>
 
 		<!-- screenshot gallery -->
-		<div class="space-y-10">
+		<div class="space-y-10 hidden">
 			<div
 				class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
 			>
@@ -76,8 +71,8 @@ import DropdownCards from "../DropdownCards.astro";
 				</div>
 				<p class="text-white/60 max-w-2xl">
 					A living gallery of current builds. Swap these with your own
-					screenshots to highlight the craft, the systems, and the
-					moments your clients can’t stop talking about.
+					screenshots to highlight the craft, the systems, and the moments your
+					clients can’t stop talking about.
 				</p>
 			</div>
 			<Carousel />
