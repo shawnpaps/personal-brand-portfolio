@@ -1,7 +1,7 @@
 # SEO Optimization Summary - Creative Media Studio Positioning
 
 ## Overview
-Updated all SEO metadata, structured data, and keywords across the sudo.create website to reflect the new positioning as a **creative media studio** specializing in visual storytelling, photography, videography, and audio production.
+Updated all SEO metadata, structured data, and keywords across the sudo.create website to reflect the new positioning as a **creative media studio** specializing in visual storytelling, photography, and videography.
 
 ---
 
@@ -25,9 +25,8 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 1. **Photography** (Brand, Commercial, Product, Event, Music, Artist)
 2. **Videography** (Commercial, Music Videos, Promotional, Content)
 3. **Content Strategy** (Visual Content Creation, Brand Storytelling)
-4. **Audio Production** (Podcasts, Music, Creative Media)
-5. **Creative Direction** (Art Direction, Visual Strategy)
-6. **Supporting Tech** (Web Design, eCommerce, CMS) - De-emphasized but present
+4. **Creative Direction** (Art Direction, Visual Strategy)
+5. **Supporting Tech** (Web Design, eCommerce, CMS) - De-emphasized but present
 
 ---
 
@@ -36,7 +35,7 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 ### 🏠 Homepage (`index.astro`)
 **Title:** `sudo.create | Tampa Creative Media Studio | Photography, Videography & Visual Storytelling`
 
-**Description:** Tampa's creative media studio specializing in brand photography, commercial videography, and visual storytelling. We help artists, brands, and events tell authentic stories through cinematic visuals, audio production, and creative direction. Serving Tampa Bay, Plant City, and Lakeland.
+**Description:** Tampa's creative media studio specializing in brand photography, commercial videography, and visual storytelling. We help artists, brands, and events tell authentic stories through cinematic visuals and creative direction. Serving Tampa Bay, Plant City, and Lakeland.
 
 **Keywords:**
 - Tampa creative media studio
@@ -49,7 +48,6 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 - Music video production Tampa
 - Event photography Tampa Bay
 - Product photography Florida
-- Audio production Tampa
 - Creative direction Plant City
 
 ---
@@ -77,7 +75,7 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 ### 🎨 Creators Solution Page (`solutions/creators.astro`)
 **Title:** `Photography & Videography for Artists, Musicians & Creators | Tampa | sudo.create`
 
-**Description:** Professional photography, videography, and audio production for Tampa Bay artists, musicians, and content creators. Music video production, brand photography, podcast audio editing, and creative systems that support your artistic journey.
+**Description:** Professional photography and videography for Tampa Bay artists, musicians, and content creators. Music video production, brand photography, and creative systems that support your artistic journey.
 
 **Keywords:**
 - Music video production Tampa
@@ -86,7 +84,6 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 - Tampa music photographer
 - Band photography Tampa
 - Artist videography Tampa Bay
-- Podcast audio production Tampa
 - Content creator videography Florida
 - Creative portrait photography Tampa Bay
 - Tampa musician videography
@@ -182,12 +179,11 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 2. Commercial Videography
 3. Product Photography
 4. Visual Storytelling
-5. Audio Production
-6. Content Strategy
-7. Creative Direction
-8. Music Video Production
-9. Event Photography
-10. Web Design (supporting)
+5. Content Strategy
+6. Creative Direction
+7. Music Video Production
+8. Event Photography
+9. Web Design (supporting)
 
 ### Knowledge Graph Attributes (`knowsAbout`)
 - Photography
@@ -196,7 +192,6 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 - Brand Photography
 - Commercial Photography
 - Music Video Production
-- Audio Production
 - Content Strategy
 - Creative Direction
 
@@ -300,7 +295,7 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 ### Positioning Reinforced
 - **Primary:** Creative media studio
 - **Specialty:** Visual storytelling through photo/video
-- **Support:** Audio production, creative systems
+- **Support:** Creative direction, tech systems
 - **Location:** Tampa Bay area
 - **Audience:** Artists, brands, businesses, studios
 
@@ -389,12 +384,12 @@ Updated all SEO metadata, structured data, and keywords across the sudo.create w
 
 ## Conclusion
 
-All SEO elements have been updated to position sudo.create as a **creative media studio** with **visual storytelling** (photography & videography) as the hero service, supported by audio production and creative tech capabilities. The optimization targets the Tampa Bay market with a focus on serving artists, brands, businesses, and creative agencies.
+All SEO elements have been updated to position sudo.create as a **creative media studio** with **visual storytelling** (photography & videography) as the hero service, supported by creative direction and tech capabilities. The optimization targets the Tampa Bay market with a focus on serving artists, brands, businesses, and creative agencies.
 
 **Brand Voice:** Cinematic, confident, creative, and human  
 **Core Message:** Art meets systems. Creativity deserves infrastructure.  
 **Geographic Focus:** Tampa Bay, Plant City, Lakeland, Central Florida  
-**Service Focus:** Photography > Videography > Content > Audio > Tech
+**Service Focus:** Photography > Videography > Content > Creative Direction > Tech
 
 ---
 
