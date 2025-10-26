@@ -14,13 +14,12 @@ components**. Copilot should rewrite text content within `.astro`,
 ## Brand Overview
 
 **sudo.create** is a creative media studio that helps artists, brands,
-musicians, events, podcasters, and creators tell stories through
-photography, videography, audio, and technology.\
+musicians, events, and creators tell stories through
+photography, videography, and technology.\
 We blend art, media, and tech to create visuals and systems that move
 people.
 
-**Core Offerings:** - Visual storytelling (photo & video) - Audio
-production & editing - Creative tech & content systems - Strategy &
+**Core Offerings:** - Visual storytelling (photo & video) - Creative tech & content systems - Strategy &
 creative direction
 
 **Mission:** Create art that resonates, systems that empower, and
@@ -53,7 +52,7 @@ microcopy (buttons, CTAs, captions).\
 - "Creativity deserves infrastructure."\
 - "Art meets systems."\
 - "Built for flow, not friction."\
-- "Visuals. Sound. Systems. Flow."
+- "Visuals. Systems. Flow."
 
 **Tone Adjectives:** cinematic, modern, grounded, intentional, fluid,
 inspired.
@@ -70,7 +69,7 @@ inspired.
 Copilot should ensure all website copy:\
 1. Reflects sudo.create's **positioning as a creative media studio**.\
 2. Emphasizes **visual storytelling** as the hero service.\
-3. References **audio and tech** as supportive strengths.\
+3. References **tech and systems** as supportive strengths.\
 4. Sounds **alive, cinematic, and human** --- not robotic or corporate.\
 5. Uses **short sentences, rhythm, and visual language**.
 
@@ -86,7 +85,7 @@ Copilot should ensure all website copy:\
 -   **Prompt:**\
     "Rewrite the hero section headline and subtext to capture
     sudo.create's mission: helping artists, brands, and events tell
-    stories through visual media, sound, and technology. Keep it under
+    stories through visual media and technology. Keep it under
     15 words. Include a short call to action."\
 -   **CTA Ideas:** `Let’s create`, `Start your flow`, `Book your shoot`,
     `Tell your story`.
@@ -100,7 +99,7 @@ Copilot should ensure all website copy:\
 -   **Voice:** Personal, visionary, slightly poetic.\
 -   **Prompt:**\
     "Rewrite the About section to highlight Paps as a Creative Director
-    who blends art, sound, and systems. Show how sudo.create helps
+    who blends art, systems, and tech. Show how sudo.create helps
     creatives turn ideas into experiences. Include a short manifesto
     tone."
 
@@ -115,7 +114,7 @@ Copilot should ensure all website copy:\
     -   IGNITE --- entry-level offer for quick creative wins.\
     -   FLOW --- flagship creative storytelling experience.\
     -   REACTOR --- high-end system and creative tech projects.\
-    -   A La Carte --- flexible photography, audio, and tech services."
+    -   A La Carte --- flexible photography, video, and tech services."
 
 Use engaging copy for each tier that communicates **impact and vibe**,
 not just deliverables.
