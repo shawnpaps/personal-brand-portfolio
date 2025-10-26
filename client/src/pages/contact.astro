@@ -5,35 +5,33 @@ import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <RootLayout
-	title="Contact Tampa Web Designer | Get a Quote | sudo.create"
-	description="Contact our Tampa-based web design and development team. Serving businesses and creators in Tampa, Plant City, Lakeland, and Central Florida. Free consultations available."
-	keywords="contact web designer Tampa, Tampa web design quote, web development consultation Tampa Bay, Plant City web designer contact, Lakeland web development, Tampa web agency contact"
+	title="Contact sudo.create | Tampa Creative Media Studio | Book Your Shoot"
+	description="Ready to tell your story? Book photography, videography, or creative services with sudo.create in Tampa, Florida. Professional visual storytelling for artists, brands, events, and businesses across Tampa Bay, Plant City, and Lakeland."
+	keywords="contact Tampa photographer, book videographer Tampa, Tampa photography studio contact, creative media studio Tampa Bay, brand photography booking Florida, commercial videography Tampa, Tampa Bay photographer contact, Plant City videographer, Lakeland photography services, music video production Tampa, event photography booking"
 >
 	<section class="py-20 mt-16 px-8 pt-24 z-30 text-white relative">
 		<div class="max-w-4xl mx-auto text-center space-y-6">
-			<h2 class="text-5xl font-bold mb-4">
-				Let's build something amazing together.
-			</h2>
+			<h2 class="text-5xl font-bold mb-4">Let's build your story.</h2>
 			<p class="text-xl max-w-xl mx-auto font-semibold">
-				Whether you have a project in mind or just want to say hello,
-				we'd love to hear from you. Fill out the form below, and we'll
-				get back to you as soon as possible.
+				Every great project starts with a conversation. Whether you need
+				a shoot, a system, or just want to explore possibilities—let's
+				create something that resonates.
 			</p>
 		</div>
-		<div class="mt-8">
-			<ContactForm client:load />
-		</div>
-
-		<!-- Social Links Section -->
-		<div class="max-w-4xl mx-auto mt-16 pt-16 border-t border-white/10">
-			<div class="text-center space-y-6">
-				<h3 class="text-2xl font-bold">Connect With Me</h3>
-				<p class="text-gray-300 max-w-md mx-auto">
-					Follow along for updates, behind-the-scenes, and technical
-					insights.
-				</p>
-				<SocialLinks variant="contact" size="lg" />
-			</div>
-		</div>
 	</section>
+	<div class="mt-8">
+		<ContactForm client:load />
+	</div>
+
+	<!-- Social Links Section -->
+	<div class="max-w-4xl mx-auto mt-16 pt-16 border-t border-white/10">
+		<div class="text-center space-y-6">
+			<h3 class="text-2xl font-bold">Connect With Me</h3>
+			<p class="text-gray-300 max-w-md mx-auto">
+				Follow along for behind-the-scenes moments, creative insights,
+				and the work that keeps us inspired.
+			</p>
+		</div>
+		<SocialLinks variant="contact" size="lg" />
+	</div>
 </RootLayout>
