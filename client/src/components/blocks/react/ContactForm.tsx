@@ -202,7 +202,7 @@ export default function ContactForm() {
 		<div className="flex justify-center items-center">
 			<div className="card w-full max-w-lg shadow-xl bg-base-100">
 				<div className="card-body">
-					<h2 className="card-title text-3xl mb-4">Contact Me</h2>
+					<h2 className="card-title text-3xl mb-4">Start your flow</h2>
 
 					{submitStatus === "success" && (
 						<div className="alert alert-success mb-4">
@@ -219,7 +219,9 @@ export default function ContactForm() {
 									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 								/>
 							</svg>
-							<span>Thanks! Your message has been sent successfully.</span>
+							<span>
+								Thanks! We'll be in touch soon. Excited to create with you.
+							</span>
 						</div>
 					)}
 
@@ -238,7 +240,9 @@ export default function ContactForm() {
 									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
 								/>
 							</svg>
-							<span>Oops! Something went wrong. Please try again.</span>
+							<span>
+								Looks like your creativity's buffering. Please try again.
+							</span>
 						</div>
 					)}
 
@@ -403,7 +407,7 @@ export default function ContactForm() {
 											Sending...
 										</>
 									) : (
-										"Submit"
+										"Let's create"
 									)}
 								</button>
 							</Form>
