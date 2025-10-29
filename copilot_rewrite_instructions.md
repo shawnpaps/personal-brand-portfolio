@@ -1,154 +1,125 @@
-# Copilot Rewrite Instructions --- sudo.create Website
+# sudo.create – Copilot Copywriting Guidelines
 
-## Purpose
+> **Purpose:**  
+> This document defines how GitHub Copilot (and any AI rewriting tools) should interpret, rewrite, and update the website copy for **sudo.create** to reflect its evolved positioning.  
+> The goal is to align every line of copy with sudo.create’s focus on **creative systems**, not just creative services.
 
-This guide is for GitHub Copilot to rewrite **all copy and microcopy**
-on the sudo.create website to align with the studio's new brand
-positioning, tone, and direction.\
-The website is built with **Astro** and includes some **React
-components**. Copilot should rewrite text content within `.astro`,
-`.jsx`, and `.tsx` files while preserving structure and logic.
+---
 
-------------------------------------------------------------------------
+## 🔷 Brand Positioning
+**sudo.create** is a **creative systems company** that bridges storytelling and technology.  
+We help brands turn content chaos into scalable growth — by designing systems that make creativity efficient, measurable, and repeatable.
 
-## Brand Overview
+> **Positioning Statement:**  
+> “We design content systems — and create what’s needed to make them work.”
 
-**sudo.create** is a creative media studio that helps artists, brands,
-musicians, events, and creators tell stories through
-photography, videography, and technology.\
-We blend art, media, and tech to create visuals and systems that move
-people.
+---
 
-**Core Offerings:** - Visual storytelling (photo & video) - Creative tech & content systems - Strategy &
-creative direction
+## 🎯 Core Offers (Emphasize These)
+These are the five primary offers. Copilot should prioritize and frame all service language around them.
 
-**Mission:** Create art that resonates, systems that empower, and
-stories that move people.
+1. **The Blueprint** — Strategy & Systems Mapping  
+   *Define the ecosystem. Build clarity and roadmap before execution.*
 
-------------------------------------------------------------------------
+2. **The Engine** — Content Systems Build  
+   *Design and implement the infrastructure that makes the brand’s content machine run.*
 
-## Voice and Tone
+3. **The Ecosystem** — Story + System Integration  
+   *Blend creative production with technical systems to build scalable storytelling.*
 
-**Overall Personality:** Confident, cinematic, creative, and human ---
-with a bit of cheek when appropriate.\
-**Think:** "A creative studio that's visionary, not pretentious."
+4. **The Commerce Engine** — Content-to-Conversion  
+   *Integrate content systems with eCommerce to turn storytelling into revenue.*
 
-**Voice Characteristics:** - **Creative:** Uses storytelling, emotion,
-and visuals in language.\
-- **Professional:** Clear, structured, and intentional --- avoids
-fluff.\
-- **Cheeky Edge:** A wink of wit and playfulness, especially in
-microcopy (buttons, CTAs, captions).\
-- **Empowering:** Makes creators feel inspired, capable, and understood.
+5. **The Continuum** — Growth Automation Retainer  
+   *Ongoing optimization, automation, and performance improvements.*
 
-**Avoid:** Jargon, buzzwords, overused agency-speak ("disruptive,"
-"cutting-edge," etc.).
+> ✅ **These five offers are the foundation.**  
+> Avoid introducing or highlighting other services that aren’t part of this structure.
 
-------------------------------------------------------------------------
+---
 
-## Brand Language Framework
+## 🚫 Deprioritized / Legacy Services
+Copilot should **avoid** positioning the following as primary services or core offerings:
 
-**Tagline Ideas:**\
-- "Creativity deserves infrastructure."\
-- "Art meets systems."\
-- "Built for flow, not friction."\
-- "Visuals. Systems. Flow."
+- Photography  
+- Videography  
+- General content production  
 
-**Tone Adjectives:** cinematic, modern, grounded, intentional, fluid,
-inspired.
+> These may be referenced as *supporting skills* or *integrated deliverables* within The Ecosystem — but **never** as standalone services.
 
-**Microcopy Examples:**\
-- Button: "Let's create." or "Start your flow."\
-- Error/Empty state: "Looks like your creativity's buffering."\
-- CTA: "Ready to tell your story?"
+For example:  
+> ✅ “We design the content systems that make creative production scalable.”  
+> ❌ “We offer photography and video production services.”
 
-------------------------------------------------------------------------
+---
 
-## Rewrite Objectives
+## 💬 Brand Voice & Tone
+**Tone:** Professional, confident, and slightly cheeky.  
+**Voice:**  
+- Speaks like a creative technologist — smart, but never stiff.  
+- Prefers clarity over fluff, but adds wit and personality where it fits.  
+- Makes systems sound exciting, not robotic.
 
-Copilot should ensure all website copy:\
-1. Reflects sudo.create's **positioning as a creative media studio**.\
-2. Emphasizes **visual storytelling** as the hero service.\
-3. References **tech and systems** as supportive strengths.\
-4. Sounds **alive, cinematic, and human** --- not robotic or corporate.\
-5. Uses **short sentences, rhythm, and visual language**.
+**Examples of tone:**  
+- “We make creativity scale.”  
+- “The bridge between story and system.”  
+- “Optimization is a forever game.”
 
-------------------------------------------------------------------------
+> Keep it human. Avoid jargon like “synergy,” “solutions,” or “leverage.”
 
-## Section-by-Section Prompts
+---
 
-### 🏠 HERO SECTION
+## 🧠 Key Messaging Principles
+Copilot should use these rules when rewriting or expanding copy:
 
--   **Goal:** Instantly communicate what sudo.create does and who it's
-    for.\
--   **Voice:** Bold, confident, cinematic.\
--   **Prompt:**\
-    "Rewrite the hero section headline and subtext to capture
-    sudo.create's mission: helping artists, brands, and events tell
-    stories through visual media and technology. Keep it under
-    15 words. Include a short call to action."\
--   **CTA Ideas:** `Let’s create`, `Start your flow`, `Book your shoot`,
-    `Tell your story`.
+1. **System-first perspective:** Always frame creativity as part of a system or process.  
+   (“We don’t just make content — we build the infrastructure behind it.”)
 
-------------------------------------------------------------------------
+2. **Outcome-oriented language:** Emphasize results (clarity, scale, automation, growth).  
+   Not deliverables (photos, videos, campaigns).
 
-### 🙌 ABOUT SECTION
+3. **Narrative-technical balance:** Blend storytelling language with technical clarity.  
+   (“Story is the front end. System is the back end.”)
 
--   **Goal:** Tell the story of Paps and the purpose behind
-    sudo.create.\
--   **Voice:** Personal, visionary, slightly poetic.\
--   **Prompt:**\
-    "Rewrite the About section to highlight Paps as a Creative Director
-    who blends art, systems, and tech. Show how sudo.create helps
-    creatives turn ideas into experiences. Include a short manifesto
-    tone."
+4. **Confidence without arrogance:** Sound like a trusted expert, not a guru.  
+   Use short, declarative sentences. Avoid overselling.
 
-------------------------------------------------------------------------
+5. **Modern but timeless:** The copy should age well — avoid slang, hype, or buzzwords.
 
-### 🎥 SERVICES SECTION
+---
 
--   **Goal:** Clearly present offers in a cinematic and modular tone.\
--   **Voice:** Professional but vibrant.\
--   **Prompt:**\
-    "Rewrite the Services section using these structure and names:
-    -   IGNITE --- entry-level offer for quick creative wins.\
-    -   FLOW --- flagship creative storytelling experience.\
-    -   REACTOR --- high-end system and creative tech projects.\
-    -   A La Carte --- flexible photography, video, and tech services."
+## ⚙️ Copilot Instructions
+When rewriting the site:
 
-Use engaging copy for each tier that communicates **impact and vibe**,
-not just deliverables.
+- **Preserve structure:** Keep existing layout, headings, and hierarchy unless clarity improves.  
+- **Rewrite within tone constraints:** Don’t change the vibe to sound too corporate or too casual.  
+- **Check offer alignment:** If copy doesn’t map to one of the five core offers, flag or remove it.  
+- **Rephrase production content:** Recast mentions of photography/videography as part of “creative systems” or “content workflows.”  
+- **Simplify sentences:** Prefer plain language with rhythm and flow.  
+- **Inject small doses of wit:** Where appropriate, use subtle humor or confident phrasing.  
 
-------------------------------------------------------------------------
+---
 
-### 💬 CONTACT / CTA SECTION
+## 🧩 Example Transformations
 
--   **Goal:** Encourage collaboration and convey creative partnership.\
--   **Voice:** Warm, inspiring, confident.\
--   **Prompt:**\
-    "Rewrite contact page copy to sound inviting, visionary, and direct.
-    Replace generic CTAs like 'Contact Us' with human phrasing like
-    'Let's build your story,' or 'Start your flow.'"
+**Before:**  
+> “We produce high-quality photo and video content for brands looking to stand out online.”
 
-------------------------------------------------------------------------
+**After:**  
+> “We design content systems that make creativity scalable — from story to screen.”
 
-## Implementation Notes
+---
 
--   Preserve HTML/JSX structure when rewriting.\
--   Avoid modifying classNames, attributes, or Astro directives.\
--   Do not insert placeholder text ("Lorem ipsum").\
--   Keep paragraph and heading hierarchy intact.\
--   Ensure headings use short, action-oriented phrases.
+**Before:**  
+> “We help brands tell their story through design, video, and digital experiences.”
 
-------------------------------------------------------------------------
+**After:**  
+> “We help brands connect their story to the systems that make it scale.”
 
-## Final Output Expectations
+---
 
-Copilot should generate: - Rewritten headlines, subtext, and microcopy
-consistent with sudo.create's voice.\
-- Optional alternates for key phrases when tone allows (e.g., playful or
-cinematic).\
-- Copy that reads naturally aloud and visually flows with strong rhythm.
-
-**Key Idea:** Every word should sound like it was written by a creative
-director who understands both art and systems.
+## 📎 Closing Note
+These guidelines are designed to train Copilot (and any content AI) on the *thinking* behind sudo.create — not just the words.  
+The priority is clarity, systems-thinking, and scalability.  
+Every rewrite should make sudo.create sound like what it is:  
+**A creative systems company that turns storytelling into growth.**
