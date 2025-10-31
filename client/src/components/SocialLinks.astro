@@ -22,26 +22,26 @@ const containerClass = {
 
 const socialLinks = [
 	{
-		name: "Instagram",
+		name: "instagram — behind the scenes",
 		url: "https://instagram.com/sudo.create",
 		icon: Instagram,
 		color: "hover:text-pink-500",
 	},
 	{
-		name: "Newsletter",
+		name: "newsletter — studio notes",
 		url: "https://riffscodecoffee.com",
 		icon: Mail,
 		color: "hover:text-blue-500",
-		label: "Newsletter",
+		label: "newsletter",
 	},
 	{
-		name: "LinkedIn",
+		name: "linkedin — studio updates",
 		url: "https://linkedin.com/in/shawn-papineau",
 		icon: Linkedin,
 		color: "hover:text-blue-600",
 	},
 	{
-		name: "GitHub",
+		name: "github — behind the tools",
 		url: "https://github.com/shawnpaps",
 		icon: Github,
 		color: "hover:text-gray-400",
@@ -60,7 +60,9 @@ const socialLinks = [
 				aria-label={social.name}
 				title={social.name}
 			>
-				<social.icon size={size === "sm" ? 18 : size === "md" ? 20 : 24} />
+				<social.icon
+					size={size === "sm" ? 18 : size === "md" ? 20 : 24}
+				/>
 			</a>
 		))
 	}
