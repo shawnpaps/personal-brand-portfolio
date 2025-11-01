@@ -203,7 +203,7 @@ export default function ContactForm() {
 			<div className="card w-full max-w-lg shadow-xl bg-base-100">
 				<div className="card-body">
 					<h2 className="card-title text-3xl mb-4">
-						let's make something cinematic.
+						let's build your creative OS.
 					</h2>
 
 					{submitStatus === "success" && (
