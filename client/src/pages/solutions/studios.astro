@@ -2,17 +2,39 @@
 import RootLayout from "../../layouts/RootLayout.astro";
 import Hero from "../../components/Hero.astro";
 import Card from "../../components/Card.astro";
+import VideoPlayer from "../../components/VideoPlayer.astro";
+import VideoGrid from "../../components/VideoGrid.astro";
+import { getPhotos, getVideos, type NotionMedia } from "../../lib/notion";
+
+// Fetch media at build time
+let photos: NotionMedia[] = [];
+let videos: NotionMedia[] = [];
+try {
+	[photos, videos] = await Promise.all([getPhotos(), getVideos()]);
+} catch (e) {
+	console.error("Failed to fetch media for studios page:", e);
+}
+
+// Helper function to get a photo or fallback
+const getPhotoOrFallback = (index: number, fallback: string) => {
+	return photos[index] ? photos[index].url : fallback;
+};
+
+// Helper function to get a video or null
+const getVideo = (index: number) => {
+	return videos[index] || null;
+};
 ---
 
 <RootLayout
-	title="for studios | sudo.create — cinematic partner"
-	description="sudo.create partners with studios and agencies to craft cinematic work and build the pipelines that keep it publishing. white‑label-ready production, templates, and systems for faster, cleaner client delivery."
-	keywords="cinematic partner, white-label production, agency content systems, creative pipelines, studio collaboration"
+	title="for studios | sudo.create — your cinematic partner"
+	description="We partner with studios and agencies to capture stories that move people. White-label film, photography, and audio — plus the systems that sustain the vision. Embedded craft that elevates your client work."
+	keywords="cinematic partner, white-label production, film photography audio, agency creative partner, studio collaboration, brand film production"
 >
 	<Hero
-		title="we build. you shine."
-		subtitle="white-label production, pipelines, and templated shoots — cinematic output with none of the busywork."
-		buttonText="let's make something cinematic."
+		title="You direct. We capture."
+		subtitle="White-label film, photography, and audio that elevates your client work. Embedded production and systems — cinematic craft with none of the friction."
+		buttonText="Let's create together."
 		videoPath="/video/water.mp4"
 	/>
 
@@ -21,7 +43,7 @@ import Card from "../../components/Card.astro";
 			<!-- Introduction -->
 			<div class="max-w-4xl mx-auto text-center mb-20">
 				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-					partnership. craft. repeatable cinema.
+					Partnership built on craft.
 				</h2>
 			</div>
 
@@ -29,15 +51,15 @@ import Card from "../../components/Card.astro";
 			<div class="mb-20">
 				<div class="prose prose-invert prose-xl max-w-4xl mx-auto">
 					<p class="text-lg text-gray-300 leading-relaxed mb-6">
-						you keep the brief, we handle the rest. sudo.create
-						builds white‑label pipelines and production support so
-						your studio ships cinematic work faster and cleaner.
+						You keep the brief, we bring the lens. We embed with
+						studios and agencies to capture cinematic work that
+						elevates your clients — film, photography, and audio
+						that moves people.
 					</p>
 					<p class="text-lg text-gray-300 leading-relaxed">
-						asset blueprints, templated shoot days, and media
-						pipelines — all designed to slot into your process. less
-						handoffs, fewer surprises, and more applause. (we like
-						applause.)
+						White-label production, templated workflows, and media
+						systems designed to flow with your process. Less
+						friction, cleaner delivery, work that earns applause.
 					</p>
 				</div>
 			</div>
@@ -47,20 +69,44 @@ import Card from "../../components/Card.astro";
 				<div
 					class="card bg-base-200/50 backdrop-blur-xl border border-white/10 overflow-hidden"
 				>
-					<figure class="px-4 pt-4">
-						<img
-							src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=600&fit=crop"
-							alt="Studio photography session"
-							class="rounded-xl w-full object-cover"
-						/>
-					</figure>
+					{
+						getVideo(2) ? (
+							<figure class="px-4 pt-4">
+								<VideoPlayer
+									src={getVideo(2).url}
+									poster={getVideo(2).thumbnail}
+									title="Cinematic craft that elevates"
+									description="White-label film and photography that seamlessly integrates with your studio's vision."
+									autoplay={false}
+									controls={true}
+									loop={true}
+									muted={true}
+									aspectRatio="video"
+									showPlayButton={true}
+								/>
+							</figure>
+						) : (
+							<figure class="px-4 pt-4">
+								<img
+									src={getPhotoOrFallback(
+										0,
+										"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=600&fit=crop",
+									)}
+									alt="Studio photography session"
+									class="rounded-xl w-full object-cover"
+								/>
+							</figure>
+						)
+					}
 					<div class="card-body">
 						<h3 class="card-title text-2xl text-white">
-							Creative Partner, Visual Mindset
+							Partners who speak visual
 						</h3>
 						<p class="text-gray-300">
-							We speak both design and visual storytelling,
-							bridging the gap between vision and execution.
+							We understand design language and cinematic craft —
+							bridging vision and execution without translation
+							lag. Embedded production that feels native to your
+							process.
 						</p>
 					</div>
 				</div>
@@ -71,7 +117,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					What We Create Together
+					What we capture together
 				</h3>
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 					<Card>
@@ -79,13 +125,14 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📸</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Brand Systems
+									Brand Stories
 								</h4>
 								<p class="text-gray-300">
-									Asset strategies and templated production
-									for client campaigns, launches, and brand
-									identities — built to feed repeatable
-									content workflows.
+									Film and photography that captures your
+									clients' essence — templated for
+									repeatability, crafted for emotion. Visual
+									narratives built to breathe across every
+									platform.
 								</p>
 							</div>
 						</div>
@@ -96,12 +143,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">🎬</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Media Pipelines
+									Visual Production
 								</h4>
 								<p class="text-gray-300">
-									Video asset templates and distribution
-									workflows that turn creative projects and
-									event moments into platform-ready media.
+									Embedded videography and photography for
+									campaigns, events, and launches. Captured
+									with intention, delivered ready to perform
+									across every channel.
 								</p>
 							</div>
 						</div>
@@ -112,12 +160,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">✨</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Content Strategy
+									Visual Strategy
 								</h4>
 								<p class="text-gray-300">
-									Strategic content planning and creation that
-									supports your client campaigns and brand
-									stories.
+									Direction and planning that finds the
+									emotional core before the first frame. We
+									help you shape stories that resonate, not
+									just perform.
 								</p>
 							</div>
 						</div>
@@ -128,11 +177,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">🎨</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Creative Direction
+									Cinematic Direction
 								</h4>
 								<p class="text-gray-300">
-									Visual direction and art direction support
-									for complex creative projects.
+									Art direction and visual guidance for
+									projects that need a cinematic eye. We embed
+									to elevate craft without overshadowing your
+									vision.
 								</p>
 							</div>
 						</div>
@@ -143,11 +194,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">🌐</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Website Development
+									Platforms That Breathe
 								</h4>
 								<p class="text-gray-300">
-									Custom website development to showcase your
-									visual content and client work beautifully.
+									Sites and platforms that showcase visual
+									work the way it deserves — cinematic in
+									feel, ruthless in performance. Built to make
+									your clients' stories flow.
 								</p>
 							</div>
 						</div>
@@ -158,11 +211,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📝</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									CMS & Content Systems
+									Asset Flow Systems
 								</h4>
 								<p class="text-gray-300">
-									Content management systems that make it easy
-									to organize and deliver visual assets.
+									CMS and organization systems that make
+									visual assets flow from capture to delivery.
+									Structure that supports creativity, not
+									suffocates it.
 								</p>
 							</div>
 						</div>
@@ -175,7 +230,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					Visual Excellence Meets Creative Vision
+					Craft that elevates your clients
 				</h3>
 				<div class="grid md:grid-cols-2 gap-8">
 					<div
@@ -183,19 +238,23 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									1,
+									"https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=400&fit=crop",
+								)}
 								alt="Campaign content session"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Cinematic Quality
+								Work that elevates
 							</h4>
 							<p class="text-gray-300">
-								Media assets and production systems built to the
-								caliber of your creative direction — ready to
-								plug into repeatable campaign workflows.
+								Film and photography crafted to match your
+								creative vision — cinematic in quality, seamless
+								in delivery. Production that makes your clients
+								look legendary.
 							</p>
 						</div>
 					</div>
@@ -205,18 +264,22 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									2,
+									"https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=400&fit=crop",
+								)}
 								alt="Studio collaboration"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Seamless Collaboration
+								Embedded partnership
 							</h4>
 							<p class="text-gray-300">
-								Embedded workflows that integrate with your
-								studio's process and timeline.
+								We flow with your process, not against it.
+								Timelines respected, communication clear, egos
+								left at the door. Partnership that feels native.
 							</p>
 						</div>
 					</div>
@@ -226,18 +289,22 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									3,
+									"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop",
+								)}
 								alt="Video production"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Multi-Platform Content
+								Stories that flow everywhere
 							</h4>
 							<p class="text-gray-300">
-								Visual content optimized for every channel your
-								clients need to reach.
+								Visuals captured and optimized for every
+								platform your clients need. One shoot, infinite
+								reach — cinematic across every channel.
 							</p>
 						</div>
 					</div>
@@ -254,11 +321,12 @@ import Card from "../../components/Card.astro";
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Creative Systems
+								Infrastructure that breathes
 							</h4>
 							<p class="text-gray-300">
-								Websites and CMS solutions that showcase your
-								visual work beautifully.
+								Sites, CMS, and systems that make your visual
+								work sing. Platforms that perform as beautifully
+								as the stories they showcase.
 							</p>
 						</div>
 					</div>
@@ -274,20 +342,23 @@ import Card from "../../components/Card.astro";
 						class="hero-content flex-col lg:flex-row-reverse gap-12 py-16"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop"
+							src={getPhotoOrFallback(
+								4,
+								"https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop",
+							)}
 							alt="Creative studio collaboration"
 							class="max-w-sm rounded-lg shadow-2xl"
 						/>
 						<div>
 							<h3 class="text-4xl font-bold text-white mb-4">
-								Partnership That Elevates
+								Stories that elevate your clients
 							</h3>
 							<p class="text-lg text-gray-300 mb-6">
-								We've partnered with design studios and agencies
-								to deliver high-impact content — from brand
-								campaigns and event moments to promotional
-								media. Our approach: embedded collaboration,
-								reliable systems, and creative respect.
+								We've embedded with studios and agencies to
+								capture work that moves people — brand films,
+								event coverage, campaign visuals. Our approach:
+								deep collaboration, cinematic craft, and respect
+								for your creative vision.
 							</p>
 							<ul class="space-y-3 mb-6">
 								<li
@@ -295,8 +366,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Seamless integration with your creative
-										process</span
+										>Embedded collaboration that flows with
+										your process</span
 									>
 								</li>
 								<li
@@ -304,8 +375,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Fast turnaround without sacrificing
-										quality</span
+										>Timelines respected, craft never
+										compromised</span
 									>
 								</li>
 								<li
@@ -313,13 +384,13 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Visual content that elevates your
-										client work</span
+										>Film and photography that makes your
+										clients legendary</span
 									>
 								</li>
 							</ul>
 							<a href="/case-studies" class="btn btn-primary">
-								View Our Partnership Work
+								See the work
 							</a>
 						</div>
 					</div>
@@ -331,7 +402,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					Built For Studios Like Yours
+					Crafted for studios like yours
 				</h3>
 				<div class="grid md:grid-cols-3 gap-6">
 					<div
@@ -340,12 +411,13 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<div class="text-4xl mb-4">🎨</div>
 							<h4 class="card-title text-white text-xl">
-								Design Studios
+								Creative Studios
 							</h4>
 							<p class="text-gray-300">
 								Brand agencies and design studios who need
-								professional asset systems and media pipelines
-								to bring client campaigns to life.
+								cinematic production and visual systems to
+								elevate client campaigns and bring stories to
+								life.
 							</p>
 						</div>
 					</div>
@@ -356,12 +428,12 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<div class="text-4xl mb-4">📱</div>
 							<h4 class="card-title text-white text-xl">
-								Marketing Agencies
+								Marketing Partners
 							</h4>
 							<p class="text-gray-300">
-								Agencies that need reliable creative media
-								partners for content creation, campaigns, and
-								client deliverables.
+								Agencies who need dependable visual production —
+								film, photography, and systems that make client
+								campaigns feel cinematic and perform ruthlessly.
 							</p>
 						</div>
 					</div>
@@ -372,12 +444,13 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<div class="text-4xl mb-4">🎬</div>
 							<h4 class="card-title text-white text-xl">
-								Production Companies
+								Production Teams
 							</h4>
 							<p class="text-gray-300">
-								Creative teams producing events, experiences,
-								and campaigns that need embedded visual
-								documentation.
+								Event producers and experience makers who need
+								embedded visual capture — film and photography
+								that documents moments and turns them into
+								lasting stories.
 							</p>
 						</div>
 					</div>
@@ -389,25 +462,28 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					How We Partner Together
+					How we collaborate
 				</h3>
 				<div class="space-y-8">
 					<div class="flex flex-col md:flex-row gap-8 items-center">
 						<div class="md:w-1/2">
 							<div class="badge badge-primary mb-4">Step 1</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Understand The Vision
+								Find the feeling
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We dive deep into your client's brand, the
-								campaign goals, and the visual direction. Every
-								project is different — we adapt to your creative
-								process.
+								We start by understanding your client's essence,
+								the campaign vision, and the emotion you're
+								chasing. Every project is unique — we adapt to
+								your creative flow.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									5,
+									"https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+								)}
 								alt="Creative strategy session"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -420,18 +496,21 @@ import Card from "../../components/Card.astro";
 						<div class="md:w-1/2">
 							<div class="badge badge-secondary mb-4">Step 2</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Capture & Create
+								Capture with intention
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We execute templated asset production and media
-								capture with systems-driven precision. You'll
-								see progress in real-time with regular updates
-								and previews.
+								We shoot film and photography with cinematic
+								precision and human feeling. Real-time updates,
+								clear communication, zero surprises. Embedded
+								craft that elevates.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									6,
+									"https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=400&fit=crop",
+								)}
 								alt="Photography session"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -442,18 +521,21 @@ import Card from "../../components/Card.astro";
 						<div class="md:w-1/2">
 							<div class="badge badge-accent mb-4">Step 3</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Deliver & Amplify
+								Deliver and sustain
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We deliver polished, production-ready assets on
-								time and on brief. Your studio gets the credit,
-								your client gets results, and we keep creating
-								together.
+								We deliver cinematic, production-ready work on
+								time and on vision. Your studio shines, your
+								client wins, and we build momentum for the next
+								story.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									7,
+									"https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+								)}
 								alt="Delivery celebration"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -469,19 +551,20 @@ import Card from "../../components/Card.astro";
 				>
 					<div class="card-body">
 						<h3 class="text-3xl font-bold text-white mb-6">
-							Why Studios Choose sudo.create
+							Why studios partner with us
 						</h3>
 						<div class="grid md:grid-cols-2 gap-6 text-gray-300">
 							<div class="flex items-start gap-3">
 								<span class="text-primary text-2xl">✓</span>
 								<div>
 									<p class="font-semibold text-white mb-1">
-										Creative Fluency
+										We speak visual
 									</p>
 									<p class="text-sm">
-										We understand design language, brand
-										strategy, and creative direction — no
-										translation needed.
+										We understand design language, cinematic
+										craft, and brand emotion — no
+										translation lag, just seamless
+										collaboration.
 									</p>
 								</div>
 							</div>
@@ -489,12 +572,13 @@ import Card from "../../components/Card.astro";
 								<span class="text-primary text-2xl">✓</span>
 								<div>
 									<p class="font-semibold text-white mb-1">
-										Flexible Partnership
+										Partnership that adapts
 									</p>
 									<p class="text-sm">
-										We scale with your needs — from
-										single-production support to ongoing
-										embedded partnerships.
+										We scale with your vision — from
+										one-time shoots to fully embedded
+										creative partnerships. Your pace, your
+										needs.
 									</p>
 								</div>
 							</div>
@@ -502,12 +586,12 @@ import Card from "../../components/Card.astro";
 								<span class="text-primary text-2xl">✓</span>
 								<div>
 									<p class="font-semibold text-white mb-1">
-										Fast Turnaround
+										Timelines respected
 									</p>
 									<p class="text-sm">
-										Agency timelines move fast — we deliver
-										without sacrificing quality or creative
-										integrity.
+										Agency deadlines are real — we deliver
+										on time without compromising craft or
+										creative vision. Fast, not rushed.
 									</p>
 								</div>
 							</div>
@@ -515,11 +599,13 @@ import Card from "../../components/Card.astro";
 								<span class="text-primary text-2xl">✓</span>
 								<div>
 									<p class="font-semibold text-white mb-1">
-										White-Label Ready
+										You shine, we create
 									</p>
 									<p class="text-sm">
-										We work behind the scenes or alongside
-										you — your studio gets the spotlight.
+										White-label or co-credited — we're
+										comfortable either way. Your client
+										relationship stays yours. The spotlight
+										belongs to you.
 									</p>
 								</div>
 							</div>
@@ -528,23 +614,60 @@ import Card from "../../components/Card.astro";
 				</div>
 			</div>
 
+			<!-- Video Gallery Section -->
+			{
+				videos.length > 1 && (
+					<div class="mb-20">
+						<div class="text-center mb-12">
+							<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+								See Our Studio Partnership Work
+							</h3>
+							<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+								White-label film and photography that seamlessly
+								integrates with agency and studio visions.
+								Explore our latest collaborative projects.
+							</p>
+						</div>
+
+						<VideoGrid
+							videos={videos}
+							columns={2}
+							aspectRatio="video"
+							showTitles={true}
+							showDescriptions={false}
+							maxVideos={4}
+						/>
+
+						<div class="text-center mt-8">
+							<a
+								href="/media-example"
+								class="btn btn-outline btn-primary"
+							>
+								View Full Gallery
+							</a>
+						</div>
+					</div>
+				)
+			}
+
 			<!-- Final CTA -->
 			<div class="text-center">
 				<div class="max-w-3xl mx-auto mb-8">
 					<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
-						let's make the next thing cinematic.
+						Let's create something cinematic.
 					</h3>
 					<p class="text-xl text-gray-300 mb-8">
-						bring the brief or bring the feeling. we’ll craft the
-						shoot, mix the sound, and build the pipeline so the work
-						can be delivered on time — and look damn good doing it.
+						Bring the brief, we'll bring the lens. We'll capture the
+						story, shape the sound, and build the flow so your
+						clients get work that moves people — delivered on time,
+						crafted to last.
 					</p>
 				</div>
 				<a
 					href="/contact"
 					class="btn btn-primary btn-lg rounded-full text-lg px-8"
 				>
-					let's make something cinematic.
+					Let's create together.
 				</a>
 			</div>
 		</div>

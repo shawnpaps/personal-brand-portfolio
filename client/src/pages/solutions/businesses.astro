@@ -2,17 +2,39 @@
 import RootLayout from "../../layouts/RootLayout.astro";
 import Hero from "../../components/Hero.astro";
 import Card from "../../components/Card.astro";
+import VideoPlayer from "../../components/VideoPlayer.astro";
+import VideoGrid from "../../components/VideoGrid.astro";
+import { getPhotos, getVideos, type NotionMedia } from "../../lib/notion";
+
+// Fetch media at build time
+let photos: NotionMedia[] = [];
+let videos: NotionMedia[] = [];
+try {
+	[photos, videos] = await Promise.all([getPhotos(), getVideos()]);
+} catch (e) {
+	console.error("Failed to fetch media for businesses page:", e);
+}
+
+// Helper function to get a photo or fallback
+const getPhotoOrFallback = (index: number, fallback: string) => {
+	return photos[index] ? photos[index].url : fallback;
+};
+
+// Helper function to get a video or null
+const getVideo = (index: number) => {
+	return videos[index] || null;
+};
 ---
 
 <RootLayout
-	title="for businesses | sudo.create — creative systems that scale"
-	description="Brand photography, high-powered websites, and content pipelines that actually work. We build creative systems for modern businesses — no fluff, just growth."
-	keywords="brand photography, business websites, content systems, marketing automation, creative tech studio"
+	title="for businesses | sudo.create — stories that build brands"
+	description="Film, photography, and audio that captures your essence. Websites that breathe with your brand. Systems that keep your story alive across every channel — cinematic craft that drives real growth."
+	keywords="brand photography, brand film, videography, audio production, business websites, content systems, visual storytelling, cinematic brand work"
 >
 	<Hero
-		title="Systems that do the heavy lifting."
-		subtitle="Brand media, high-powered websites, and content engines — built for businesses that value craft and momentum."
-		buttonText="Let's build your system."
+		title="Stories that build momentum."
+		subtitle="Film, photography, and audio that captures your brand's soul. Platforms that perform beautifully. Systems that sustain the vision — crafted for businesses that lead with feeling."
+		buttonText="Let's tell your story."
 		videoPath="/video/water.mp4"
 	/>
 
@@ -21,12 +43,12 @@ import Card from "../../components/Card.astro";
 			<!-- Introduction -->
 			<div class="max-w-4xl mx-auto text-center mb-20">
 				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-					Work that converts. Systems that scale.
+					Stories that resonate. Systems that scale.
 				</h2>
 				<p class="text-xl text-gray-300 leading-relaxed">
-					We shoot brand photography and videography built for reuse.
-					Then we build the websites, pipelines, and automations that
-					keep your content flowing.
+					We capture your brand through film, photography, and audio —
+					work that stirs feeling, not just fills feeds. Then we build
+					the sites and systems that keep your story breathing.
 				</p>
 			</div>
 
@@ -34,14 +56,15 @@ import Card from "../../components/Card.astro";
 			<div class="mb-20">
 				<div class="prose prose-invert prose-xl max-w-4xl mx-auto">
 					<p class="text-lg text-gray-300 leading-relaxed mb-6">
-						From coffee shops to boutique brands — we design the
-						workflows, websites, and assets that make your brand
-						consistent without the corporate nonsense.
+						From roasters to boutique retailers — we capture the
+						stories that define you, then build the flows and
+						platforms that sustain them. Your brand, alive without
+						the corporate emptiness.
 					</p>
 					<p class="text-lg text-gray-300 leading-relaxed">
-						Brand photography sessions, high-conversion websites,
-						content pipelines, marketing automations. Beautiful
-						systems that make growth feel effortless.
+						Film and photography that moves people. Sites that
+						perform like poetry. Content flows and systems that make
+						growth feel inevitable, not forced.
 					</p>
 				</div>
 			</div>
@@ -51,21 +74,44 @@ import Card from "../../components/Card.astro";
 				<div
 					class="card bg-base-200/50 backdrop-blur-xl border border-white/10 overflow-hidden"
 				>
-					<figure class="px-4 pt-4">
-						<img
-							src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=600&fit=crop"
-							alt="Brand photography session"
-							class="rounded-xl w-full object-cover"
-						/>
-					</figure>
+					{
+						getVideo(1) ? (
+							<figure class="px-4 pt-4">
+								<VideoPlayer
+									src={getVideo(1).url}
+									poster={getVideo(1).thumbnail}
+									title="Stories that resonate"
+									description="Brand film and photography that captures your essence and moves your audience."
+									autoplay={false}
+									controls={true}
+									loop={true}
+									muted={true}
+									aspectRatio="video"
+									showPlayButton={true}
+								/>
+							</figure>
+						) : (
+							<figure class="px-4 pt-4">
+								<img
+									src={getPhotoOrFallback(
+										0,
+										"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=600&fit=crop",
+									)}
+									alt="Brand film and photography session"
+									class="rounded-xl w-full object-cover"
+								/>
+							</figure>
+						)
+					}
 					<div class="card-body">
 						<h3 class="card-title text-2xl text-white">
-							Media that works harder
+							Visuals that breathe with your brand
 						</h3>
 						<p class="text-gray-300">
-							Brand photography and videography designed for
-							reuse. Every asset tagged, ready to flow into your
-							marketing engine.
+							Film and photography crafted to capture your essence
+							— not just document your products. Every frame
+							composed to tell your story, ready to flow across
+							every channel.
 						</p>
 					</div>
 				</div>
@@ -76,7 +122,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					What we build for businesses
+					What we create for businesses
 				</h3>
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 					<Card>
@@ -84,12 +130,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📸</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Brand Photography & Video
+									Film & Photography
 								</h4>
 								<p class="text-gray-300">
-									Production sessions built for reuse. Every
-									frame tagged, every asset ready to plug into
-									your channels.
+									Sessions that capture your brand's soul —
+									not just your products. Every frame composed
+									with intention, ready to breathe life into
+									your story across every platform.
 								</p>
 							</div>
 						</div>
@@ -100,12 +147,12 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">🌐</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									High-Powered Websites
+									Sites That Breathe
 								</h4>
 								<p class="text-gray-300">
-									Custom marketing websites that look stunning
-									and actually convert. Built for speed and
-									results.
+									Custom platforms that showcase your work
+									beautifully and perform like they mean it.
+									Cinematic in feel, ruthless in conversion.
 								</p>
 							</div>
 						</div>
@@ -116,12 +163,12 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">⚙️</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Content Pipelines
+									Content That Flows
 								</h4>
 								<p class="text-gray-300">
-									Automated workflows that turn content
-									creation into a predictable, repeatable
-									system.
+									Systems that turn your story into sustained
+									momentum. Workflows that feel invisible,
+									results that feel inevitable.
 								</p>
 							</div>
 						</div>
@@ -132,12 +179,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📊</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									CRM & Data Flows
+									Systems That Support
 								</h4>
 								<p class="text-gray-300">
-									Notion setups, HubSpot integrations, custom
-									apps — data systems that actually make
-									sense.
+									Notion setups, CRM flows, custom tools —
+									infrastructure that organizes without
+									suffocating. Built for humans, not
+									corporations.
 								</p>
 							</div>
 						</div>
@@ -148,12 +196,12 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📧</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Marketing Pipelines
+									Audience Connection
 								</h4>
 								<p class="text-gray-300">
-									Newsletter automations, email sequences, and
-									marketing flows that nurture leads on
-									autopilot.
+									Newsletter flows, email sequences, and
+									distribution systems that keep your audience
+									close — without feeling robotic.
 								</p>
 							</div>
 						</div>
@@ -164,11 +212,12 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">🔧</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Custom Tools
+									Tools Built for You
 								</h4>
 								<p class="text-gray-300">
-									Web apps, API integrations, and bespoke
-									solutions built for your specific workflow.
+									Custom apps, integrations, and solutions
+									shaped by your vision — not generic
+									templates that almost work.
 								</p>
 							</div>
 						</div>
@@ -181,7 +230,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					Work that drives growth
+					Stories that build brands
 				</h3>
 				<div class="grid md:grid-cols-2 gap-8">
 					<div
@@ -189,17 +238,20 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&h=400&fit=crop"
-								alt="Coffee shop brand"
+								src={getPhotoOrFallback(
+									1,
+									"https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&h=400&fit=crop",
+								)}
+								alt="Brand atmosphere captured on film"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
-							<h4 class="card-title text-white">Brand Systems</h4>
+							<h4 class="card-title text-white">Brand Stories</h4>
 							<p class="text-gray-300">
-								Photography and videography that captures
-								atmosphere, products, and story — built to
-								repeat across platforms.
+								Film and photography that captures atmosphere,
+								emotion, and essence — not just products.
+								Visuals built to breathe across every channel.
 							</p>
 						</div>
 					</div>
@@ -209,19 +261,23 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=400&fit=crop"
-								alt="Product assets"
+								src={getPhotoOrFallback(
+									2,
+									"https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=400&fit=crop",
+								)}
+								alt="Product captured with intention"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Product Photography
+								Product Storytelling
 							</h4>
 							<p class="text-gray-300">
-								Structured product assets with tagging systems
-								for eCommerce. Built to convert, not just to
-								look pretty.
+								Photography that makes your products feel
+								inevitable. Composed to stir desire, organized
+								to drive conversion. Beautiful and ruthlessly
+								effective.
 							</p>
 						</div>
 					</div>
@@ -231,19 +287,22 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop"
-								alt="Media production"
+								src={getPhotoOrFallback(
+									3,
+									"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop",
+								)}
+								alt="Content flowing naturally"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Content Engines
+								Story Distribution
 							</h4>
 							<p class="text-gray-300">
-								Automated distribution and publishing systems.
-								Your content reaches the right audiences without
-								manual busywork.
+								Systems that keep your narrative flowing across
+								platforms. Your story reaching people where they
+								live, without the manual grind.
 							</p>
 						</div>
 					</div>
@@ -253,19 +312,22 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop"
-								alt="Social media content"
+								src={getPhotoOrFallback(
+									4,
+									"https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop",
+								)}
+								alt="Brand staying connected"
 								class="w-full object-cover h-64"
 							/>
 						</figure>
 						<div class="card-body">
 							<h4 class="card-title text-white">
-								Marketing Flows
+								Sustained Connection
 							</h4>
 							<p class="text-gray-300">
-								Email sequences, newsletter automations, and
-								social workflows that keep your brand visible
-								and consistent.
+								Email flows, newsletter systems, and social
+								rhythms that keep your brand close to your
+								audience — authentic, not automated.
 							</p>
 						</div>
 					</div>
@@ -281,18 +343,21 @@ import Card from "../../components/Card.astro";
 						class="hero-content flex-col lg:flex-row-reverse gap-12 py-16"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=600&fit=crop"
-							alt="Business content session"
+							src={getPhotoOrFallback(
+								5,
+								"https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=600&fit=crop",
+							)}
+							alt="Brand captured with intention"
 							class="max-w-sm rounded-lg shadow-2xl"
 						/>
 						<div>
 							<h3 class="text-4xl font-bold text-white mb-4">
-								Stories that stick. Systems that scale.
+								Stories that resonate. Systems that sustain.
 							</h3>
 							<p class="text-lg text-gray-300 mb-6">
-								From local cafes to boutique retailers, we've
-								helped businesses build brand systems that look
-								incredible and work on repeat.
+								From roasters to boutique makers, we've captured
+								brand stories that move people — then built the
+								systems that keep those stories breathing.
 							</p>
 							<ul class="space-y-3 mb-6">
 								<li
@@ -300,7 +365,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Brand photography built for reuse</span
+										>Film and photography that captures your
+										essence</span
 									>
 								</li>
 								<li
@@ -308,8 +374,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span>
-										Websites that convert and content that
-										flows
+										Sites that perform beautifully and
+										stories that flow
 									</span>
 								</li>
 								<li
@@ -317,8 +383,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span>
-										Marketing automations that feel
-										personal, not robotic
+										Systems that feel human, not
+										transactional
 									</span>
 								</li>
 							</ul>
@@ -335,7 +401,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					Built for businesses like yours
+					Crafted for businesses like yours
 				</h3>
 				<div class="grid md:grid-cols-3 gap-6">
 					<div
@@ -344,12 +410,12 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<div class="text-4xl mb-4">☕</div>
 							<h4 class="card-title text-white text-xl">
-								Coffee & Food
+								Coffee & Culinary
 							</h4>
 							<p class="text-gray-300">
-								Roasters, cafes, and food businesses that need
-								brand systems and content workflows that drive
-								discovery.
+								Roasters, cafes, and food makers who need brand
+								stories and content flows that capture the
+								essence of what you create.
 							</p>
 						</div>
 					</div>
@@ -360,12 +426,12 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<div class="text-4xl mb-4">🎸</div>
 							<h4 class="card-title text-white text-xl">
-								Creative Retail
+								Makers & Retailers
 							</h4>
 							<p class="text-gray-300">
-								Boutique shops and specialty retailers who need
-								product photography and eCommerce systems that
-								convert.
+								Boutique brands and specialty makers who need
+								visual stories and platforms that showcase craft
+								— and drive real connection.
 							</p>
 						</div>
 					</div>
@@ -376,12 +442,12 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<div class="text-4xl mb-4">💼</div>
 							<h4 class="card-title text-white text-xl">
-								Service Businesses
+								Creative Services
 							</h4>
 							<p class="text-gray-300">
-								Service businesses that need brand systems,
-								marketing pipelines, and content that builds
-								trust.
+								Studios, agencies, and service businesses that
+								need brand stories, content flows, and systems
+								that build trust through craft.
 							</p>
 						</div>
 					</div>
@@ -393,24 +459,28 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					How we work together
+					How we capture and build together
 				</h3>
 				<div class="space-y-8">
 					<div class="flex flex-col md:flex-row gap-8 items-center">
 						<div class="md:w-1/2">
 							<div class="badge badge-primary mb-4">Step 1</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Map the system
+								Find the story
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We start with strategy — understanding your
-								brand, your audience, and what you actually need
-								to grow. No 200-slide decks, just clarity.
+								We start with feeling — understanding your
+								brand's soul, your audience, and what needs to
+								be captured. No bloated presentations, just
+								truth.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									6,
+									"https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+								)}
 								alt="Strategy session"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -423,17 +493,21 @@ import Card from "../../components/Card.astro";
 						<div class="md:w-1/2">
 							<div class="badge badge-secondary mb-4">Step 2</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Build the engine
+								Capture and create
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We shoot the media, build the websites, and
-								design the workflows. Every asset tagged. Every
-								system connected. Ready to run.
+								We shoot the film and photography, build the
+								sites, and design the flows. Every frame
+								intentional. Every system seamless. Ready to
+								breathe.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									7,
+									"https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop",
+								)}
 								alt="Design and development"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -444,17 +518,20 @@ import Card from "../../components/Card.astro";
 						<div class="md:w-1/2">
 							<div class="badge badge-accent mb-4">Step 3</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Launch and scale
+								Release and sustain
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We deploy your system, train your team, and
-								provide support as you grow. Your success is the
-								metric that matters.
+								We launch your story, train your team, and
+								support as you grow. Your vision sustained. Your
+								momentum real.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									8,
+									"https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
+								)}
 								alt="Launch celebration"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -463,15 +540,51 @@ import Card from "../../components/Card.astro";
 				</div>
 			</div>
 
+			<!-- Video Gallery Section -->
+			{
+				videos.length > 1 && (
+					<div class="mb-20">
+						<div class="text-center mb-12">
+							<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+								See How We Build Brand Stories
+							</h3>
+							<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+								From product launches to brand narratives — real
+								work that drives real momentum. Explore our
+								latest brand film and video projects.
+							</p>
+						</div>
+
+						<VideoGrid
+							videos={videos}
+							columns={2}
+							aspectRatio="video"
+							showTitles={true}
+							showDescriptions={false}
+							maxVideos={4}
+						/>
+
+						<div class="text-center mt-8">
+							<a
+								href="/media-example"
+								class="btn btn-outline btn-primary"
+							>
+								View Full Gallery
+							</a>
+						</div>
+					</div>
+				)
+			}
+
 			<!-- Final CTA -->
 			<div class="text-center">
 				<div class="max-w-3xl mx-auto mb-8">
 					<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
-						Ready to build something that hums?
+						Ready to tell your story?
 					</h3>
 					<p class="text-xl text-gray-300 mb-8">
-						Bring the vision. We'll build the brand media, the
-						websites, and the systems that make growth feel like
+						Bring the vision. We'll capture the story, build the
+						platform, and create the flows that turn feeling into
 						momentum.
 					</p>
 				</div>
@@ -479,7 +592,7 @@ import Card from "../../components/Card.astro";
 					href="/contact"
 					class="btn btn-primary btn-lg rounded-full text-lg px-8"
 				>
-					Let's build your system.
+					Let's tell your story.
 				</a>
 			</div>
 		</div>

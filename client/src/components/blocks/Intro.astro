@@ -1,64 +1,89 @@
 ---
 import Card from "../Card.astro";
+import { getPhotos, type NotionMedia } from "../../lib/notion";
+
+// Fetch photos at build time
+let photos: NotionMedia[] = [];
+try {
+	photos = await getPhotos();
+} catch (e) {
+	console.error("Failed to fetch photos for Intro section:", e);
+}
+
+// Helper to get photo or fallback
+const getPhotoOrFallback = (index: number, fallback: string) => {
+	return photos[index] ? photos[index].url : fallback;
+};
 ---
 
 <section id="next-section" class="py-20 px-8 pt-24 z-30 text-white relative">
 	<div class="max-w-4xl mx-auto text-center">
 		<h2 class="text-5xl font-bold mb-8">
-			Your brand deserves better <span class="italic text-orange-500"
-				>systems</span
-			>.
+			Every frame <span class="italic text-orange-500">tells</span>.
 		</h2>
 		<p class="text-xl max-w-xl mx-auto font-semibold">
-			We don't do campaigns. We build creative engines that never stall.
-			Film, photo, sound, and the pipelines that keep them flowing —
-			everything connected, nothing wasted.
+			We capture light, shape sound, and compose motion. Photography,
+			film, and audio that stir feeling — then we build the flow that
+			keeps your story alive.
 		</p>
 	</div>
 	<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
 		<Card>
-			<span class="badge badge-accent badge-lg"
-				>brand media that works</span
-			>
+			<span class="badge badge-accent badge-lg">where emotion lives</span>
 			<p class="font-semibold text-xl max-w-md mt-4">
-				Photography and videography built for reuse. Every frame tagged,
-				every asset ready to plug into your channels. No fluff. Just
-				work that pulls its weight.
+				Film and photography born from feeling. Every frame composed to
+				linger. Every shot designed to carry weight. Visuals that move
+				people — not because they're polished, but because they're true.
 			</p>
 			<div class="grid grid-cols-2 gap-4 mt-6 lg:h-[500px]">
 				<figure class="rounded-xl overflow-hidden">
 					<img
 						class="w-full h-full object-cover"
-						src="/images/tourpass.png"
+						src={getPhotoOrFallback(0, "/images/tourpass.png")}
+						alt="Visual storytelling"
+						loading="lazy"
 					/>
 				</figure>
 				<figure class="rounded-xl overflow-hidden h-full">
 					<img
 						class="w-full h-full object-cover"
-						src="/images/tourpass.png"
+						src={getPhotoOrFallback(1, "/images/tourpass.png")}
+						alt="Creative capture"
+						loading="lazy"
 					/>
 				</figure>
 			</div>
 		</Card>
 
 		<Card>
-			<span class="badge badge-secondary badge-lg">systems that hum</span>
+			<span class="badge badge-secondary badge-lg">built to flow</span>
 			<p class="font-semibold text-xl max-w-md mt-4">
-				Websites that perform. Content pipelines that flow. CRM setups
-				that actually make sense. We build the infrastructure so your
-				creativity stays in flow. And yeah — we make it fun.
+				Systems that sustain the story. Platforms that perform
+				beautifully. Workflows that feel invisible. We build the
+				infrastructure so your vision keeps moving — seamless, alive,
+				inevitable.
 			</p>
 			<div class="grid grid-cols-2 gap-4 mt-6 lg:h-[500px]">
 				<figure class="rounded-xl overflow-hidden">
 					<img
 						class="h-full w-full object-cover"
-						src="images/evolutionary-blades.png"
+						src={getPhotoOrFallback(
+							2,
+							"images/evolutionary-blades.png",
+						)}
+						alt="Systems and flow"
+						loading="lazy"
 					/>
 				</figure>
 				<figure class="rounded-xl overflow-hidden">
 					<img
 						class="h-full w-full object-cover"
-						src="images/evolutionary-blades.png"
+						src={getPhotoOrFallback(
+							3,
+							"images/evolutionary-blades.png",
+						)}
+						alt="Built to scale"
+						loading="lazy"
 					/>
 				</figure>
 			</div>

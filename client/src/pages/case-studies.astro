@@ -1,17 +1,27 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
 import Hero from "../components/Hero.astro";
+import VideoGrid from "../components/VideoGrid.astro";
+import { getVideos, type NotionMedia } from "../lib/notion";
+
+// Fetch videos at build time
+let videos: NotionMedia[] = [];
+try {
+	videos = await getVideos();
+} catch (e) {
+	console.error("Failed to fetch videos for case studies page:", e);
+}
 ---
 
 <RootLayout
-	title="case studies | sudo.create — cinematic work & systems"
-	description="stories that look cinematic and feel human. real film, photo, and sound — plus the systems that keep it repeatable. peeks at projects, workflows, and the craft behind the work."
-	keywords="cinematic case studies, film photography sound, creative studio case studies, cinematic storytelling, crafted visuals"
+	title="case studies | sudo.create — frames that move people"
+	description="Film, photography, and audio born from feeling. Real stories captured through the lens — work that lingers long after the screen fades. Glimpses into craft, process, and what happens when light meets intention."
+	keywords="cinematic case studies, film production, photography, videography, audio design, visual storytelling, creative direction, brand film"
 >
 	<Hero
-		title="stories that feel cinematic"
-		subtitle="short films, photo suites, and soundscapes — shown with the systems that made them repeatable and real."
-		buttonText="peek the reels"
+		title="Work that breathes."
+		subtitle="Film, photography, and sound captured with intention. Stories that move people — not because they're perfect, but because they're real."
+		buttonText="See the frames."
 		videoPath="/video/water.mp4"
 	/>
 
@@ -21,12 +31,12 @@ import Hero from "../components/Hero.astro";
 			<div class="text-center mb-20">
 				<div class="text-9xl mb-8 animate-bounce">🚧</div>
 				<h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
-					still in the edit bay
+					Still in the edit.
 				</h2>
 				<p class="text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-					we were busy shooting, mixing, and building systems. case
-					studies took a backseat. good news: the work exists. this
-					page is just catching up.
+					We've been chasing light — capturing moments, shaping sound,
+					building the flow. The stories live. The frames exist. This
+					page? Still catching up to the work.
 				</p>
 			</div>
 
@@ -38,11 +48,12 @@ import Hero from "../components/Hero.astro";
 					<div class="card-body items-center text-center">
 						<div class="text-5xl mb-4">📸</div>
 						<h3 class="card-title text-white text-xl mb-2">
-							behind the lens
+							Chasing the frame
 						</h3>
 						<p class="text-gray-300">
-							we were filming the thing. case studies? later.
-							priorities: frames, mood, repeatable shots.
+							We were behind the camera. Capturing light. Shaping
+							sound. Building the story. Documentation comes after
+							the feeling lands.
 						</p>
 					</div>
 				</div>
@@ -53,12 +64,12 @@ import Hero from "../components/Hero.astro";
 					<div class="card-body items-center text-center">
 						<div class="text-5xl mb-4">🤝</div>
 						<h3 class="card-title text-white text-xl mb-2">
-							under wraps
+							Waiting for the reveal
 						</h3>
 						<p class="text-gray-300">
-							not everything gets to premiere publicly. some
-							projects are hush-hush until the client calls
-							action. classy, right?
+							Not every story goes public right away. Some moments
+							need time before they're ready to be seen. We honor
+							the quiet before the premiere.
 						</p>
 					</div>
 				</div>
@@ -69,16 +80,52 @@ import Hero from "../components/Hero.astro";
 					<div class="card-body items-center text-center">
 						<div class="text-5xl mb-4">⚡</div>
 						<h3 class="card-title text-white text-xl mb-2">
-							always creating
+							Following the light
 						</h3>
 						<p class="text-gray-300">
-							we chose motion over paperwork. capturing the next
-							story beat us to the write-up. the craft comes first
-							— the documentation follows.
+							We chose the lens over the laptop. The next frame
+							called before we could caption the last. Craft first
+							— documentation follows.
 						</p>
 					</div>
 				</div>
 			</div>
+
+			<!-- Video Preview Section -->
+			{
+				videos.length > 0 && (
+					<div class="mb-20">
+						<div class="text-center mb-12">
+							<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+								Glimpses of the work
+							</h3>
+							<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+								While we finish documenting the full stories,
+								here are some moments we've captured. Film,
+								photography, and audio that carry feeling.
+							</p>
+						</div>
+
+						<VideoGrid
+							videos={videos}
+							columns={3}
+							aspectRatio="video"
+							showTitles={true}
+							showDescriptions={false}
+							maxVideos={6}
+						/>
+
+						<div class="text-center mt-8">
+							<a
+								href="/media-example"
+								class="btn btn-outline btn-primary"
+							>
+								View Full Media Gallery
+							</a>
+						</div>
+					</div>
+				)
+			}
 
 			<!-- What We're Working On -->
 			<div
@@ -86,25 +133,26 @@ import Hero from "../components/Hero.astro";
 			>
 				<div class="card-body">
 					<h3 class="card-title text-3xl text-white mb-6">
-						But Here's What We've Been Creating:
+						Here's what we've been capturing:
 					</h3>
 					<div class="space-y-4 text-lg text-gray-300">
 						<div class="flex items-start gap-4">
 							<span class="text-2xl">📸</span>
 							<p>
 								<strong class="text-white"
-									>Brand systems for local creatives</strong
-								> — Visual asset strategies and templates for coffee
-								roasters, tattoo artists, and musicians
+									>Stories for culture makers</strong
+								> — Film and photography for roasters, artists, and
+								musicians who create from the gut and lead with feeling
 							</p>
 						</div>
 						<div class="flex items-start gap-4">
 							<span class="text-2xl">🎬</span>
 							<p>
 								<strong class="text-white"
-									>Event workflows & media pipelines</strong
-								> — Turn live moments into structured, reusable assets
-								that drive engagement
+									>Moments that won't come again</strong
+								> — Capturing the fleeting and turning it into something
+								timeless. Work that carries weight long after the
+								moment fades
 							</p>
 						</div>
 
@@ -119,26 +167,26 @@ import Hero from "../components/Hero.astro";
 										class="hover:text-primary transition-colors"
 										>Tourpass</a
 									></strong
-								> — Creative tech project connecting artists, venues,
-								and fans in the music industry
+								> — A creative platform weaving artists, venues,
+								and fans into one living story
 							</p>
 						</div>
 						<div class="flex items-start gap-4">
 							<span class="text-2xl">🎨</span>
 							<p>
 								<strong class="text-white"
-									>Creative systems for studios & brands</strong
-								> — Portfolio platforms and content workflows that
-								support the creative process
+									>Systems that sustain the vision</strong
+								> — Platforms and workflows that keep your story
+								alive across every medium, without the friction
 							</p>
 						</div>
 						<div class="flex items-start gap-4">
 							<span class="text-2xl">⚡</span>
 							<p>
 								<strong class="text-white"
-									>Creative direction & strategy</strong
-								> — Helping brands tell authentic stories across
-								all media
+									>Direction born from feeling</strong
+								> — Helping brands find their story and tell it through
+								light, sound, and motion that actually resonates
 							</p>
 						</div>
 					</div>
@@ -148,7 +196,7 @@ import Hero from "../components/Hero.astro";
 			<!-- Trust Signals -->
 			<div class="text-center mb-20">
 				<h3 class="text-3xl font-bold text-white mb-8">
-					In the Meantime, Here's What's Real:
+					The work, in numbers:
 				</h3>
 				<div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
 					<div>
@@ -158,7 +206,7 @@ import Hero from "../components/Hero.astro";
 							50+
 						</div>
 						<p class="text-xl text-gray-300">
-							Stories Captured This Year
+							Frames captured this year
 						</p>
 					</div>
 					<div>
@@ -167,9 +215,7 @@ import Hero from "../components/Hero.astro";
 						>
 							100%
 						</div>
-						<p class="text-xl text-gray-300">
-							Client Satisfaction Rate
-						</p>
+						<p class="text-xl text-gray-300">Stories that landed</p>
 					</div>
 					<div>
 						<div
@@ -178,7 +224,7 @@ import Hero from "../components/Hero.astro";
 							∞
 						</div>
 						<p class="text-xl text-gray-300">
-							Moments Worth Capturing
+							Moments worth capturing
 						</p>
 					</div>
 				</div>
@@ -191,33 +237,35 @@ import Hero from "../components/Hero.astro";
 				<div class="hero-content text-center py-16">
 					<div class="max-w-3xl">
 						<h3 class="text-4xl font-bold text-white mb-6">
-							we craft cinematic stories.
+							Stories that stay with you.
 						</h3>
 						<p class="text-xl text-gray-300 mb-8">
-							artists, brands, and teams — bring the feeling.
-							we'll build the shoot, the sound, and the systems to
-							make it repeatable and real.
+							Bring the feeling. We'll chase the light, shape the
+							sound, and build the flow that keeps your vision
+							alive. Artists, brands, visionaries — let's create
+							something that lingers.
 						</p>
 						<p class="text-lg text-gray-400 mb-8 italic">
-							(documentation included. snacks optional.)
+							(Full portfolios coming soon. The work already
+							speaks.)
 						</p>
 						<a
 							href="/contact"
 							class="btn btn-primary btn-lg rounded-full text-lg px-8"
 						>
-							let's make something cinematic.
+							Roll camera.
 						</a>
 					</div>
 				</div>
-			</div>
-
-			<!-- Footer Note -->
-			<div class="text-center text-gray-400 text-sm">
-				<p>
-					p.s. — full case studies are coming. we picked craft over
-					charting for now. soon you'll see the films, the frames, and
-					the systems that made them possible.
-				</p>
+				<!-- Footer Note -->
+				<div class="text-center text-gray-400 text-sm">
+					<p>
+						p.s. — We chose the camera over the keyboard. Soon
+						you'll see the films, the frames, and the moments that
+						made them worth capturing. The work exists. This page is
+						catching up.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>

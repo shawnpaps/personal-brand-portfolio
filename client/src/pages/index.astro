@@ -7,21 +7,70 @@ import Diff from "../components/Diff.astro";
 import Card from "../components/Card.astro";
 import About from "../components/blocks/About.astro";
 import Services from "../components/blocks/Services.astro";
+import VideoGrid from "../components/VideoGrid.astro";
+import { getVideos, type NotionMedia } from "../lib/notion";
+
+// Fetch videos at build time
+let videos: NotionMedia[] = [];
+try {
+	videos = await getVideos();
+} catch (e) {
+	console.error("Failed to fetch videos for home page:", e);
+}
 ---
 
 <RootLayout
-	title="sudo.create | creative tech studio — film, photo, sound & systems"
-	description="We build creative systems that scale — and actually look good doing it. Brand photography, high-powered websites, content pipelines, and custom tools. Artistry meets automation."
-	keywords="cinematic studio, videography, photography, audio production, cinematic storytelling, crafted visuals, authentic story, creative studio, film production"
+	title="sudo.create | where light breathes and sound lingers"
+	description="Stories told through film, photography, and audio. Every frame composed to stir feeling. Every beat shaped to resonate. We capture emotion — then build the flow that keeps your story alive."
+	keywords="cinematic studio, film production, photography, videography, audio production, visual storytelling, creative direction, brand film, emotional narrative"
 >
 	<Hero
-		title="Automate the boring. Amplify the magic."
-		subtitle="Creative tech studio fusing film, photo, sound, and systems. We build the engines that make your brand hum."
-		buttonText="Run sudo ignite."
+		title="Light. Sound. Story."
+		subtitle="We capture the moments that matter — frame by frame, beat by beat. Film, photography, and audio that move people. Systems that keep them flowing."
+		buttonText="Roll camera."
 		videoPath="/video/water.mp4"
 	/>
 
 	<Intro />
 	<About />
+
+	<!-- Video Showcase Section -->
+	{
+		videos.length > 0 && (
+			<section class="relative z-10 py-20 px-6 bg-gradient-to-b from-transparent to-black/20">
+				<div class="max-w-7xl mx-auto">
+					<div class="text-center mb-16">
+						<h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+							Stories in Motion
+						</h2>
+						<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+							Every frame tells a story. Every moment captured
+							with intention. Explore our latest work in film and
+							video production.
+						</p>
+					</div>
+
+					<VideoGrid
+						videos={videos}
+						columns={3}
+						aspectRatio="video"
+						showTitles={true}
+						showDescriptions={false}
+						maxVideos={6}
+					/>
+
+					<div class="text-center mt-12">
+						<a
+							href="/media-example"
+							class="btn btn-outline btn-primary btn-lg"
+						>
+							View Full Gallery
+						</a>
+					</div>
+				</div>
+			</section>
+		)
+	}
+
 	<Services />
 </RootLayout>

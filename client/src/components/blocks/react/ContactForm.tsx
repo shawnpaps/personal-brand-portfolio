@@ -202,9 +202,7 @@ export default function ContactForm() {
 		<div className="flex justify-center items-center">
 			<div className="card w-full max-w-lg shadow-xl bg-base-100">
 				<div className="card-body">
-					<h2 className="card-title text-3xl mb-4">
-						let's build your creative OS.
-					</h2>
+					<h2 className="card-title text-3xl mb-4">Begin your story.</h2>
 
 					{submitStatus === "success" && (
 						<div className="alert alert-success mb-4">
@@ -222,8 +220,8 @@ export default function ContactForm() {
 								/>
 							</svg>
 							<span>
-								thanks — we'll be in touch. excited to make something cinematic
-								with you.
+								Message received. We'll be in touch soon — ready to capture
+								something real together.
 							</span>
 						</div>
 					)}
@@ -243,7 +241,9 @@ export default function ContactForm() {
 									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
 								/>
 							</svg>
-							<span>looks like the reel snagged. give it another go.</span>
+							<span>
+								Something slipped through the lens. Try that once more?
+							</span>
 						</div>
 					)}
 
@@ -263,7 +263,8 @@ export default function ContactForm() {
 								/>
 							</svg>
 							<span>
-								whoa — too many submissions. take five and try again in a bit.
+								Easy there — too many frames at once. Let's pause, then try
+								again in a moment.
 							</span>
 						</div>
 					)}
@@ -279,7 +280,7 @@ export default function ContactForm() {
 									<Field
 										type="text"
 										name="name"
-										placeholder="Your Name"
+										placeholder="Your name"
 										className={`input input-bordered w-full ${
 											errors.name && touched.name ? "input-error" : ""
 										}`}
@@ -296,7 +297,7 @@ export default function ContactForm() {
 									<Field
 										type="email"
 										name="email"
-										placeholder="Email Address"
+										placeholder="Email address"
 										className={`input input-bordered w-full ${
 											errors.email && touched.email ? "input-error" : ""
 										}`}
@@ -313,7 +314,7 @@ export default function ContactForm() {
 									<Field
 										type="tel"
 										name="phone"
-										placeholder="Phone (optional)"
+										placeholder="Phone number (optional)"
 										className={`input input-bordered w-full ${
 											errors.phone && touched.phone ? "input-error" : ""
 										}`}
@@ -330,7 +331,7 @@ export default function ContactForm() {
 									<Field
 										type="text"
 										name="company"
-										placeholder="Company Name (optional)"
+										placeholder="Company or project (optional)"
 										className={`input input-bordered w-full ${
 											errors.company && touched.company ? "input-error" : ""
 										}`}
@@ -347,7 +348,7 @@ export default function ContactForm() {
 									<Field
 										as="textarea"
 										name="description"
-										placeholder="Brief project description"
+										placeholder="Tell us what you want to capture"
 										className={`textarea textarea-bordered w-full ${
 											errors.description && touched.description
 												? "textarea-error"
@@ -390,7 +391,7 @@ export default function ContactForm() {
 									<Field
 										type="text"
 										name="website"
-										placeholder="Website"
+										placeholder="Site"
 										tabIndex={-1}
 										autoComplete="off"
 									/>
@@ -407,7 +408,7 @@ export default function ContactForm() {
 											Sending...
 										</>
 									) : (
-										"let's make something cinematic."
+										"Roll camera."
 									)}
 								</button>
 							</Form>

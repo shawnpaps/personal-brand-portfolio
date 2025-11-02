@@ -2,17 +2,39 @@
 import RootLayout from "../../layouts/RootLayout.astro";
 import Hero from "../../components/Hero.astro";
 import Card from "../../components/Card.astro";
+import VideoPlayer from "../../components/VideoPlayer.astro";
+import VideoGrid from "../../components/VideoGrid.astro";
+import { getPhotos, getVideos, type NotionMedia } from "../../lib/notion";
+
+// Fetch media at build time
+let photos: NotionMedia[] = [];
+let videos: NotionMedia[] = [];
+try {
+	[photos, videos] = await Promise.all([getPhotos(), getVideos()]);
+} catch (e) {
+	console.error("Failed to fetch media for creators page:", e);
+}
+
+// Helper function to get a photo or fallback
+const getPhotoOrFallback = (index: number, fallback: string) => {
+	return photos[index] ? photos[index].url : fallback;
+};
+
+// Helper function to get a video or null
+const getVideo = (index: number) => {
+	return videos[index] || null;
+};
 ---
 
 <RootLayout
-	title="for creators | sudo.create — your creative operating system"
-	description="Portfolio websites, brand photography, and content systems built for artists, musicians, and makers. We build the infrastructure so you can stay in flow."
-	keywords="portfolio websites, brand photography for creators, content automation, creative tech, musician tools"
+	title="for creators | sudo.create — your vision, sustained"
+	description="Film, photography, and audio that captures your essence. Portfolio sites that breathe with your work. Systems that keep your story flowing — so you can stay in the frame, not the backend."
+	keywords="brand photography, film production, audio production, creator portfolios, musician photography, artist film, content flow, creative systems"
 >
 	<Hero
-		title="Your creativity deserves an OS."
-		subtitle="Portfolio sites that perform. Content pipelines that flow. Tools built for artists who hate admin."
-		buttonText="Let's build your system."
+		title="Your art deserves the infrastructure."
+		subtitle="Film, photography, and audio that captures your truth. Portfolio sites that perform. Systems that keep your work flowing — while you stay in creative flow."
+		buttonText="Let's capture your story."
 		videoPath="/video/water.mp4"
 	/>
 
@@ -21,13 +43,13 @@ import Card from "../../components/Card.astro";
 			<!-- Introduction -->
 			<div class="max-w-4xl mx-auto text-center mb-20">
 				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-					Build your creative operating system.
+					Stories that sustain the vision.
 				</h2>
 				<p class="text-xl text-gray-300 leading-relaxed">
-					Artists, musicians, and makers need more than just pretty
-					visuals. You need portfolio websites that perform, content
-					workflows that flow, and tools that amplify your craft
-					without killing the vibe.
+					Artists, musicians, and makers need more than stock photos.
+					You need film and photography that captures your essence.
+					Portfolio sites that breathe. Systems that keep your work
+					flowing — without draining your creative soul.
 				</p>
 			</div>
 
@@ -35,39 +57,62 @@ import Card from "../../components/Card.astro";
 			<div class="mb-20">
 				<div class="prose prose-invert prose-xl max-w-4xl mx-auto">
 					<p class="text-lg text-gray-300 leading-relaxed mb-6">
-						We build brand photography sessions, custom portfolio
-						sites, content pipelines, and creative tech that lets
-						you stay in flow. Less admin panic, more creative
-						output.
+						We capture your story through film, photography, and
+						audio. Then we build the portfolio sites, content flows,
+						and systems that keep your work alive across every
+						platform. Less admin panic, more time in your craft.
 					</p>
 					<p class="text-lg text-gray-300 leading-relaxed">
-						From musicians to visual artists — we design the
-						systems, websites, and automations that keep your work
-						flowing without the busywork.
+						From musicians to visual artists — we shoot the stories
+						that define you, then build the systems that sustain
+						them. Your essence, captured and flowing.
 					</p>
 				</div>
 			</div>
 
-			<!-- Screenshot Showcase 1 -->
+			<!-- Featured Video Showcase -->
 			<div class="mb-20">
 				<div
 					class="card bg-base-200/50 backdrop-blur-xl border border-white/10 overflow-hidden"
 				>
-					<figure class="px-4 pt-4">
-						<img
-							src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=1200&h=600&fit=crop"
-							alt="Creator portfolio example"
-							class="rounded-xl w-full object-cover"
-						/>
-					</figure>
+					{
+						getVideo(0) ? (
+							<figure class="px-4 pt-4">
+								<VideoPlayer
+									src={getVideo(0).url}
+									poster={getVideo(0).thumbnail}
+									title="Your vision deserves to be captured"
+									description="Film and photography that tells your truth. Portfolio sites that breathe with your work."
+									autoplay={false}
+									controls={true}
+									loop={true}
+									muted={true}
+									aspectRatio="video"
+									showPlayButton={true}
+								/>
+							</figure>
+						) : (
+							<figure class="px-4 pt-4">
+								<img
+									src={getPhotoOrFallback(
+										0,
+										"https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=1200&h=600&fit=crop",
+									)}
+									alt="Creator capturing their story"
+									class="rounded-xl w-full object-cover"
+								/>
+							</figure>
+						)
+					}
 					<div class="card-body">
 						<h3 class="card-title text-2xl text-white">
-							Your art deserves infrastructure
+							Your vision deserves to be captured
 						</h3>
 						<p class="text-gray-300">
-							Brand photography, portfolio websites, and content
-							systems that showcase your work and keep it flowing
-							— without the busywork.
+							Film and photography that tells your truth.
+							Portfolio sites that breathe with your work. Systems
+							that keep your story flowing — without killing your
+							creative momentum.
 						</p>
 					</div>
 				</div>
@@ -78,7 +123,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					What we build for creators
+					What we create for creators
 				</h3>
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 					<Card>
@@ -86,12 +131,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📸</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Brand Photography & Video
+									Film & Photography
 								</h4>
 								<p class="text-gray-300">
-									Production sessions that capture your
-									identity. Every asset tagged and ready to
-									flow into your content engine.
+									Sessions that capture your essence — not
+									just your image. Every frame composed to
+									tell your story, ready to breathe life into
+									your channels.
 								</p>
 							</div>
 						</div>
@@ -102,12 +148,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">💻</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Portfolio Websites
+									Portfolio Sites That Breathe
 								</h4>
 								<p class="text-gray-300">
-									Custom portfolio sites that showcase your
-									work beautifully and actually perform. Built
-									for speed and impact.
+									Custom sites that showcase your work the way
+									it deserves — beautifully cinematic and
+									built to perform. Where your art comes alive
+									online.
 								</p>
 							</div>
 						</div>
@@ -118,12 +165,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">⚙️</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Content Pipelines
+									Content Flow
 								</h4>
 								<p class="text-gray-300">
-									Automated workflows and content strategies
-									that keep your work flowing across platforms
-									without the manual grind.
+									Systems and strategies that keep your work
+									moving across platforms without the
+									friction. Your art, flowing where it needs
+									to go.
 								</p>
 							</div>
 						</div>
@@ -134,12 +182,12 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📧</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Marketing Automations
+									Audience Connection
 								</h4>
 								<p class="text-gray-300">
-									Newsletter setups, email sequences, and
-									social workflows that keep your audience
-									engaged on autopilot.
+									Newsletter flows, email sequences, and
+									social systems that keep your audience close
+									— without feeling robotic or forced.
 								</p>
 							</div>
 						</div>
@@ -150,12 +198,12 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">🔧</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									Custom Tools
+									Tools Built for You
 								</h4>
 								<p class="text-gray-300">
-									Web apps, API integrations, and bespoke
-									solutions built specifically for your
-									creative workflow.
+									Custom apps, integrations, and solutions
+									shaped by your process — not generic
+									templates that almost fit.
 								</p>
 							</div>
 						</div>
@@ -166,12 +214,13 @@ import Card from "../../components/Card.astro";
 							<div class="text-3xl">📊</div>
 							<div>
 								<h4 class="text-xl font-bold text-white mb-2">
-									CRM & Data Flows
+									Systems That Feel Invisible
 								</h4>
 								<p class="text-gray-300">
-									Notion setups and data systems that organize
-									your projects without the corporate
-									nonsense.
+									Notion setups and data flows that organize
+									your creative life without the corporate
+									heaviness. Structure that supports, not
+									suffocates.
 								</p>
 							</div>
 						</div>
@@ -184,7 +233,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					Built for creative flow
+					Captured with intention, built to flow
 				</h3>
 				<div class="grid md:grid-cols-2 gap-8">
 					<div
@@ -192,7 +241,10 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									1,
+									"https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=400&fit=crop",
+								)}
 								alt="Music production workspace"
 								class="w-full object-cover h-64"
 							/>
@@ -202,9 +254,9 @@ import Card from "../../components/Card.astro";
 								For Musicians & Producers
 							</h4>
 							<p class="text-gray-300">
-								Brand photography, release workflows, and
-								portfolio sites that showcase your sound and
-								keep fans engaged between drops.
+								Photography and film that captures your essence.
+								Release flows and portfolio sites that showcase
+								your sound and keep fans close between drops.
 							</p>
 						</div>
 					</div>
@@ -214,7 +266,10 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									2,
+									"https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=400&fit=crop",
+								)}
 								alt="Creator assets"
 								class="w-full object-cover h-64"
 							/>
@@ -224,9 +279,9 @@ import Card from "../../components/Card.astro";
 								For Artists & Creatives
 							</h4>
 							<p class="text-gray-300">
-								Portfolio websites, brand photography, and
-								content systems that showcase your work without
-								the admin headache.
+								Film and photography that tells your story.
+								Portfolio sites and content flows that showcase
+								your vision without the backend nightmare.
 							</p>
 						</div>
 					</div>
@@ -236,7 +291,10 @@ import Card from "../../components/Card.astro";
 					>
 						<figure>
 							<img
-								src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									3,
+									"https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=400&fit=crop",
+								)}
 								alt="Content creator workspace"
 								class="w-full object-cover h-64"
 							/>
@@ -246,9 +304,9 @@ import Card from "../../components/Card.astro";
 								For Content Creators
 							</h4>
 							<p class="text-gray-300">
-								Content pipelines, automation workflows, and
-								tools that keep you creating instead of
-								managing.
+								Brand visuals, content flows, and systems that
+								keep you creating instead of drowning in
+								logistics. Stay in flow, not in admin.
 							</p>
 						</div>
 					</div>
@@ -266,9 +324,10 @@ import Card from "../../components/Card.astro";
 						<div class="card-body">
 							<h4 class="card-title text-white">For Designers</h4>
 							<p class="text-gray-300">
-								Portfolio sites that pop, case study templates,
-								and content systems that make your work look as
-								good online as it does in Figma.
+								Portfolio sites that breathe with your work.
+								Photography that captures your process. Systems
+								that make your craft look as cinematic online as
+								it feels in your hands.
 							</p>
 						</div>
 					</div>
@@ -284,19 +343,23 @@ import Card from "../../components/Card.astro";
 						class="hero-content flex-col lg:flex-row-reverse gap-12 py-16"
 					>
 						<img
-							src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=600&h=600&fit=crop"
+							src={getPhotoOrFallback(
+								4,
+								"https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=600&h=600&fit=crop",
+							)}
 							alt="Creator at work"
 							class="max-w-sm rounded-lg shadow-2xl"
 						/>
 						<div>
 							<h3 class="text-4xl font-bold text-white mb-4">
-								Systems that amplify your voice
+								Stories that sustain your vision
 							</h3>
 							<p class="text-lg text-gray-300 mb-6">
-								Imagine having a portfolio that converts,
-								content that flows on autopilot, and tools that
-								let you stay in creative mode. That's what we
-								build — systems that work while you create.
+								Imagine film and photography that captures your
+								truth. A portfolio that breathes with your work.
+								Content that flows without the friction. That's
+								what we build — stories and systems that sustain
+								you.
 							</p>
 							<ul class="space-y-3 mb-6">
 								<li
@@ -304,8 +367,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Portfolio sites and brand photography
-										that pop</span
+										>Film and photography that captures your
+										essence</span
 									>
 								</li>
 								<li
@@ -313,7 +376,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Content workflows that run on autopilot</span
+										>Portfolio sites that perform as
+										beautifully as they look</span
 									>
 								</li>
 								<li
@@ -321,8 +385,8 @@ import Card from "../../components/Card.astro";
 								>
 									<span class="text-primary text-xl">✓</span>
 									<span
-										>Custom tools built for your creative
-										process</span
+										>Systems that keep your work flowing
+										while you stay creative</span
 									>
 								</li>
 							</ul>
@@ -339,7 +403,7 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					Built for creators like you
+					Crafted for creators like you
 				</h3>
 				<div class="grid md:grid-cols-3 gap-6">
 					<div
@@ -352,8 +416,8 @@ import Card from "../../components/Card.astro";
 							</h4>
 							<p class="text-gray-300">
 								YouTube, TikTok, Instagram creators who need
-								content pipelines and workflows that keep the
-								uploads flowing.
+								brand visuals and content flows that keep the
+								uploads moving without burning out.
 							</p>
 						</div>
 					</div>
@@ -367,9 +431,9 @@ import Card from "../../components/Card.astro";
 								Writers & Authors
 							</h4>
 							<p class="text-gray-300">
-								Newsletter automations, publishing workflows,
-								and platforms that keep readers engaged between
-								releases.
+								Author photography, newsletter flows, and
+								publishing systems that keep readers close
+								between releases. Your words, sustained.
 							</p>
 						</div>
 					</div>
@@ -383,9 +447,9 @@ import Card from "../../components/Card.astro";
 								Artists & Designers
 							</h4>
 							<p class="text-gray-300">
-								Portfolio websites, brand systems, and content
-								workflows that showcase your creative work
-								beautifully.
+								Film and photography that captures your process.
+								Portfolio sites and content flows that showcase
+								your work the way it deserves to be seen.
 							</p>
 						</div>
 					</div>
@@ -397,24 +461,27 @@ import Card from "../../components/Card.astro";
 				<h3
 					class="text-3xl md:text-4xl font-bold text-white text-center mb-12"
 				>
-					How we work together
+					How we capture and build together
 				</h3>
 				<div class="space-y-8">
 					<div class="flex flex-col md:flex-row gap-8 items-center">
 						<div class="md:w-1/2">
 							<div class="badge badge-primary mb-4">Step 1</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Map your vision
+								Find the story
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We start with strategy — understanding your art,
-								your audience, and what systems you need to
-								scale. No fluff, just clarity.
+								We start with feeling — understanding your
+								essence, your audience, and what needs to be
+								captured. No corporate speak, just truth.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									5,
+									"https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop",
+								)}
 								alt="Creative workflow discussion"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -427,17 +494,20 @@ import Card from "../../components/Card.astro";
 						<div class="md:w-1/2">
 							<div class="badge badge-secondary mb-4">Step 2</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Build the system
+								Capture and create
 							</h4>
 							<p class="text-gray-300 text-lg">
-								We shoot the photography, build the websites,
-								and design the workflows. Every asset ready to
-								flow. Every system connected.
+								We shoot the film and photography, build the
+								portfolio sites, and design the flows. Every
+								frame intentional. Every system seamless.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									6,
+									"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+								)}
 								alt="Building creative systems"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -448,17 +518,20 @@ import Card from "../../components/Card.astro";
 						<div class="md:w-1/2">
 							<div class="badge badge-accent mb-4">Step 3</div>
 							<h4 class="text-2xl font-bold text-white mb-4">
-								Launch and grow
+								Release and sustain
 							</h4>
 							<p class="text-gray-300 text-lg">
-								Deploy your new system, train on the tools, and
-								get ongoing support as your practice evolves.
-								You create — the system handles the rest.
+								Launch your story into the world, learn the
+								systems, and get support as your vision evolves.
+								You create — the flow handles the rest.
 							</p>
 						</div>
 						<div class="md:w-1/2">
 							<img
-								src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+								src={getPhotoOrFallback(
+									7,
+									"https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
+								)}
 								alt="Creative success"
 								class="rounded-xl shadow-2xl w-full"
 							/>
@@ -467,23 +540,59 @@ import Card from "../../components/Card.astro";
 				</div>
 			</div>
 
+			<!-- Video Gallery Section -->
+			{
+				videos.length > 1 && (
+					<div class="mb-20">
+						<div class="text-center mb-12">
+							<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+								See the Stories We've Captured
+							</h3>
+							<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+								From musicians to visual artists — real work,
+								real stories, real impact. Browse our latest
+								film and video projects.
+							</p>
+						</div>
+
+						<VideoGrid
+							videos={videos}
+							columns={2}
+							aspectRatio="video"
+							showTitles={true}
+							showDescriptions={false}
+							maxVideos={4}
+						/>
+
+						<div class="text-center mt-8">
+							<a
+								href="/media-example"
+								class="btn btn-outline btn-primary"
+							>
+								View Full Gallery
+							</a>
+						</div>
+					</div>
+				)
+			}
+
 			<!-- Final CTA -->
 			<div class="text-center">
 				<div class="max-w-3xl mx-auto mb-8">
 					<h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
-						Ready to build your creative OS?
+						Ready to capture your truth?
 					</h3>
 					<p class="text-xl text-gray-300 mb-8">
-						Bring the vision. We'll build the portfolio, the
-						pipelines, and the tools that let you stay in flow.
-						Coffee optional, momentum guaranteed.
+						Bring the feeling. We'll capture the story, build the
+						portfolio, and create the flows that keep your vision
+						alive. Your essence, sustained.
 					</p>
 				</div>
 				<a
 					href="/contact"
 					class="btn btn-primary btn-lg rounded-full text-lg px-8"
 				>
-					Let's build your system.
+					Let's capture your story.
 				</a>
 			</div>
 		</div>
