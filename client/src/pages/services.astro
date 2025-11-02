@@ -1,0 +1,1046 @@
+---
+import RootLayout from "../layouts/RootLayout.astro";
+import {
+	Lightbulb,
+	Cog,
+	Zap,
+	TrendingUp,
+	Infinity,
+	Camera,
+	Code,
+	Workflow,
+	Sparkles,
+	Layers,
+} from "lucide-astro";
+---
+
+<RootLayout
+	title="Services | sudo.create"
+	description="From strategy to execution, we build creative systems that scale. Photography, videography, web development, automation, and content workflows that make growth feel effortless."
+	keywords="creative services, content strategy, photography services, video production, web development, automation, content workflows, brand strategy"
+>
+	<!-- Hero Section -->
+	<section class="relative z-10 pt-32 pb-16 px-6">
+		<div class="max-w-7xl mx-auto text-center">
+			<div class="badge badge-primary badge-lg mb-6">
+				<Zap size={16} class="mr-2" />
+				Full-Service Creative Studio
+			</div>
+			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+				Services That Scale
+			</h1>
+			<p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+				We blend artistry, strategy, and engineering to build creative
+				systems that make growth feel effortless. From brand strategy to
+				custom experiences.
+			</p>
+		</div>
+	</section>
+
+	<!-- Core Services Grid -->
+	<section class="relative z-10 py-20 px-6">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+					Our Core Services
+				</h2>
+				<p class="text-xl text-gray-300 max-w-2xl mx-auto">
+					End-to-end solutions designed to amplify your brand and
+					streamline your workflow.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Photography & Videography -->
+				<div
+					class="card bg-gradient-to-br from-primary/10 to-transparent border border-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-105"
+				>
+					<div class="card-body">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="p-3 bg-primary/20 rounded-xl">
+								<Camera size={32} class="text-primary" />
+							</div>
+							<h3 class="card-title text-2xl text-white">
+								Photo & Video
+							</h3>
+						</div>
+						<p class="text-gray-300 mb-4">
+							Cinematic storytelling through photography and
+							videography. Brand shoots, product photography,
+							event coverage, and video production that captures
+							emotion.
+						</p>
+						<div class="space-y-2">
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-primary rounded-full">
+								</div>
+								<span>Brand Photography</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-primary rounded-full">
+								</div>
+								<span>Video Production</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-primary rounded-full">
+								</div>
+								<span>Event Coverage</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-primary rounded-full">
+								</div>
+								<span>Sound Design</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Web Development -->
+				<div
+					class="card bg-gradient-to-br from-secondary/10 to-transparent border border-white/10 hover:border-secondary/50 transition-all duration-300 hover:scale-105"
+				>
+					<div class="card-body">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="p-3 bg-secondary/20 rounded-xl">
+								<Code size={32} class="text-secondary" />
+							</div>
+							<h3 class="card-title text-2xl text-white">
+								Web Development
+							</h3>
+						</div>
+						<p class="text-gray-300 mb-4">
+							High-powered websites that look incredible and
+							perform flawlessly. Custom builds, e-commerce,
+							portfolios, and landing pages optimized for
+							conversion.
+						</p>
+						<div class="space-y-2">
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-secondary rounded-full">
+								</div>
+								<span>Custom Websites</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-secondary rounded-full">
+								</div>
+								<span>E-commerce Solutions</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-secondary rounded-full">
+								</div>
+								<span>Portfolio Sites</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-secondary rounded-full">
+								</div>
+								<span>Landing Pages</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Content Strategy -->
+				<div
+					class="card bg-gradient-to-br from-accent/10 to-transparent border border-white/10 hover:border-accent/50 transition-all duration-300 hover:scale-105"
+				>
+					<div class="card-body">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="p-3 bg-accent/20 rounded-xl">
+								<Lightbulb size={32} class="text-accent" />
+							</div>
+							<h3 class="card-title text-2xl text-white">
+								Content Strategy
+							</h3>
+						</div>
+						<p class="text-gray-300 mb-4">
+							Strategic planning that turns content into a growth
+							engine. From ideation to execution, we map out
+							systems that scale your creative output.
+						</p>
+						<div class="space-y-2">
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-accent rounded-full">
+								</div>
+								<span>Content Planning</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-accent rounded-full">
+								</div>
+								<span>Brand Messaging</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-accent rounded-full">
+								</div>
+								<span>Creative Direction</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-accent rounded-full">
+								</div>
+								<span>Campaign Blueprints</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Automation & Integrations -->
+				<div
+					class="card bg-gradient-to-br from-info/10 to-transparent border border-white/10 hover:border-info/50 transition-all duration-300 hover:scale-105"
+				>
+					<div class="card-body">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="p-3 bg-info/20 rounded-xl">
+								<Cog size={32} class="text-info" />
+							</div>
+							<h3 class="card-title text-2xl text-white">
+								Automation
+							</h3>
+						</div>
+						<p class="text-gray-300 mb-4">
+							Custom automations that eliminate busywork. Connect
+							your tools, streamline workflows, and let technology
+							handle the repetitive tasks.
+						</p>
+						<div class="space-y-2">
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-info rounded-full"></div>
+								<span>Workflow Automation</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-info rounded-full"></div>
+								<span>Tool Integrations</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-info rounded-full"></div>
+								<span>Data Pipelines</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-info rounded-full"></div>
+								<span>Marketing Automation</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Content Workflows -->
+				<div
+					class="card bg-gradient-to-br from-success/10 to-transparent border border-white/10 hover:border-success/50 transition-all duration-300 hover:scale-105"
+				>
+					<div class="card-body">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="p-3 bg-success/20 rounded-xl">
+								<Workflow size={32} class="text-success" />
+							</div>
+							<h3 class="card-title text-2xl text-white">
+								Content Workflows
+							</h3>
+						</div>
+						<p class="text-gray-300 mb-4">
+							End-to-end content systems from creation to
+							distribution. Notion setups, asset management, and
+							pipelines that keep your content flowing smoothly.
+						</p>
+						<div class="space-y-2">
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-success rounded-full">
+								</div>
+								<span>Notion Workspaces</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-success rounded-full">
+								</div>
+								<span>Asset Management</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-success rounded-full">
+								</div>
+								<span>Distribution Systems</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-success rounded-full">
+								</div>
+								<span>Team Collaboration</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Innovation -->
+				<div
+					class="card bg-gradient-to-br from-warning/10 to-transparent border border-white/10 hover:border-warning/50 transition-all duration-300 hover:scale-105"
+				>
+					<div class="card-body">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="p-3 bg-warning/20 rounded-xl">
+								<Sparkles size={32} class="text-warning" />
+							</div>
+							<h3 class="card-title text-2xl text-white">
+								Creative Tech
+							</h3>
+						</div>
+						<p class="text-gray-300 mb-4">
+							Experiment at the edges of creativity. Interactive
+							and generative experiences that blur the line
+							between art, tech, and culture.
+						</p>
+						<div class="space-y-2">
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-warning rounded-full">
+								</div>
+								<span>Prototypes & Tools</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-warning rounded-full">
+								</div>
+								<span>Interactive Media</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-warning rounded-full">
+								</div>
+								<span>Generative Builds</span>
+							</div>
+							<div
+								class="flex items-center gap-2 text-sm text-gray-400"
+							>
+								<div class="w-2 h-2 bg-warning rounded-full">
+								</div>
+								<span>AI-Driven Visuals</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Service Packages -->
+	<section
+		class="relative z-10 py-20 px-6 bg-gradient-to-b from-transparent to-black/20"
+	>
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+					Service Packages
+				</h2>
+				<p class="text-xl text-gray-300 max-w-2xl mx-auto">
+					Choose the service that fits your needs — or combine them
+					all for a complete creative operating system.
+				</p>
+			</div>
+
+			<div class="space-y-8">
+				<!-- IGNITE -->
+				<div
+					class="card bg-gradient-to-br from-primary/10 to-transparent border border-white/10 hover:border-primary/50 transition-all duration-300"
+				>
+					<div class="card-body">
+						<div
+							class="flex flex-col md:flex-row md:items-start gap-6"
+						>
+							<div class="flex-shrink-0">
+								<div class="p-4 bg-primary/20 rounded-2xl">
+									<Lightbulb size={48} class="text-primary" />
+								</div>
+							</div>
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<div class="badge badge-primary">
+										Strategy
+									</div>
+									<h3 class="text-3xl font-bold text-white">
+										🧠 IGNITE — Creative Direction &
+										Strategy
+									</h3>
+								</div>
+								<p
+									class="text-xl text-gray-200 mb-4 font-medium"
+								>
+									Define the story that makes people care.
+								</p>
+								<p class="text-gray-300 mb-6">
+									We shape your brand's creative DNA — the
+									narrative, tone, and aesthetic that guide
+									every piece of media and every touchpoint
+									that follows.
+								</p>
+								<div class="divider"></div>
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Deliverables
+										</h4>
+										<ul class="space-y-2">
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Brand story</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Creative strategy</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Campaign blueprints</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Art direction</span>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Outcome
+										</h4>
+										<p class="text-gray-300">
+											Clarity and direction for everything
+											visual that comes next.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ENGINE -->
+				<div
+					class="card bg-gradient-to-br from-secondary/10 to-transparent border border-white/10 hover:border-secondary/50 transition-all duration-300"
+				>
+					<div class="card-body">
+						<div
+							class="flex flex-col md:flex-row md:items-start gap-6"
+						>
+							<div class="flex-shrink-0">
+								<div class="p-4 bg-secondary/20 rounded-2xl">
+									<Camera size={48} class="text-secondary" />
+								</div>
+							</div>
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<div class="badge badge-secondary">
+										Production
+									</div>
+									<h3 class="text-3xl font-bold text-white">
+										🎥 ENGINE — Media Production
+									</h3>
+								</div>
+								<p
+									class="text-xl text-gray-200 mb-4 font-medium"
+								>
+									Cinematic visuals that sell emotion and
+									attention.
+								</p>
+								<p class="text-gray-300 mb-6">
+									From high-end campaigns to social-first
+									content, we produce photo, video, and audio
+									that embody your brand. Every piece is built
+									to convert — whether it's launching a
+									product, telling a story, or defining your
+									look.
+								</p>
+								<div class="divider"></div>
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Deliverables
+										</h4>
+										<ul class="space-y-2">
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Campaign shoots</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Product visuals</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Branded content</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Music and sound design</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-secondary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Editing and delivery</span
+												>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Outcome
+										</h4>
+										<p class="text-gray-300">
+											Scroll-stopping visuals that amplify
+											your brand across every platform.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- LINK -->
+				<div
+					class="card bg-gradient-to-br from-accent/10 to-transparent border border-white/10 hover:border-accent/50 transition-all duration-300"
+				>
+					<div class="card-body">
+						<div
+							class="flex flex-col md:flex-row md:items-start gap-6"
+						>
+							<div class="flex-shrink-0">
+								<div class="p-4 bg-accent/20 rounded-2xl">
+									<Code size={48} class="text-accent" />
+								</div>
+							</div>
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<div class="badge badge-accent">
+										Integration
+									</div>
+									<h3 class="text-3xl font-bold text-white">
+										⚙️ LINK — Web, E-commerce, and Systems
+										Integration
+									</h3>
+								</div>
+								<p
+									class="text-xl text-gray-200 mb-4 font-medium"
+								>
+									Where visuals meet velocity.
+								</p>
+								<p class="text-gray-300 mb-6">
+									LINK connects your media and messaging to
+									the systems that move your business — from
+									your site to your store to your automation
+									stack. We design and build sites that look
+									cinematic, sell beautifully, and run on
+									autopilot.
+								</p>
+								<div class="divider"></div>
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Deliverables
+										</h4>
+										<ul class="space-y-2">
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Website design &
+													development</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>E-commerce builds (Shopify,
+													Webflow, custom)</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>CMS integration</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Marketing automation</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Analytics and delivery
+													pipelines</span
+												>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Outcome
+										</h4>
+										<p class="text-gray-300">
+											A digital ecosystem where your
+											creative assets, content, and
+											conversions flow effortlessly
+											together.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- LABS -->
+				<div
+					class="card bg-gradient-to-br from-info/10 to-transparent border border-white/10 hover:border-info/50 transition-all duration-300"
+				>
+					<div class="card-body">
+						<div
+							class="flex flex-col md:flex-row md:items-start gap-6"
+						>
+							<div class="flex-shrink-0">
+								<div class="p-4 bg-info/20 rounded-2xl">
+									<Sparkles size={48} class="text-info" />
+								</div>
+							</div>
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<div class="badge badge-info">
+										Innovation
+									</div>
+									<h3 class="text-3xl font-bold text-white">
+										🧪 LABS — Creative Tech & Innovation
+									</h3>
+								</div>
+								<p
+									class="text-xl text-gray-200 mb-4 font-medium"
+								>
+									Experiment at the edges of creativity.
+								</p>
+								<p class="text-gray-300 mb-6">
+									We prototype and build interactive and
+									generative experiences that blur the line
+									between art, tech, and culture — from
+									immersive product drops to AI-driven
+									visuals.
+								</p>
+								<div class="divider"></div>
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Deliverables
+										</h4>
+										<ul class="space-y-2">
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-info rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Prototypes</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-info rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Creative tools</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-info rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span>Interactive media</span>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-info rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Generative and experimental
+													builds</span
+												>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Outcome
+										</h4>
+										<p class="text-gray-300">
+											Future-forward creative that keeps
+											your brand ahead of the curve.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- SUDO OS -->
+				<div
+					class="card bg-gradient-to-br from-primary/20 to-secondary/20 border-2 border-primary shadow-2xl shadow-primary/20 relative"
+				>
+					<div class="absolute -top-4 left-1/2 -translate-x-1/2">
+						<div class="badge badge-primary badge-lg gap-2">
+							<Zap size={14} />
+							Complete Ecosystem
+						</div>
+					</div>
+					<div class="card-body">
+						<div
+							class="flex flex-col md:flex-row md:items-start gap-6"
+						>
+							<div class="flex-shrink-0">
+								<div
+									class="p-4 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-2xl"
+								>
+									<Layers size={48} class="text-primary" />
+								</div>
+							</div>
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<div class="badge badge-primary">
+										Full Stack
+									</div>
+									<h3 class="text-3xl font-bold text-white">
+										🧩 SUDO OS — The Complete Ecosystem
+									</h3>
+								</div>
+								<p
+									class="text-xl text-gray-200 mb-4 font-medium"
+								>
+									The full creative operating system for your
+									brand.
+								</p>
+								<p class="text-gray-300 mb-6">
+									SUDO OS brings everything together —
+									strategy, production, web, and innovation —
+									into one connected buildout. It's your
+									brand's entire media and marketing
+									infrastructure, designed and run under one
+									roof.
+								</p>
+								<div class="divider"></div>
+								<div class="grid md:grid-cols-2 gap-6">
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Deliverables
+										</h4>
+										<ul class="space-y-2">
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Custom combination of
+													IGNITE + ENGINE + LINK +
+													LABS</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Unified creative
+													infrastructure</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Integrated workflow systems</span
+												>
+											</li>
+											<li
+												class="flex items-start gap-2 text-gray-300"
+											>
+												<div
+													class="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"
+												>
+												</div>
+												<span
+													>Complete media ecosystem</span
+												>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4
+											class="text-sm font-bold text-gray-400 uppercase tracking-wide mb-3"
+										>
+											Outcome
+										</h4>
+										<p class="text-gray-300">
+											A unified creative engine powering
+											every visual, platform, and
+											campaign.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Process Section -->
+	<section class="relative z-10 py-20 px-6">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+					How We Work
+				</h2>
+				<p class="text-xl text-gray-300 max-w-2xl mx-auto">
+					A proven process that takes you from strategy to execution
+					seamlessly.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div
+						class="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-2xl mb-4"
+					>
+						<span class="text-2xl font-bold text-primary">1</span>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-2">Discovery</h3>
+					<p class="text-gray-400">
+						We dive deep into your brand, goals, and current
+						workflows to understand what you need.
+					</p>
+				</div>
+
+				<div class="text-center">
+					<div
+						class="inline-flex items-center justify-center w-16 h-16 bg-secondary/20 rounded-2xl mb-4"
+					>
+						<span class="text-2xl font-bold text-secondary">2</span>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-2">Strategy</h3>
+					<p class="text-gray-400">
+						We map out a custom plan with clear milestones,
+						deliverables, and success metrics.
+					</p>
+				</div>
+
+				<div class="text-center">
+					<div
+						class="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-2xl mb-4"
+					>
+						<span class="text-2xl font-bold text-accent">3</span>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-2">Build</h3>
+					<p class="text-gray-400">
+						We execute with precision — creating, integrating, and
+						optimizing every component.
+					</p>
+				</div>
+
+				<div class="text-center">
+					<div
+						class="inline-flex items-center justify-center w-16 h-16 bg-success/20 rounded-2xl mb-4"
+					>
+						<span class="text-2xl font-bold text-success">4</span>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-2">Launch</h3>
+					<p class="text-gray-400">
+						We launch your system, train your team, and provide
+						ongoing support for growth.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="relative z-10 py-20 px-6">
+		<div class="max-w-4xl mx-auto">
+			<div
+				class="card bg-gradient-to-br from-primary/20 to-secondary/20 border border-white/10 backdrop-blur-xl"
+			>
+				<div class="card-body p-8 md:p-12 text-center">
+					<div class="flex justify-center mb-6">
+						<Infinity size={48} class="text-primary" />
+					</div>
+					<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+						Ready to Build Your System?
+					</h2>
+					<p class="text-xl text-gray-300 mb-8">
+						Let's talk about your project. Whether you need a single
+						service or the complete ecosystem, we'll create a
+						solution that fits your needs.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<a href="/contact" class="btn btn-primary btn-lg">
+							Start a Project
+						</a>
+						<a
+							href="/gallery"
+							class="btn btn-outline btn-primary btn-lg"
+						>
+							View Our Work
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</RootLayout>
+
+<style>
+	.card {
+		transition: all 0.3s ease;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.card {
+			transition: none !important;
+		}
+	}
+</style>
