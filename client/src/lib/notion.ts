@@ -18,16 +18,24 @@ export interface NotionMedia {
 	tags?: string[];
 	createdAt: string;
 	updatedAt: string;
+	fileIndex?: number; // Index for entries with multiple files
 }
 
 /**
  * Helper function to extract media data from Notion page
  */
-function extractMediaFromPage(page: any): NotionMedia | null {
+function extractMediaFromPage(page: any): NotionMedia[] {
 	const properties = page.properties;
 
 	// Debug: log available properties
 	console.log(`Page ${page.id} properties:`, Object.keys(properties));
+
+	// Check "Hidden From Gallery" checkbox
+	const hiddenFromGallery = properties["Hidden From Gallery"]?.checkbox;
+	if (hiddenFromGallery === true) {
+		console.log(`Page ${page.id} is hidden from gallery - skipping`);
+		return [];
+	}
 
 	// Extract title - try common property names
 	const title =
@@ -39,41 +47,51 @@ function extractMediaFromPage(page: any): NotionMedia | null {
 	const typeValue = properties.Type?.select?.name;
 	if (!typeValue) {
 		console.warn(`Page ${page.id} has no Type property`);
-		return null;
+		return [];
 	}
 
 	const type = typeValue.toLowerCase() as "photography" | "video";
 	if (type !== "photography" && type !== "video") {
 		console.warn(`Page ${page.id} has invalid type: ${typeValue}`);
-		return null;
+		return [];
 	}
 
-	// Extract URL from file or URL property - try multiple property names
-	let url = "";
+	// Extract description
+	const description = properties.Description?.rich_text?.[0]?.plain_text || "";
+
+	// Extract tags
+	const tags = properties.Tags?.multi_select?.map((tag: any) => tag.name) || [];
+
+	// Collect all files from various properties
+	const allFiles: Array<{ url: string; index: number }> = [];
 
 	// Try "Files & media" property (with spaces and special chars)
 	const filesMediaProp = properties["Files & media"];
-	if (filesMediaProp?.files?.[0]) {
-		url =
-			filesMediaProp.files[0].file?.url ||
-			filesMediaProp.files[0].external?.url ||
-			"";
+	if (filesMediaProp?.files && Array.isArray(filesMediaProp.files)) {
+		filesMediaProp.files.forEach((file: any, index: number) => {
+			const fileUrl = file.file?.url || file.external?.url;
+			if (fileUrl) {
+				allFiles.push({ url: fileUrl, index });
+			}
+		});
 	}
 
-	// Try "File" property
-	if (!url && properties.File?.files?.[0]) {
-		url =
-			properties.File.files[0].file?.url ||
-			properties.File.files[0].external?.url ||
-			"";
+	// Try "File" property if no files found yet
+	if (allFiles.length === 0 && properties.File?.files) {
+		properties.File.files.forEach((file: any, index: number) => {
+			const fileUrl = file.file?.url || file.external?.url;
+			if (fileUrl) {
+				allFiles.push({ url: fileUrl, index });
+			}
+		});
 	}
 
-	// Try "URL" property
-	if (!url && properties.URL?.url) {
-		url = properties.URL.url;
+	// Try "URL" property if no files found yet
+	if (allFiles.length === 0 && properties.URL?.url) {
+		allFiles.push({ url: properties.URL.url, index: 0 });
 	}
 
-	if (!url) {
+	if (allFiles.length === 0) {
 		console.warn(
 			`Page ${page.id} has no URL or File. Available properties:`,
 			Object.keys(properties),
@@ -82,34 +100,29 @@ function extractMediaFromPage(page: any): NotionMedia | null {
 			`Files & media content:`,
 			JSON.stringify(properties["Files & media"], null, 2),
 		);
-		return null;
+		return [];
 	}
 
-	// Extract thumbnail (if different from main URL)
-	const thumbnail =
-		properties.Thumbnail?.files?.[0]?.file?.url ||
-		properties.Thumbnail?.files?.[0]?.external?.url ||
-		properties["Files & media"]?.files?.[1]?.file?.url ||
-		properties["Files & media"]?.files?.[1]?.external?.url ||
-		url;
+	// Create a NotionMedia item for each file
+	const mediaItems: NotionMedia[] = allFiles.map((file, idx) => {
+		// For thumbnail, use the next file if available, otherwise use the same file
+		const thumbnail = allFiles[idx + 1]?.url || file.url;
 
-	// Extract description
-	const description = properties.Description?.rich_text?.[0]?.plain_text || "";
+		return {
+			id: allFiles.length > 1 ? `${page.id}-${idx}` : page.id,
+			title: allFiles.length > 1 ? `${title} (${idx + 1})` : title,
+			type,
+			url: file.url,
+			thumbnail,
+			description,
+			tags,
+			createdAt: page.created_time,
+			updatedAt: page.last_edited_time,
+			fileIndex: allFiles.length > 1 ? idx : undefined,
+		};
+	});
 
-	// Extract tags
-	const tags = properties.Tags?.multi_select?.map((tag: any) => tag.name) || [];
-
-	return {
-		id: page.id,
-		title,
-		type,
-		url,
-		thumbnail,
-		description,
-		tags,
-		createdAt: page.created_time,
-		updatedAt: page.last_edited_time,
-	};
+	return mediaItems;
 }
 
 /**
@@ -147,11 +160,13 @@ async function getMediaByType(
 		const mediaItems: NotionMedia[] = [];
 
 		for (const page of response.results) {
-			const media = extractMediaFromPage(page);
-			if (media) {
-				mediaItems.push(media);
+			const mediaArray = extractMediaFromPage(page);
+			if (mediaArray.length > 0) {
+				mediaItems.push(...mediaArray);
 			} else {
-				console.warn(`Skipped page ${page.id} - failed to extract media`);
+				console.warn(
+					`Skipped page ${page.id} - failed to extract media or hidden from gallery`,
+				);
 			}
 		}
 
@@ -216,9 +231,9 @@ export async function getMediaByTags(tags: string[]): Promise<NotionMedia[]> {
 		const mediaItems: NotionMedia[] = [];
 
 		for (const page of response.results) {
-			const media = extractMediaFromPage(page);
-			if (media) {
-				mediaItems.push(media);
+			const mediaArray = extractMediaFromPage(page);
+			if (mediaArray.length > 0) {
+				mediaItems.push(...mediaArray);
 			}
 		}
 
@@ -227,4 +242,33 @@ export async function getMediaByTags(tags: string[]): Promise<NotionMedia[]> {
 		console.error("Error fetching media by tags from Notion:", error);
 		throw error;
 	}
+}
+
+/**
+ * Filter media array to show only the first item from each project
+ * Useful for gallery views where you want one representative image per project
+ */
+export function getFirstMediaPerProject(
+	mediaItems: NotionMedia[],
+): NotionMedia[] {
+	const projectMap = new Map<string, NotionMedia>();
+
+	for (const item of mediaItems) {
+		// Extract the base page ID (remove file index suffix if present)
+		const baseId = item.id.includes("-")
+			? item.id.substring(0, item.id.lastIndexOf("-"))
+			: item.id;
+
+		// Only keep the first item for each base page ID
+		if (!projectMap.has(baseId)) {
+			// Clean up the title by removing " (1)" suffix if present
+			const cleanedItem = {
+				...item,
+				title: item.title.replace(/\s+\(\d+\)$/, ""),
+			};
+			projectMap.set(baseId, cleanedItem);
+		}
+	}
+
+	return Array.from(projectMap.values());
 }
