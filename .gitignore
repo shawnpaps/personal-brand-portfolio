@@ -69,7 +69,7 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
-.env 
+.env
 AuthKey_F247AY8D6N.p8
 
 # Yarn Integrity file
@@ -137,3 +137,13 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Documentation markdown files (excluding READMEs)
+client/MEDIA_INTEGRATION.md
+client/NOTION_INTEGRATION_COMPLETE.md
+client/NOTION_SETUP.md
+client/VIDEO_ENHANCEMENTS.md
+client/VIDEO_UPDATES_SUMMARY.md
+client/public/images/OG_IMAGE_TODO.md
+client/src/lib/notion-usage-examples.md
+copilot-guidelines.md

@@ -1,139 +1,145 @@
 <!--
 @copilot
-purpose: Guide GitHub Copilot in rewriting all website and marketing copy for sudo.create.
+purpose: Guide GitHub Copilot in rewriting all sudo.create copy to center on cinematic storytelling, photography, videography, and audio as our core creative services.
 apply_to: ["*.md", "*.html", "*.js", "*.jsx", "*.ts", "*.tsx"]
 priority: high
 -->
 
-# 🧠 Copilot Copywriting Guidelines for sudo.create
+# 🎬 Copilot Copywriting Guidelines for sudo.create
 
-> Purpose: Guide GitHub Copilot in rewriting all marketing and site copy to match sudo.create’s updated brand tone and positioning.
-
----
-
-## 🎯 Brand Essence
-**sudo.create** is a creative technology studio fusing artistry, strategy, and engineering.  
-We help culture-driven brands build beautiful, automated ecosystems that *just work*.
-
-We’re not an agency. We’re an operating system for creative growth.  
-Cheeky. Smart. A bit rebellious — but always in control.
+> sudo.create is a visual-first creative studio blending cinematic storytelling with photography, videography, and audio.  
+> We craft stories that move people — and we make sure they move seamlessly through every medium.
 
 ---
 
-## ✨ Tone & Voice
+## 🎯 Brand Core
+
+We tell stories through **light, sound, and motion**.  
+Every frame, every beat, every line — crafted to stir emotion and stay timeless.  
+We blend direction, production, and precision to help brands look, sound, and *feel* unforgettable.
+
+**Philosophy:** *Make it look good. Make it work anywhere.*
+
+---
+
+## ✨ Voice & Tone
 
 | Trait | Description | Example |
 |-------|--------------|----------|
-| **Cheeky** | Confidently playful without being childish. Uses clever phrasing, irony, or humor with purpose. | “No fluff. No corporate nonsense. Just bold ideas and solid code.” |
-| **Professional** | Clean structure, tight copy, clear logic. Swear-free, but not sanitized. | “We build creative systems that scale — and actually look good doing it.” |
-| **Conversational** | Write like a human who’s talking to another human. Contractions are encouraged. | “You’ve got the vision. We bring the tools to make it real.” |
-| **Modern** | Minimal, bold, design-aware. Avoid clichés or overused marketing talk. | ❌ “Innovative solutions for modern brands” → ✅ “Systems that do the heavy lifting while you stay in flow.” |
-| **Purposeful** | Every sentence should deliver value or spark curiosity. | “We don’t do campaigns. We build creative engines that never stall.” |
+| **Cinematic** | Think in shots, light, and rhythm. Every line should feel like a frame in motion. | “Light cuts through shadow. The story begins.” |
+| **Emotional** | Write from the gut — evoke feeling before function. | “Stories that stay with you long after the screen fades.” |
+| **Playful Confidence** | We’re pros who don’t take ourselves too seriously. | “We direct, shoot, and edit like we mean it.” |
+| **Human & Poetic** | Speak with clarity, warmth, and artistry. | “Cameras don’t tell stories — people do.” |
+| **Refined Realness** | Polished, but not pretentious. Beautifully minimal, like great composition. | “Every frame matters. Every detail earns its place.” |
 
 ---
 
-## 🧩 Copy Structure
+## 🧩 Copy Framework
 
 ### 1. Headlines
-- Short, punchy, and confident (max 8 words).
-- Make the reader *feel something*.
-- Avoid “we/us” statements unless they flip expectations.
-- Use verbs and energy.  
-  - ✅ “Automate the boring. Amplify the magic.”  
-  - ✅ “Your brand deserves better systems.”  
-  - ❌ “We offer creative solutions.”
+- Short. Evocative. Visual.  
+- Should sound like a film title, not a service description.  
+  - ✅ “Stories in Motion.”  
+  - ✅ “Where visuals breathe.”  
+  - ✅ “Every frame has a feeling.”  
+  - ❌ “We provide creative production services.”
 
 ### 2. Subheadlines
-- Clarify the headline without losing personality.
-- Should sound like a continuation of the thought, not a corporate explanation.
-- Use rhythm and flow, like spoken language.
+- Add emotion or atmosphere.  
+- Support the headline by showing *why* it matters.  
+  - ✅ “Photography, video, and sound — built to move people.”  
 
 ### 3. Body Copy
-- 2–3 short sentences per paragraph max.
-- Lead with the *benefit*, then show the *how*.
-- Use metaphors or analogies rooted in tech, creativity, or music culture.
-- Favor verbs over adjectives.
+- 2–3 sentences per section max.  
+- Lead with emotion, follow with craft.  
+- Show the artistry; hint at the process.  
+  - ✅ “We capture the essence of a moment — then build the story around it.”  
+  - ✅ “From the click of the shutter to the final mix, every choice is intentional.”  
 
 ### 4. CTAs
-- Direct, clever, action-oriented.
-  - ✅ “Run sudo ignite.”  
-  - ✅ “Let’s build your system.”  
-  - ❌ “Contact us to learn more.”
+- Confident, direct, and cinematic in tone.  
+  - ✅ “Roll camera.”  
+  - ✅ “Let’s tell your story.”  
+  - ✅ “Start your scene.”  
+  - ❌ “Get in touch.”
 
 ---
 
 ## 🧱 Brand Language Rules
 
-**Preferred vocabulary**
-- build, design, automate, system, pipeline, ecosystem, engine, OS, creative tech, studio, brand, culture, strategy, media, code, flow
+**Preferred Vocabulary**
+- story, frame, motion, light, sound, photo, film, video, lens, capture, direction, craft, edit, tone, rhythm, emotion, flow, production, narrative, cinematic, timeless, visual, storytelling, brand, culture
 
 **Avoid**
-- agency, client, deliverables, synergy, scalable, innovative, disrupt, holistic, bespoke (unless cheeky)
+- agency, client, deliverables, scalable, innovative, holistic, cutting-edge, solutions, automation, synergy
 
 **Formatting**
-- Use sentence case for headers (no ALL CAPS).
-- Use em dashes for flow — not ellipses.
-- Minimal punctuation for rhythm; no exclamation overload.
-- Markdown-friendly formatting only.
+- Use sentence case.
+- Break lines with rhythm — short, clean, deliberate.
+- Use em dashes — not ellipses.
+- Avoid over-explaining. Let visuals lead.
 
 ---
 
-## 🧪 Offer-Specific Guidance
+## 🔥 Offer-Specific Guidance
 
-### IGNITE (Strategy Intensive)
-- Position as the *kickstart* — sharp, energetic, and full of clarity.
-- Focus on transformation and direction.
-- ✅ “Light the fuse on your next creative move.”
+### **IGNITE — Creative Direction & Strategy**
+Find the heart of the story. Define tone, color, and emotion before a single frame is shot.  
+- Voice: inspiring, intentional, visionary.  
+- ✅ “Where every great story finds its spark.”  
 
-### REACTOR (Systems Build)
-- Frame it as the *core* that powers the brand.
-- Emphasize integration, automation, and reliability.
-- ✅ “Where your creative systems start to hum.”
+### **ENGINE — Media Production**
+Photography, videography, and audio that move culture.  
+- Voice: cinematic, bold, alive.  
+- ✅ “Stories that feel human. Visuals that feel inevitable.”  
 
-### ENGINE (Media + Systems)
-- Blend artistry and tech — the performance layer.
-- Emphasize momentum, content flow, and creative rhythm.
-- ✅ “Turn ideas into output on autopilot.”
+### **LINK — Web, E-commerce & Systems Integration**
+Where visuals come to life in the digital world.  
+- Voice: sleek, functional, still emotionally rich.  
+- ✅ “Your brand’s story — built to perform beautifully online.”  
 
-### LABS (R&D + Custom Tech)
-- Highlight experimentation, innovation, and play.
-- Tone: geeky-cool, exploratory.
-- ✅ “We prototype the future — so you can use it now.”
+### **LABS — Creative Tech & Innovation**
+Playground for creative experiments — where visuals meet new mediums.  
+- Voice: curious, artistic, future-facing.  
+- ✅ “Exploring the edges of storytelling.”  
 
-### SUDO OS (Flagship Ecosystem)
-- Speak with authority. It’s the full suite, the hero product.
-- Confident, premium, but still human.
-- ✅ “Your creative operating system. Everything connected, nothing wasted.”
+### **SUDO OS — The Complete Ecosystem**
+The unified creative flow — strategy, visuals, and systems all connected.  
+- Voice: confident, elegant, cinematic calm.  
+- ✅ “Your creative operating system. Every story, perfectly synced.”
 
 ---
 
 ## 🧭 Audience
-- Culture-driven brands, artists, and creators with ambition.
-- Founders, creative directors, and marketers who care about both aesthetics *and* systems.
-- They value authenticity, clarity, and craft.
-- They hate fluff, bureaucracy, and “agency speak.”
+
+- Brands and creators who lead with *vision and emotion.*  
+- Founders, creative directors, and marketers who understand the power of story.  
+- People who love great visuals, sound design, and cinematic craft.  
+
+They value depth, feeling, and timeless style.  
+They hate jargon, noise, and anything that feels fake.
 
 ---
 
 ## 🧰 Example Transformations
 
 **Before:**  
-> We provide innovative design and automation solutions to help brands grow.
+> We provide multimedia content and digital production services.
 
 **After:**  
-> We build creative systems that make growth feel effortless.
+> We tell stories through light, motion, and sound — crafted to move culture.
 
 **Before:**  
-> Our team of experts delivers bespoke strategies for digital success.
+> Our goal is to help brands grow through creative visuals.
 
 **After:**  
-> Strategy that feels like rocket fuel — not a 200-slide deck.
+> We capture emotion and turn it into momentum. Every frame built to resonate.
 
 ---
 
 ## 💡 Golden Rule
-Every line should feel like it could live on a sticker, a slide, or a startup tee.  
-If it doesn’t, make it sharper.
+If it doesn’t *feel cinematic* or *sound like story*, it doesn’t belong.  
+Every line should feel like the opening shot to something worth remembering.
 
 ---
 
