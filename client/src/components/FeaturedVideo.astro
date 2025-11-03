@@ -65,18 +65,20 @@ const videoId = `featured-video-${Math.random().toString(36).substr(2, 9)}`;
 		<!-- Overlay -->
 		{
 			overlay !== "none" && (
-				<div
-					class={`absolute inset-0 ${overlayClasses[overlay]}`}
-				></div>
+				<div class={`absolute inset-0 ${overlayClasses[overlay]}`} />
 			)
 		}
 	</div>
 
 	<!-- Content -->
-	<div class={`relative z-10 max-w-7xl mx-auto px-6 py-20 flex flex-col ${positionClasses[textPosition]} w-full`}>
+	<div
+		class={`relative z-10 max-w-7xl mx-auto px-6 py-20 flex flex-col ${positionClasses[textPosition]} w-full`}
+	>
 		{
 			(title || subtitle || ctaText) && (
-				<div class={`max-w-4xl space-y-6 ${textPosition === "center" ? "mx-auto" : ""}`}>
+				<div
+					class={`max-w-4xl space-y-6 ${textPosition === "center" ? "mx-auto" : ""}`}
+				>
 					{title && (
 						<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl animate-fade-in">
 							{title}
@@ -131,7 +133,9 @@ const videoId = `featured-video-${Math.random().toString(36).substr(2, 9)}`;
 	</div>
 
 	<!-- Scroll Indicator (optional) -->
-	<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+	<div
+		class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce"
+	>
 		<svg
 			class="w-6 h-6 text-white opacity-70"
 			fill="none"
@@ -149,29 +153,29 @@ const videoId = `featured-video-${Math.random().toString(36).substr(2, 9)}`;
 
 <script>
 	function initFeaturedVideo() {
-		const playToggleButtons = document.querySelectorAll('.play-toggle-btn');
+		const playToggleButtons = document.querySelectorAll(".play-toggle-btn");
 
 		playToggleButtons.forEach((button) => {
-			const videoId = button.id.replace('play-btn-', '');
+			const videoId = button.id.replace("play-btn-", "");
 			const video = document.getElementById(videoId) as HTMLVideoElement;
-			const playIcon = button.querySelector('.play-icon');
-			const pauseIcon = button.querySelector('.pause-icon');
+			const playIcon = button.querySelector(".play-icon");
+			const pauseIcon = button.querySelector(".pause-icon");
 
 			if (!video || !playIcon || !pauseIcon) return;
 
 			// Update button state based on video state
 			const updateButton = () => {
 				if (video.paused) {
-					playIcon.classList.remove('hidden');
-					pauseIcon.classList.add('hidden');
+					playIcon.classList.remove("hidden");
+					pauseIcon.classList.add("hidden");
 				} else {
-					playIcon.classList.add('hidden');
-					pauseIcon.classList.remove('hidden');
+					playIcon.classList.add("hidden");
+					pauseIcon.classList.remove("hidden");
 				}
 			};
 
 			// Toggle play/pause
-			button.addEventListener('click', () => {
+			button.addEventListener("click", () => {
 				if (video.paused) {
 					video.play();
 				} else {
@@ -181,8 +185,8 @@ const videoId = `featured-video-${Math.random().toString(36).substr(2, 9)}`;
 			});
 
 			// Update button when video state changes
-			video.addEventListener('play', updateButton);
-			video.addEventListener('pause', updateButton);
+			video.addEventListener("play", updateButton);
+			video.addEventListener("pause", updateButton);
 
 			// Initial state
 			updateButton();
@@ -190,8 +194,8 @@ const videoId = `featured-video-${Math.random().toString(36).substr(2, 9)}`;
 	}
 
 	// Initialize on page load
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initFeaturedVideo);
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initFeaturedVideo);
 	} else {
 		initFeaturedVideo();
 	}

@@ -5,15 +5,13 @@ import tailwindcss from "@tailwindcss/vite";
 
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://sudo.create",
-	output: "server", // Enable server mode for API routes and SSR
-	adapter: node({
-		mode: "standalone",
-	}),
+	output: "server", // Enable server mode for SSR and API routes
+	adapter: vercel(),
 	vite: {
 		plugins: [tailwindcss()],
 	},
