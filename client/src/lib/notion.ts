@@ -1,3 +1,17 @@
+/**
+ * @deprecated This file is deprecated. Use the new API-based approach instead.
+ *
+ * The Notion integration has been migrated to use Astro API routes for real-time data fetching.
+ * This file is kept for reference only and should not be used in new code.
+ *
+ * New approach:
+ * - API Routes: /src/pages/api/photos.ts, /src/pages/api/videos.ts, /src/pages/api/media.ts
+ * - Server utilities: /src/lib/notion-server.ts (for use in .astro files)
+ * - Client utilities: /src/lib/api-client.ts (for use in React/client-side code)
+ *
+ * See NOTION_API_INTEGRATION.md for full documentation.
+ */
+
 import { Client } from "@notionhq/client";
 
 // Initialize Notion client
