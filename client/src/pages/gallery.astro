@@ -1,20 +1,27 @@
 ---
+// Disable prerendering for this page to enable SSR
+export const prerender = false;
+
 import RootLayout from "../layouts/RootLayout.astro";
 import VideoPlayer from "../components/VideoPlayer.astro";
-import { getAllMedia, getPhotos, getVideos, getFirstMediaPerProject, type NotionMedia } from "../lib/notion";
+import { getAllMedia, getPhotos, getVideos, getFirstMediaPerProject, getServerBaseUrl } from "../lib/notion-server";
+import type { NotionMedia } from "../lib/types";
 import { Image, Video, Grid3x3, Layers } from "lucide-astro";
 
-// Fetch all media at build time
+// Fetch all media at request time (SSR)
 let allMedia: NotionMedia[] = [];
 let photos: NotionMedia[] = [];
 let videos: NotionMedia[] = [];
 let error: string | null = null;
 
 try {
+	// Get the base URL for API requests
+	const baseUrl = getServerBaseUrl(Astro.url);
+
 	const [allMediaRaw, photosRaw, videosRaw] = await Promise.all([
-		getAllMedia(),
-		getPhotos(),
-		getVideos(),
+		getAllMedia(baseUrl),
+		getPhotos(baseUrl),
+		getVideos(baseUrl),
 	]);
 
 	// Filter to show only first media item per project
