@@ -1,9 +1,0 @@
-{
-  "buildCommand": "pnpm build",
-  "framework": "astro",
-  "regions": ["iad1"],
-  "env": {
-    "NOTION_API_KEY": "@notion_api_key",
-    "NOTION_MEDIA_DATABASE_ID": "@notion_media_database_id"
-  }
-}

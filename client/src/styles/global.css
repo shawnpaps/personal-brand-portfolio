@@ -1,4 +1,10 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "daisyui" {
-	themes: all;
+	themes: "all";
+}
+
+@theme {
+	--color-dark: #0a0a0a;
+	--color-neutral: #fafafa;
+	--color-accent: #00e5ff;
 }
