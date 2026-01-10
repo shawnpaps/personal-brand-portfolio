@@ -1,10 +1,15 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
 import VideoGallery from "../components/react/VideoGallery.tsx";
+import { AuroraText } from "@/components/ui/aurora-text";
 ---
 
 <RootLayout>
-	<section class="w-screen">
-		<VideoGallery client:load />
-	</section>
+	<main class="flex flex-col items-center z-10">
+		<section>
+			<h1 class="text-7xl text-center font-semibold leading-snug">
+				Digital Media for <AuroraText>Rebellious Brands</AuroraText>
+			</h1>
+		</section>
+	</main>
 </RootLayout>

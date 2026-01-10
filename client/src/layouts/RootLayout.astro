@@ -3,7 +3,7 @@ import Navigation from "../components/ui/Navigation.astro";
 import "../styles/global.css";
 ---
 
-<html data-theme="abyss" lang="en">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -11,7 +11,16 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="min-h-screen flex flex-col">
+	<body class="min-h-screen flex flex-col relative text-white">
+		{/* Azure Depths */}
+		<div
+			class="absolute inset-0 z-0"
+			style={{
+				background:
+					"radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)",
+			}}
+		>
+		</div>
 		<header>
 			<Navigation />
 		</header>
