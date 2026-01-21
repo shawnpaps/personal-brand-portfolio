@@ -1,15 +1,140 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
-import VideoGallery from "../components/react/VideoGallery.tsx";
-import { AuroraText } from "@/components/ui/aurora-text";
 ---
 
 <RootLayout>
-	<main class="flex flex-col items-center z-10">
-		<section>
-			<h1 class="text-7xl text-center font-semibold leading-snug">
-				Digital Media for <AuroraText>Rebellious Brands</AuroraText>
-			</h1>
-		</section>
+	<main>
+		<div class="p-5">
+			<section
+				class="flex relative flex-col items-center justify-center min-h-[90vh]"
+			>
+				<video
+					class="min-w-full object-cover h-[50vh] absolute top-0 rounded-2xl"
+					autoplay
+					loop
+					muted
+					src="/video/FEBRUARY_BOOKING_REEL.mov"></video>
+				<div class="z-10 h-full">
+					<h1
+						class="text-[20em] leading-64 font-bold tracking-tighter w-screen"
+					>
+						<span class="text-rotate">
+							<span class="justify-items-left">
+								<span>Immersive</span>
+								<span>Engaging</span>
+								<span>Unapologetic</span>
+								<span>Gritty</span>
+								<span>Unforgettable</span>
+							</span>
+						</span>
+						<br />By <span class="text-red-500">Design.</span>
+					</h1>
+				</div>
+			</section>
+			<section id="intro" class="relative mb-64 min-h-screen">
+				<p
+					class="text-9xl font-semibold text-gray-600 sticky top-5 absolute py-64"
+				>
+					<span class="text-white">Shawn Paps Media</span> is a creative
+					studio dedicated to crafting immersive <span
+						class="text-red-500">brand media</span
+					> and <span class="text-red-500">web design</span> for brands
+					with
+					<span class="hover:text-red-500">grit.</span>
+				</p>
+				<div class="gap-4 flex flex-col">
+					<div class="w-[40em] ml-auto">
+						<img class="w-full h-full object-cover" src="/dh.jpg" />
+					</div>
+					<div class="w-[40em] ml-auto">
+						<img class="w-full h-full object-cover" src="/dh.jpg" />
+					</div>
+				</div>
+			</section>
+			<section class="mb-64">
+				<h2 class="text-9xl font-bold tracking-tighter">
+					What We Do Best
+				</h2>
+				<div class="grid grid-cols-3 w-screen gap-8">
+					<div class="col-span-2 max-h-96 relative">
+						<img
+							class="w-full h-full object-cover opacity-80"
+							src="sunny.jpg"
+						/>
+						<p
+							class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
+						>
+							Web Design
+						</p>
+					</div>
+					<div class="col-span-1 max-h-96 relative">
+						<img
+							class="w-full h-full object-cover opacity-80"
+							src="sunny.jpg"
+						/>
+						<p
+							class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
+						>
+							Creative Direction
+						</p>
+					</div>
+					<div class="col-span-1 max-h-96 relative">
+						<img
+							class="w-full h-full object-cover opacity-80"
+							src="sunny.jpg"
+						/>
+						<p
+							class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
+						>
+							Event Media
+						</p>
+					</div>
+					<div class="grid grid-cols-3 w-screen gap-8">
+						<div class="col-span-2 max-h-96 relative">
+							<img
+								class="w-full h-full object-cover opacity-80"
+								src="sunny.jpg"
+							/>
+							<p
+								class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
+							>
+								Brand Photography & Videography
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="relative h-128">
+					<img
+						class="w-full h-full object-cover opacity-50"
+						src="sunny.jpg"
+					/>
+					<ul
+						class="absolute p-5 text-center top-0 left-0 flex items-center justify-between h-full w-full"
+					>
+						<li class="font-bold text-5xl">
+							<span>Clients Ranking on Google</span>
+						</li>
+						<li class="font-bold text-5xl">
+							<span>Increase in Web Traffic</span>
+						</li>
+						<li class="font-bold text-5xl">
+							<span>New Followers</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="relative min-h-screen">
+				<h2 class="text-9xl font-bold max-w-2xl sticky top-5 py-64">
+					You Need a Creative Partner. Not a Boring Agency.
+				</h2>
+				<p class="ml-auto w-[40em] text-2xl">
+					Most Media Agencies churn and burn clients as a way to make
+					more with less.
+				</p>
+			</section>
+		</div>
 	</main>
 </RootLayout>

@@ -11,18 +11,31 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="min-h-screen flex flex-col relative text-white">
-		{/* Azure Depths */}
-		<div
-			class="absolute inset-0 z-0"
-			style={{
-				background:
-					"radial-gradient(125% 125% at 50% 100%, #000000 40%, #010133 100%)",
-			}}
-		>
-		</div>
-		<header>
-			<Navigation />
+	<body class="min-h-screen flex flex-col relative text-white bg-black">
+		<header class="fixed top-0 z-20 w-full p-5 rounded-full group">
+			<div
+				class="bg-white/40 h-24 text-black group-hover:bg-white transition-all ease-linear text-xl font-semibold rounded-full flex items-center p-10"
+			>
+				<nav
+					class="grid grid-cols-3 items-center w-full justify-between w-full"
+				>
+					<ul
+						class="flex col-span-1 justify-between items-center gap-16"
+					>
+						<li><a>Brand Media</a></li>
+						<li><a>Web Design</a></li>
+						<li><a>Philosophy</a></li>
+					</ul>
+					<div class="flex justify-center col-span-1">
+						<img class="w-16 object-cover" src="/logo.png" />
+					</div>
+					<div class="col-span-1 flex justify-end">
+						<a class="btn btn-ghost btn-lg p-4 rounded-full">
+							Book a call
+						</a>
+					</div>
+				</nav>
+			</div>
 		</header>
 		<slot />
 	</body>
