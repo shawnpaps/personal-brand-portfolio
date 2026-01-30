@@ -1,0 +1,58 @@
+[
+  {
+    "id": "web-1",
+    "title": "Fade Factory Website",
+    "client": "Fade Factory",
+    "industry": "Barbers",
+    "description": "Bold, dark website with online booking and gallery showcase",
+    "thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Barbershop+Website",
+    "liveUrl": "https://example.com",
+    "techStack": ["Astro", "React", "Tailwind CSS", "Stripe"],
+    "features": ["Online Booking", "Photo Gallery", "Service Menu", "E-commerce"],
+    "challenge": "Need to stand out in crowded market and drive online bookings",
+    "approach": "Created immersive, dark aesthetic matching shop vibe with seamless booking flow",
+    "result": "40% increase in online bookings, 3x longer average session time"
+  },
+  {
+    "id": "web-2",
+    "title": "Origins Coffee E-commerce",
+    "client": "Origins Coffee Co",
+    "industry": "Coffee Shops",
+    "description": "Moody e-commerce site for specialty coffee roaster",
+    "thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Coffee+Ecommerce",
+    "liveUrl": "https://example.com",
+    "techStack": ["Shopify", "React", "Custom Theme"],
+    "features": ["E-commerce", "Subscription Service", "Roast Profiles", "Blog"],
+    "challenge": "Translate in-person roastery experience to online store",
+    "approach": "Dark, tactile design with storytelling for each coffee origin",
+    "result": "250% increase in online sales within 3 months"
+  },
+  {
+    "id": "web-3",
+    "title": "Built Different Portfolio",
+    "client": "Built Different Construction",
+    "industry": "Construction",
+    "description": "Portfolio site showcasing major construction projects",
+    "thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Construction+Portfolio",
+    "liveUrl": "https://example.com",
+    "techStack": ["Astro", "React", "Tailwind CSS"],
+    "features": ["Project Gallery", "Case Studies", "Contact Forms", "Team Bios"],
+    "challenge": "Compete for commercial contracts against established firms",
+    "approach": "Industrial aesthetic with detailed case studies proving expertise",
+    "result": "Landed 2 major contracts within first month of launch"
+  },
+  {
+    "id": "web-4",
+    "title": "Underground Collective Hub",
+    "client": "Underground Collective",
+    "industry": "Music/Events",
+    "description": "Event platform and artist showcase for music collective",
+    "thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Music+Collective",
+    "liveUrl": "https://example.com",
+    "techStack": ["Next.js", "React", "Sanity CMS", "Ticket Integration"],
+    "features": ["Event Listings", "Ticket Sales", "Artist Profiles", "Media Gallery"],
+    "challenge": "Centralize event promotion and ticket sales for multiple venues",
+    "approach": "Dark, immersive design with streamlined ticket purchasing",
+    "result": "Unified brand presence, 60% increase in advance ticket sales"
+  }
+]

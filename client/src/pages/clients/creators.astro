@@ -1,0 +1,233 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import photography from "../../data/photography.json";
+import videography from "../../data/videography.json";
+import testimonials from "../../data/testimonials.json";
+
+// Filter content for creators
+const creatorPhotos = photography.filter((p) => p.industry?.includes("music"));
+const creatorVideos = videography.filter((v) => v.industry?.includes("music"));
+const creatorTestimonials = testimonials.filter(
+	(t) => t.industry === "Music/Events",
+);
+---
+
+<MainLayout
+	title="Creative Services for Creators - Shawn Paps Media"
+	description="Personal branding, social content, and authentic storytelling for musicians, artists, and content creators who want to stand out."
+>
+	<!-- Hero Section -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black pt-32">
+		<div class="max-w-7xl mx-auto text-center max-w-4xl">
+			<h1
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6"
+			>
+				For Creators & Musicians
+			</h1>
+			<p class="text-xl text-steel-400 leading-relaxed mb-8">
+				Your work deserves more than iPhone shots and generic templates.
+				We create authentic content that captures your vibe and connects
+				with your audience.
+			</p>
+			<a
+				href="/contact"
+				class="inline-block bg-rust-500 hover:bg-rust-400 text-white font-bold text-lg px-12 py-4 rounded-lg transition-all hover:scale-105"
+			>
+				Let's Capture Your Story
+			</a>
+		</div>
+	</section>
+
+	<!-- Problem/Solution -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+		<div class="max-w-7xl mx-auto max-w-5xl">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+				<div
+					class="bg-black border-l-4 border-rust-500 p-8 rounded-r-lg"
+				>
+					<h3 class="text-2xl font-bold text-white mb-4">
+						The Problem
+					</h3>
+					<ul class="space-y-3 text-steel-400">
+						<li>• Generic content that looks like everyone else</li>
+						<li>• Low-quality phone footage and snapshots</li>
+						<li>• No cohesive visual brand</li>
+						<li>• Struggling to stand out on social media</li>
+						<li>• Can't afford expensive agency rates</li>
+					</ul>
+				</div>
+
+				<div
+					class="bg-black border-l-4 border-rust-500 p-8 rounded-r-lg"
+				>
+					<h3 class="text-2xl font-bold text-white mb-4">
+						Our Solution
+					</h3>
+					<ul class="space-y-3 text-steel-400">
+						<li>
+							• Dark, cinematic content that reflects your vibe
+						</li>
+						<li>• Professional-grade photo and video</li>
+						<li>• Consistent visual identity across platforms</li>
+						<li>• Content that stops the scroll</li>
+						<li>• Flexible packages tailored to your needs</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- What We Create for Creators -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+		<div class="max-w-7xl mx-auto max-w-5xl">
+			<h2
+				class="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-16"
+			>
+				What We Create
+			</h2>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div
+					class="bg-black-soft border border-concrete rounded-lg p-6 hover:border-rust-500 transition-colors"
+				>
+					<div class="text-4xl mb-4">📸</div>
+					<h3 class="text-xl font-bold text-white mb-3">
+						Personal Branding
+					</h3>
+					<p class="text-steel-400 text-sm mb-4">
+						Portrait sessions and lifestyle photography that shows
+						who you really are - not a corporate headshot.
+					</p>
+					<ul class="text-steel-400 text-xs space-y-1">
+						<li>• Lifestyle portraits</li>
+						<li>• Behind-the-scenes</li>
+						<li>• Social media content</li>
+						<li>• Press photos</li>
+					</ul>
+				</div>
+
+				<div
+					class="bg-black-soft border border-concrete rounded-lg p-6 hover:border-rust-500 transition-colors"
+				>
+					<div class="text-4xl mb-4">🎬</div>
+					<h3 class="text-xl font-bold text-white mb-3">
+						Performance Coverage
+					</h3>
+					<p class="text-steel-400 text-sm mb-4">
+						Live show photography and videography that captures the
+						energy and emotion of your performance.
+					</p>
+					<ul class="text-steel-400 text-xs space-y-1">
+						<li>• Concert photography</li>
+						<li>• Live video capture</li>
+						<li>• Performance highlights</li>
+						<li>• Multi-cam coverage</li>
+					</ul>
+				</div>
+
+				<div
+					class="bg-black-soft border border-concrete rounded-lg p-6 hover:border-rust-500 transition-colors"
+				>
+					<div class="text-4xl mb-4">🎵</div>
+					<h3 class="text-xl font-bold text-white mb-3">
+						Music Videos & Promos
+					</h3>
+					<p class="text-steel-400 text-sm mb-4">
+						Creative video content for singles, albums, and social
+						media that tells your story visually.
+					</p>
+					<ul class="text-steel-400 text-xs space-y-1">
+						<li>• Music videos</li>
+						<li>• Lyric videos</li>
+						<li>• Social promos</li>
+						<li>• Documentary-style</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sample Work -->
+	{
+		creatorPhotos.length > 0 && (
+			<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+				<div class="max-w-7xl mx-auto">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-12">
+						Work for Creators
+					</h2>
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+						{creatorPhotos.slice(0, 6).map((photo) => (
+							<div class="aspect-[4/5] overflow-hidden rounded-lg group">
+								<img
+									src={photo.imageUrl}
+									alt={photo.title}
+									class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+								/>
+							</div>
+						))}
+					</div>
+					<div class="text-center mt-12">
+						<a
+							href="/photography"
+							class="inline-block bg-rust-500 hover:bg-rust-400 text-white font-bold px-8 py-3 rounded-lg transition-colors"
+						>
+							View Full Portfolio
+						</a>
+					</div>
+				</div>
+			</section>
+		)
+	}
+
+	<!-- Testimonials -->
+	{
+		creatorTestimonials.length > 0 && (
+			<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+				<div class="max-w-7xl mx-auto max-w-4xl">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-12">
+						What Creators Say
+					</h2>
+					{creatorTestimonials.map((testimonial) => (
+						<div class="bg-black-soft border border-concrete rounded-lg p-8 mb-6">
+							<p class="text-xl text-white italic mb-6">
+								"{testimonial.quote}"
+							</p>
+							<div class="border-t border-concrete pt-4">
+								<p class="text-white font-bold">
+									{testimonial.author}
+								</p>
+								<p class="text-steel-400 text-sm">
+									{testimonial.role}, {testimonial.company}
+								</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+		)
+	}
+
+	<!-- CTA -->
+	<section
+		class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-gradient-to-br from-rust-500 to-rust-400"
+	>
+		<div class="max-w-7xl mx-auto text-center">
+			<h2
+				class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
+			>
+				Ready to Level Up Your Content?
+			</h2>
+			<p class="text-xl text-white/90 max-w-2xl mx-auto mb-12">
+				Let's create authentic visual content that captures your vibe
+				and connects with your audience. No corporate BS, just real work
+				for real creators.
+			</p>
+			<a
+				href="/contact"
+				class="inline-block bg-black hover:bg-black-soft text-white font-bold text-lg px-12 py-4 rounded-lg transition-all hover:scale-105"
+			>
+				Get Started
+			</a>
+		</div>
+	</section>
+</MainLayout>

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "testimonial-1",
+    "quote": "Shawn didn't just take pictures and build a website. He understood our culture, our craft, our vibe. The work speaks for itself.",
+    "author": "Marcus Thompson",
+    "role": "Owner",
+    "company": "Fade Factory",
+    "industry": "Barbers"
+  },
+  {
+    "id": "testimonial-2",
+    "quote": "Within a month of launching, we closed our two biggest deals ever. The website made us look like we could handle it - because we can.",
+    "author": "Jake Morrison",
+    "role": "Owner",
+    "company": "Built Different Construction",
+    "industry": "Construction"
+  },
+  {
+    "id": "testimonial-3",
+    "quote": "The work Shawn created didn't just help us sell coffee - it told people why they should care. It captured what I couldn't put into words.",
+    "author": "Sarah Chen",
+    "role": "Founder",
+    "company": "Origins Coffee Co",
+    "industry": "Coffee"
+  },
+  {
+    "id": "testimonial-4",
+    "quote": "We went from invisible to fully booked. The photos became our calling card on social media. People get it now.",
+    "author": "David Park",
+    "role": "Creative Director",
+    "company": "Underground Collective",
+    "industry": "Music/Events"
+  }
+]

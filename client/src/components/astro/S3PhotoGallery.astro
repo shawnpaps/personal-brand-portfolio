@@ -1,0 +1,243 @@
+---
+interface S3Photo {
+	key: string;
+	url: string;
+	name: string;
+	size: number;
+	lastModified: string;
+}
+
+interface Props {
+	folder?: string;
+}
+
+const { folder = "main-portfolio" } = Astro.props;
+
+let photos: S3Photo[] = [];
+let error: string | null = null;
+
+try {
+	// Fetch photos from S3 via API route
+	const baseUrl = import.meta.env.DEV
+		? 'http://localhost:4321'
+		: Astro.site || 'https://yourdomain.com';
+
+	const response = await fetch(`${baseUrl}/api/photos/${folder}`);
+
+	if (!response.ok) {
+		throw new Error(`HTTP error! status: ${response.status}`);
+	}
+
+	const data = await response.json();
+
+	if (data.error) {
+		throw new Error(data.error);
+	}
+
+	// Filter out any folder entries (keys ending with /)
+	photos = data.filter((item: S3Photo) => !item.key.endsWith("/"));
+
+} catch (err) {
+	error = err instanceof Error ? err.message : "Failed to load photos";
+	console.error("Error fetching photos:", err);
+}
+---
+
+{error ? (
+	<div class="min-h-[50vh] flex items-center justify-center px-6 py-24">
+		<div class="text-center bg-black-soft/50 p-8 rounded-lg border border-rust-500/20 max-w-md">
+			<p class="text-rust-500 text-xl font-semibold mb-2">
+				Error Loading Photos
+			</p>
+			<p class="text-steel-300">{error}</p>
+		</div>
+	</div>
+) : photos.length === 0 ? (
+	<div class="min-h-[50vh] flex items-center justify-center px-6 py-24">
+		<p class="text-steel-300 text-xl text-center">
+			No photos available yet. Check back soon!
+		</p>
+	</div>
+) : (
+	<div>
+		{/* Masonry Grid */}
+		<div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6" id="photo-gallery">
+			{photos.map((photo, index) => (
+				<div
+					class="break-inside-avoid group relative overflow-hidden rounded-lg cursor-pointer bg-black-soft border border-steel-800/30 hover:border-rust-500/50 transition-all duration-300"
+					data-index={index}
+					data-url={photo.url}
+					data-name={photo.name}
+				>
+					<img
+						src={photo.url}
+						alt={photo.name}
+						loading="lazy"
+						class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+					/>
+
+					{/* Hover Overlay */}
+					<div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+						<div class="text-white">
+							<p class="font-semibold text-sm truncate">
+								{photo.name}
+							</p>
+							<p class="text-xs text-steel-400 mt-1">
+								Click to view full size
+							</p>
+						</div>
+					</div>
+
+					{/* View Icon */}
+					<div class="absolute top-4 right-4 w-10 h-10 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+						<svg
+							class="w-5 h-5 text-white"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+							></path>
+						</svg>
+					</div>
+				</div>
+			))}
+		</div>
+
+		{/* Photo Count */}
+		<div class="text-center mt-12">
+			<p class="text-steel-400 text-sm">
+				Showing {photos.length} photo{photos.length !== 1 ? "s" : ""}
+			</p>
+		</div>
+
+		{/* Lightbox Modal */}
+		<div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-sm">
+			<button
+				id="close-lightbox"
+				class="absolute top-6 right-6 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+				aria-label="Close lightbox"
+			>
+				<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+			</button>
+
+			{/* Previous Button */}
+			<button
+				id="prev-photo"
+				class="absolute left-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+				aria-label="Previous photo"
+			>
+				<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+				</svg>
+			</button>
+
+			{/* Next Button */}
+			<button
+				id="next-photo"
+				class="absolute right-6 top-1/2 -translate-y-1/2 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+				aria-label="Next photo"
+			>
+				<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+				</svg>
+			</button>
+
+			{/* Image Container */}
+			<div class="w-full h-full flex items-center justify-center p-12">
+				<img
+					id="lightbox-image"
+					src=""
+					alt=""
+					class="max-w-full max-h-full object-contain"
+				/>
+			</div>
+
+			{/* Image Info */}
+			<div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
+				<p id="lightbox-caption" class="text-white text-lg font-semibold mb-2"></p>
+				<p id="lightbox-counter" class="text-steel-400 text-sm"></p>
+			</div>
+		</div>
+	</div>
+)}
+
+<script define:vars={{ photos }}>
+	if (photos && photos.length > 0) {
+		let currentIndex = 0;
+		const photoUrls = photos.map(p => p.url);
+		const photoNames = photos.map(p => p.name);
+
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImage = document.getElementById('lightbox-image');
+		const lightboxCaption = document.getElementById('lightbox-caption');
+		const lightboxCounter = document.getElementById('lightbox-counter');
+		const closeBtn = document.getElementById('close-lightbox');
+		const prevBtn = document.getElementById('prev-photo');
+		const nextBtn = document.getElementById('next-photo');
+		const gallery = document.getElementById('photo-gallery');
+
+		function openLightbox(index) {
+			currentIndex = index;
+			updateLightbox();
+			lightbox.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeLightbox() {
+			lightbox.classList.add('hidden');
+			document.body.style.overflow = '';
+		}
+
+		function updateLightbox() {
+			lightboxImage.src = photoUrls[currentIndex];
+			lightboxImage.alt = photoNames[currentIndex];
+			lightboxCaption.textContent = photoNames[currentIndex];
+			lightboxCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+		}
+
+		function goToNext() {
+			currentIndex = (currentIndex + 1) % photos.length;
+			updateLightbox();
+		}
+
+		function goToPrev() {
+			currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+			updateLightbox();
+		}
+
+		// Gallery click handlers
+		if (gallery) {
+			gallery.addEventListener('click', (e) => {
+				const photoDiv = e.target.closest('[data-index]');
+				if (photoDiv) {
+					const index = parseInt(photoDiv.dataset.index);
+					openLightbox(index);
+				}
+			});
+		}
+
+		// Lightbox controls
+		closeBtn?.addEventListener('click', closeLightbox);
+		prevBtn?.addEventListener('click', goToPrev);
+		nextBtn?.addEventListener('click', goToNext);
+		lightbox?.addEventListener('click', (e) => {
+			if (e.target === lightbox) closeLightbox();
+		});
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			if (!lightbox.classList.contains('hidden')) {
+				if (e.key === 'Escape') closeLightbox();
+				if (e.key === 'ArrowLeft') goToPrev();
+				if (e.key === 'ArrowRight') goToNext();
+			}
+		});
+	}
+</script>

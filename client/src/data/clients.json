@@ -1,0 +1,50 @@
+[
+  {
+    "id": "client-1",
+    "name": "Fade Factory",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Fade+Factory",
+    "industry": "Barbers"
+  },
+  {
+    "id": "client-2",
+    "name": "Origins Coffee Co",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Origins+Coffee",
+    "industry": "Coffee"
+  },
+  {
+    "id": "client-3",
+    "name": "Built Different Construction",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Built+Different",
+    "industry": "Construction"
+  },
+  {
+    "id": "client-4",
+    "name": "Underground Collective",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Underground",
+    "industry": "Music"
+  },
+  {
+    "id": "client-5",
+    "name": "The Daily Cut",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Daily+Cut",
+    "industry": "Barbers"
+  },
+  {
+    "id": "client-6",
+    "name": "Grind Culture",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Grind+Culture",
+    "industry": "Coffee"
+  },
+  {
+    "id": "client-7",
+    "name": "Future Builders Inc",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=Future+Builders",
+    "industry": "Construction"
+  },
+  {
+    "id": "client-8",
+    "name": "The Renegades",
+    "logoUrl": "https://placehold.co/200x80/0a0a0a/ffffff?text=The+Renegades",
+    "industry": "Music"
+  }
+]

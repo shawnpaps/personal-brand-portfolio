@@ -1,6 +1,322 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@plugin "daisyui" {
-	themes: "all";
+/* ================================================================
+   SHAWN PAPS MEDIA - MINIMAL DARK AESTHETIC
+   Grungy, Bold, Clean
+   ================================================================ */
+
+/* ================================================================
+   COLOR VARIABLES
+   ================================================================ */
+:root {
+	/* Black backgrounds */
+	--color-black-deep: #000000;
+	--color-black-soft: #0a0a0a;
+	--color-black-card: #0f0f0f;
+	--color-black-elevated: #1a1a1a;
+
+	/* Rust colors - Primary brand */
+	--color-rust-orange: #d4512a;
+	--color-rust-light: #e86942;
+	--color-rust-primary: #ff6b35;
+	--color-rust-dark: #e85a2a;
+
+	/* Concrete grays */
+	--color-concrete: #525252;
+	--color-concrete-light: #525252;
+
+	/* Steel text colors */
+	--color-steel-light: #9ca3af;
+	--color-steel-400: #9ca3af;
+	--color-steel-300: #d1d5db;
+}
+
+/* ================================================================
+   TAILWIND V4 THEME CONFIGURATION
+   All custom colors, animations, and fonts must be defined here
+   ================================================================ */
+@theme {
+	/* ============================================================
+	   COLORS
+	   ============================================================ */
+
+	/* Black backgrounds */
+	--color-black-deep: #000000;
+	--color-black-soft: #0a0a0a;
+	--color-black-card: #0f0f0f;
+	--color-black-elevated: #1a1a1a;
+
+	/* Rust scale (full) */
+	--color-rust-50: #fff4ed;
+	--color-rust-100: #ffe6d5;
+	--color-rust-200: #ffc9aa;
+	--color-rust-300: #ffa374;
+	--color-rust-400: #ff7a3c;
+	--color-rust-500: #ff6b35;
+	--color-rust-600: #f04c1c;
+	--color-rust-700: #d93a13;
+	--color-rust-800: #b22f15;
+	--color-rust-900: #8f2816;
+
+	/* Rust aliases - Primary brand colors */
+	--color-rust-orange: #d4512a;
+	--color-rust-light: #e86942;
+
+	/* Concrete scale (full) */
+	--color-concrete-50: #fafafa;
+	--color-concrete-100: #f5f5f5;
+	--color-concrete-200: #e5e5e5;
+	--color-concrete-300: #d4d4d4;
+	--color-concrete-400: #a3a3a3;
+	--color-concrete-500: #737373;
+	--color-concrete-600: #525252;
+	--color-concrete-700: #404040;
+	--color-concrete-800: #262626;
+	--color-concrete-850: #1f1f1f;
+	--color-concrete-900: #171717;
+	--color-concrete-950: #0a0a0a;
+
+	/* Concrete alias */
+	--color-concrete: #525252;
+	--color-concrete-light: #525252;
+
+	/* Steel scale (full) */
+	--color-steel-100: #f3f4f6;
+	--color-steel-200: #e5e7eb;
+	--color-steel-300: #d1d5db;
+	--color-steel-400: #9ca3af;
+	--color-steel-500: #6b7280;
+	--color-steel-600: #4b5563;
+	--color-steel-700: #374151;
+	--color-steel-800: #1f2937;
+
+	/* Steel alias */
+	--color-steel-light: #9ca3af;
+
+	/* ============================================================
+	   FONT FAMILIES
+	   ============================================================ */
+
+	--font-family-sans:
+		"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+		sans-serif;
+
+	/* ============================================================
+	   ANIMATIONS
+	   ============================================================ */
+
+	--animate-fade-in: fadeIn 0.8s ease-out;
+	--animate-fade-in-up: fadeInUp 0.8s ease-out;
+	--animate-fade-in-down: fadeInDown 0.8s ease-out;
+	--animate-glow-pulse: glowPulse 4s ease-in-out infinite;
+	--animate-glow-pulse-fast: glowPulse 2s ease-in-out infinite;
+	--animate-float: float 6s ease-in-out infinite;
+	--animate-float-slow: float 8s ease-in-out infinite;
+	--animate-shimmer: shimmer 2.5s linear infinite;
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes glowPulse {
+	0%,
+	100% {
+		opacity: 0.4;
+	}
+	50% {
+		opacity: 0.6;
+	}
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(200%);
+	}
+}
+
+/* ================================================================
+   BASE STYLES
+   ================================================================ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #000000;
+	color: #e5e5e5;
+	font-family:
+		"Inter",
+		system-ui,
+		-apple-system,
+		sans-serif;
+	line-height: 1.6;
+	overflow-x: hidden;
+	position: relative;
+}
+
+/* Heavy grain texture overlay */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+	opacity: 0.7;
+	pointer-events: none;
+	z-index: 9999;
+	mix-blend-mode: overlay;
+}
+
+/* ================================================================
+   TYPOGRAPHY - BOLD & CLEAN
+   ================================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 900;
+	letter-spacing: -0.03em;
+	line-height: 0.9;
+	margin: 0;
+	color: #ffffff;
+}
+
+/* ================================================================
+   CUSTOM TEXT EFFECTS
+   ================================================================ */
+
+/* Simple text gradient */
+.text-gradient {
+	background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Subtle text glow for emphasis */
+.text-glow {
+	text-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+}
+
+/* ================================================================
+   SCROLLBAR - MINIMAL
+   ================================================================ */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff6b35;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ff8c61;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #ff6b35 #000000;
+}
+
+/* ================================================================
+   SELECTION
+   ================================================================ */
+::selection {
+	background: rgba(255, 107, 53, 0.3);
+	color: #ffffff;
+}
+
+::-moz-selection {
+	background: rgba(255, 107, 53, 0.3);
+	color: #ffffff;
+}
+
+/* ================================================================
+   FOCUS STATES
+   ================================================================ */
+*:focus {
+	outline: none;
+}
+
+*:focus-visible {
+	outline: 2px solid #ff6b35;
+	outline-offset: 4px;
+}
+
+/* ================================================================
+   ACCESSIBILITY
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }

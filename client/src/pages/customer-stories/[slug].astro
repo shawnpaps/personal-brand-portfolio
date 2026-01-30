@@ -1,0 +1,201 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import caseStudies from '../../data/case-studies.json';
+
+export async function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+---
+
+<MainLayout 
+  title={`${study.title} - Customer Story`}
+  description={study.summary}
+  image={study.heroUrl}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[70vh] flex items-end overflow-hidden">
+    <img 
+      src={study.heroUrl} 
+      alt={study.title}
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/80 to-transparent"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto pb-16">
+      <div class="max-w-4xl">
+        <div class="flex flex-wrap gap-3 mb-6">
+          {study.services.map(service => (
+            <span class="px-4 py-2 bg-rust-500 text-white text-sm font-bold rounded-lg">
+              {service}
+            </span>
+          ))}
+        </div>
+        
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4">
+          {study.title}
+        </h1>
+        
+        <p class="text-2xl text-white/90 mb-8">
+          {study.summary}
+        </p>
+        
+        <div class="flex items-center gap-6 text-white/80">
+          <span>Client: {study.client}</span>
+          <span>•</span>
+          <span>{study.industry}</span>
+          <span>•</span>
+          <span>{study.timeline}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Challenge -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+    <div class="max-w-7xl mx-auto max-w-4xl">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+        The Challenge
+      </h2>
+      <p class="text-xl text-steel-400 leading-relaxed mb-12">
+        {study.challenge}
+      </p>
+      
+      {study.clientQuote && (
+        <div class="bg-black border-l-4 border-rust-500 p-8 rounded-r-lg">
+          <p class="text-2xl text-white italic mb-6">
+            "{study.clientQuote}"
+          </p>
+          <div class="flex items-center gap-4">
+            <div>
+              <p class="text-white font-bold">{study.clientName}</p>
+              <p class="text-steel-400 text-sm">{study.clientRole}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- The Approach -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+    <div class="max-w-7xl mx-auto max-w-4xl">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+        The Approach
+      </h2>
+      <p class="text-xl text-steel-400 leading-relaxed">
+        {study.approach}
+      </p>
+    </div>
+  </section>
+
+  <!-- The Solution (with images) -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+    <div class="max-w-7xl mx-auto max-w-4xl">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+        The Solution
+      </h2>
+      <p class="text-xl text-steel-400 leading-relaxed mb-12">
+        {study.solution}
+      </p>
+      
+      {study.images && study.images.length > 0 && (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {study.images.map((image, index) => (
+            <div class="aspect-[4/3] overflow-hidden rounded-lg">
+              <img 
+                src={image} 
+                alt={`${study.title} - Image ${index + 1}`}
+                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- The Results -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+    <div class="max-w-7xl mx-auto max-w-4xl">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+        The Results
+      </h2>
+      
+      {study.results && study.results.length > 0 && (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {study.results.map((result) => (
+            <div class="bg-black-soft border border-concrete rounded-lg p-6 hover:border-rust-500 transition-colors">
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-rust-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-white text-lg">{result}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      
+      {study.testimonial && (
+        <div class="bg-gradient-to-br from-rust-500 to-rust-400 p-8 rounded-lg">
+          <div class="mb-6">
+            <svg class="w-12 h-12 text-white opacity-50" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+          <p class="text-2xl text-white font-semibold italic mb-6">
+            "{study.testimonial}"
+          </p>
+          <div>
+            <p class="text-white font-bold">{study.clientName}</p>
+            <p class="text-white/80">{study.clientRole}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Project Details -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft border-t border-concrete">
+    <div class="max-w-7xl mx-auto max-w-4xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-steel-400 text-sm mb-2">Client</p>
+          <p class="text-white font-bold">{study.client}</p>
+        </div>
+        <div>
+          <p class="text-steel-400 text-sm mb-2">Industry</p>
+          <p class="text-white font-bold">{study.industry}</p>
+        </div>
+        <div>
+          <p class="text-steel-400 text-sm mb-2">Timeline</p>
+          <p class="text-white font-bold">{study.timeline}</p>
+        </div>
+        <div>
+          <p class="text-steel-400 text-sm mb-2">Services</p>
+          <p class="text-white font-bold">{study.services.join(', ')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Case Study -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-heading-lg font-black text-white mb-8">
+        See Another Story
+      </h2>
+      <a 
+        href="/customer-stories"
+        class="inline-block bg-rust-500 hover:bg-rust-400 text-white font-bold text-lg px-12 py-4 rounded-lg transition-all hover:scale-105"
+      >
+        View All Case Studies
+      </a>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,126 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import caseStudies from '../data/case-studies.json';
+---
+
+<MainLayout 
+  title="Customer Stories - Shawn Paps Media"
+  description="Real projects, real results. See how we've helped barbers, coffee shops, construction companies, and creators grow their businesses through strategic creative work."
+>
+  <!-- Hero Section -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black pt-32">
+    <div class="max-w-7xl mx-auto text-center max-w-4xl">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6">
+        Real Projects, Real Results
+      </h1>
+      <p class="text-xl text-steel-400 leading-relaxed mb-8">
+        We don't just create pretty pictures - we solve problems and drive growth. 
+        These case studies prove how strategic creative work delivers measurable results.
+      </p>
+    </div>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {caseStudies.map((study) => (
+          <a 
+            href={`/customer-stories/${study.slug}`}
+            class="group bg-black-soft border border-concrete rounded-lg overflow-hidden hover:border-rust-500 transition-all hover:-translate-y-2"
+          >
+            <!-- Thumbnail -->
+            <div class="relative aspect-[16/10] overflow-hidden">
+              <img 
+                src={study.thumbnailUrl} 
+                alt={study.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black-deep via-black-deep/50 to-transparent opacity-80"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 space-y-4">
+              <div class="flex flex-wrap gap-2">
+                {study.services.map(service => (
+                  <span class="px-3 py-1 bg-rust-500/20 text-rust-500 text-xs rounded-full font-semibold">
+                    {service}
+                  </span>
+                ))}
+              </div>
+
+              <h3 class="text-2xl font-bold text-white group-hover:text-rust-500 transition-colors">
+                {study.title}
+              </h3>
+
+              <p class="text-steel-400 text-sm line-clamp-2">
+                {study.summary}
+              </p>
+
+              <div class="flex items-center justify-between pt-4 border-t border-concrete">
+                <div>
+                  <p class="text-white font-semibold text-sm">{study.client}</p>
+                  <p class="text-steel-400 text-xs">{study.industry}</p>
+                </div>
+
+                <span class="text-rust-500 font-bold inline-flex items-center gap-2 text-sm">
+                  Read Story
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+    <div class="max-w-7xl mx-auto max-w-4xl text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-12">
+        The Numbers Don't Lie
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-black border border-concrete rounded-lg p-8">
+          <div class="text-5xl font-black text-rust-500 mb-2">250%</div>
+          <p class="text-white font-semibold mb-2">Average Sales Increase</p>
+          <p class="text-steel-400 text-sm">For e-commerce clients in first 90 days</p>
+        </div>
+
+        <div class="bg-black border border-concrete rounded-lg p-8">
+          <div class="text-5xl font-black text-rust-500 mb-2">40%</div>
+          <p class="text-white font-semibold mb-2">Booking Increase</p>
+          <p class="text-steel-400 text-sm">Service-based businesses within 30 days</p>
+        </div>
+
+        <div class="bg-black border border-concrete rounded-lg p-8">
+          <div class="text-5xl font-black text-rust-500 mb-2">3x</div>
+          <p class="text-white font-semibold mb-2">Longer Session Time</p>
+          <p class="text-steel-400 text-sm">Users stay and explore new websites</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-gradient-to-br from-rust-500 to-rust-400">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+        Ready to Write Your Success Story?
+      </h2>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto mb-12">
+        Let's create work that doesn't just look good - work that drives real, measurable results for your business.
+      </p>
+      <a 
+        href="/contact"
+        class="inline-block bg-black hover:bg-black-soft text-white font-bold text-lg px-12 py-4 rounded-lg transition-all hover:scale-105"
+      >
+        Start Your Project
+      </a>
+    </div>
+  </section>
+</MainLayout>

@@ -1,140 +1,200 @@
 ---
-import RootLayout from "../layouts/RootLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/astro/Hero.astro";
+import Services from "../components/astro/Services.astro";
+import Testimonials from "../components/astro/Testimonials.astro";
+import TrustedBy from "../components/astro/TrustedBy.astro";
+import CTA from "../components/astro/CTA.astro";
+import RecentVideosSlider from "../components/react/RecentVideosSlider";
 ---
 
-<RootLayout>
-	<main>
-		<div class="p-5">
-			<section
-				class="flex relative flex-col items-center justify-center min-h-[90vh]"
-			>
-				<video
-					class="min-w-full object-cover h-[50vh] absolute top-0 rounded-2xl"
-					autoplay
-					loop
-					muted
-					src="/video/FEBRUARY_BOOKING_REEL.mov"></video>
-				<div class="z-10 h-full">
-					<h1
-						class="text-[20em] leading-64 font-bold tracking-tighter w-screen"
-					>
-						<span class="text-rotate">
-							<span class="justify-items-left">
-								<span>Immersive</span>
-								<span>Engaging</span>
-								<span>Unapologetic</span>
-								<span>Gritty</span>
-								<span>Unforgettable</span>
-							</span>
-						</span>
-						<br />By <span class="text-red-500">Design.</span>
-					</h1>
-				</div>
-			</section>
-			<section id="intro" class="relative mb-64 min-h-screen">
-				<p
-					class="text-9xl font-semibold text-gray-600 sticky top-5 absolute py-64"
-				>
-					<span class="text-white">Shawn Paps Media</span> is a creative
-					studio dedicated to crafting immersive <span
-						class="text-red-500">brand media</span
-					> and <span class="text-red-500">web design</span> for brands
-					with
-					<span class="hover:text-red-500">grit.</span>
-				</p>
-				<div class="gap-4 flex flex-col">
-					<div class="w-[40em] ml-auto">
-						<img class="w-full h-full object-cover" src="/dh.jpg" />
-					</div>
-					<div class="w-[40em] ml-auto">
-						<img class="w-full h-full object-cover" src="/dh.jpg" />
-					</div>
-				</div>
-			</section>
-			<section class="mb-64">
-				<h2 class="text-9xl font-bold tracking-tighter">
-					What We Do Best
-				</h2>
-				<div class="grid grid-cols-3 w-screen gap-8">
-					<div class="col-span-2 max-h-96 relative">
-						<img
-							class="w-full h-full object-cover opacity-80"
-							src="sunny.jpg"
-						/>
-						<p
-							class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
-						>
-							Web Design
-						</p>
-					</div>
-					<div class="col-span-1 max-h-96 relative">
-						<img
-							class="w-full h-full object-cover opacity-80"
-							src="sunny.jpg"
-						/>
-						<p
-							class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
-						>
-							Creative Direction
-						</p>
-					</div>
-					<div class="col-span-1 max-h-96 relative">
-						<img
-							class="w-full h-full object-cover opacity-80"
-							src="sunny.jpg"
-						/>
-						<p
-							class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
-						>
-							Event Media
-						</p>
-					</div>
-					<div class="grid grid-cols-3 w-screen gap-8">
-						<div class="col-span-2 max-h-96 relative">
-							<img
-								class="w-full h-full object-cover opacity-80"
-								src="sunny.jpg"
-							/>
-							<p
-								class="absolute bottom-0 p-5 text-6xl font-bold tracking-tighter"
-							>
-								Brand Photography & Videography
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section>
-				<div class="relative h-128">
-					<img
-						class="w-full h-full object-cover opacity-50"
-						src="sunny.jpg"
-					/>
-					<ul
-						class="absolute p-5 text-center top-0 left-0 flex items-center justify-between h-full w-full"
-					>
-						<li class="font-bold text-5xl">
-							<span>Clients Ranking on Google</span>
-						</li>
-						<li class="font-bold text-5xl">
-							<span>Increase in Web Traffic</span>
-						</li>
-						<li class="font-bold text-5xl">
-							<span>New Followers</span>
-						</li>
-					</ul>
-				</div>
-			</section>
+<MainLayout
+	title="Shawn Paps Media - Bold Creative for Brands with Grit"
+	description="Web design, photography, and videography for barbers, coffee shops, construction trades, and creators. Not another agency - we create media that solves problems."
+>
+	<!-- Hero Section -->
+	<Hero
+		title="Create Something Bold"
+		subtitle="We create immersive online experiences for brands with grit - barbers, coffee shops, construction trades, and creators who aren't afraid to stand out."
+		ctaText="Start Your Project"
+		ctaLink="/contact"
+	/>
 
-			<section class="relative min-h-screen">
-				<h2 class="text-9xl font-bold max-w-2xl sticky top-5 py-64">
-					You Need a Creative Partner. Not a Boring Agency.
-				</h2>
-				<p class="ml-auto w-[40em] text-2xl">
-					Most Media Agencies churn and burn clients as a way to make
-					more with less.
-				</p>
-			</section>
+	<!-- Who We Work With -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black relative">
+		<div class="absolute top-0 right-0 w-full h-full opacity-20">
+			<img class="w-full h-full object-cover" src="/dh.jpg" />
 		</div>
-	</main>
-</RootLayout>
+
+		<div class="max-w-6xl mx-auto text-center z-20">
+			<h2
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-16 leading-none tracking-tight uppercase"
+			>
+				Who We Work With
+			</h2>
+			<div class="space-y-12">
+				<p
+					class="text-2xl md:text-3xl lg:text-4xl text-steel-300 leading-relaxed font-light"
+				>
+					We partner with <span class="text-rust-500 font-bold"
+						>barbers</span
+					> who treat their chairs like canvases. <span
+						class="text-rust-500 font-bold">Coffee shops</span
+					> that roast with purpose. <span
+						class="text-rust-500 font-bold">Construction crews</span
+					> building with pride. <span class="text-rust-500 font-bold"
+						>Creators</span
+					> making authentic work.
+				</p>
+				<p class="text-3xl md:text-4xl text-white font-bold">
+					If you've got substance, we should talk.
+				</p>
+			</div>
+		</div>
+
+		<!-- Recent Videos Slider -->
+		<RecentVideosSlider client:load />
+	</section>
+
+	<!-- Why We're Different -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+		<div class="max-w-7xl mx-auto">
+			<h2
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white text-center mb-24 leading-none tracking-tight uppercase"
+			>
+				Why We're Different
+			</h2>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+				<!-- Card 1 -->
+				<div class="border-l-4 border-rust-500 pl-8 py-4">
+					<h3
+						class="text-3xl md:text-4xl font-black text-white mb-4 uppercase"
+					>
+						No Corporate BS
+					</h3>
+					<p class="text-xl text-steel-300 leading-relaxed">
+						We skip the jargon and the fluff. You get straight talk
+						about what will actually move your business forward.
+					</p>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="border-l-4 border-rust-500 pl-8 py-4">
+					<h3
+						class="text-3xl md:text-4xl font-black text-white mb-4 uppercase"
+					>
+						Real Grit
+					</h3>
+					<p class="text-xl text-steel-300 leading-relaxed">
+						Authentic, bold, and unapologetic. We work with your
+						brand to make tailor-made media that stands out & tells
+						your story.
+					</p>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="border-l-4 border-rust-500 pl-8 py-4">
+					<h3
+						class="text-3xl md:text-4xl font-black text-white mb-4 uppercase"
+					>
+						Built for Results
+					</h3>
+					<p class="text-xl text-steel-300 leading-relaxed">
+						Pretty pictures are great, but we're here to solve your
+						media strategy and drive growth. Every project has a
+						purpose.
+					</p>
+				</div>
+
+				<!-- Card 4 -->
+				<div class="border-l-4 border-rust-500 pl-8 py-4">
+					<h3
+						class="text-3xl md:text-4xl font-black text-white mb-4 uppercase"
+					>
+						Fast & Modern
+					</h3>
+					<p class="text-xl text-steel-300 leading-relaxed">
+						Built with cutting-edge tech. Your site loads instantly,
+						works flawlessly, and converts visitors into customers.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Our Media Solves Problems -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black">
+		<div class="max-w-7xl mx-auto text-center">
+			<h2
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-12 leading-none tracking-tight uppercase"
+			>
+				Our Media Solves Problems
+			</h2>
+			<p
+				class="text-2xl md:text-3xl text-steel-300 leading-relaxed mb-24 max-w-4xl mx-auto font-light"
+			>
+				We're not here to take pretty pictures. We're here to tell your
+				story in a way that <span class="text-white font-bold"
+					>attracts customers</span
+				>, <span class="text-white font-bold">builds your brand</span>,
+				and
+				<span class="text-white font-bold">drives revenue</span>.
+			</p>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 text-left"
+			>
+				<div class="border-t-4 border-rust-500 pt-8">
+					<div class="text-6xl mb-6">🎯</div>
+					<h3 class="text-2xl font-black text-white mb-4 uppercase">
+						Strategic Direction
+					</h3>
+					<p class="text-lg text-steel-300 leading-relaxed">
+						Every shot, every design decision is intentional. We
+						think about your goals before we pick up the camera.
+					</p>
+				</div>
+
+				<div class="border-t-4 border-rust-500 pt-8">
+					<div class="text-6xl mb-6">💎</div>
+					<h3 class="text-2xl font-black text-white mb-4 uppercase">
+						Brand Differentiation
+					</h3>
+					<p class="text-lg text-steel-300 leading-relaxed">
+						Stand out in a crowded market. We position you as the
+						obvious choice for customers who get it.
+					</p>
+				</div>
+
+				<div class="border-t-4 border-rust-500 pt-8">
+					<div class="text-6xl mb-6">📈</div>
+					<h3 class="text-2xl font-black text-white mb-4 uppercase">
+						Measurable Results
+					</h3>
+					<p class="text-lg text-steel-300 leading-relaxed">
+						Increased bookings, higher sales, stronger brand
+						recognition. We track what matters.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services -->
+	<Services />
+
+	<!-- Trusted By -->
+	<TrustedBy />
+
+	<!-- Testimonials -->
+	<Testimonials />
+
+	<!-- Final CTA -->
+	<CTA
+		title="Ready to Create Something Bold?"
+		subtitle="Let's build an online presence that matches your ambition. No corporate BS, no cookie-cutter solutions - just real work that gets results."
+		ctaText="Let's Talk"
+		ctaLink="/contact"
+	/>
+</MainLayout>

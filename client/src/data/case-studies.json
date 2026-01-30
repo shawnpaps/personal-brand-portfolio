@@ -1,0 +1,95 @@
+[
+	{
+		"id": "case-1",
+		"slug": "fade-factory-rebrand",
+		"title": "Fade Factory: From Unknown to Booked Solid",
+		"client": "Fade Factory",
+		"industry": "Barbers",
+		"services": ["Web Design", "Photography", "Videography"],
+		"featured": true,
+		"thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Fade+Factory+Case",
+		"heroUrl": "https://placehold.co/1920x1080/0a0a0a/d4512a?text=Fade+Factory+Hero",
+		"summary": "Transformed a struggling barbershop into the most sought-after spot in downtown",
+		"challenge": "Fade Factory opened in a saturated market with 12 barbershops within 5 blocks. Despite skilled barbers, they were invisible online and struggling to fill their appointment book. They needed to differentiate and drive bookings fast.",
+		"clientQuote": "Before Shawn, we were just another shop. Now people drive 30 minutes to get cut here. Our online booking system is constantly full.",
+		"clientName": "Marcus Thompson",
+		"clientRole": "Owner, Fade Factory",
+		"approach": "We spent a week documenting the raw energy and craft of their work through dark, grungy photography. Built a website that felt more like a gallery than a booking platform - showcasing their work first, selling second. Created a brand video that captured the vibe of the shop.",
+		"solution": "Launched an integrated web platform with bold visuals, seamless online booking, and strategic content that positioned them as artists, not just barbers. The photography became their calling card on social media.",
+		"results": [
+			"40% increase in online bookings within first month",
+			"Appointment book fully booked 2 weeks in advance",
+			"Instagram following grew 300% in 3 months",
+			"Significantly increased revenue with no customer loss"
+		],
+		"testimonial": "Shawn didn't just take pictures and build a website. He got what we were about - the craft, the culture, the vibe. The work speaks for itself. We went from struggling to turning people away.",
+		"timeline": "6 weeks",
+		"images": [
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Fade+1",
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Fade+2",
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Fade+3"
+		]
+	},
+	{
+		"id": "case-2",
+		"slug": "origins-coffee-launch",
+		"title": "Origins Coffee: Launching with Purpose",
+		"client": "Origins Coffee Co",
+		"industry": "Coffee Shops",
+		"services": ["Web Design", "Photography", "Videography"],
+		"featured": true,
+		"thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Origins+Coffee+Case",
+		"heroUrl": "https://placehold.co/1920x1080/0a0a0a/d4512a?text=Origins+Hero",
+		"summary": "Zero to thriving online store in 8 weeks for specialty coffee roaster",
+		"challenge": "Origins was launching their roastery with big ambitions but no online presence. They needed to sell coffee online while telling the story of ethical sourcing and craft roasting - not easy in a commodity market.",
+		"clientQuote": "We needed more than an online store. We needed to communicate our quality and values in a way that resonates.",
+		"clientName": "Sarah Chen",
+		"clientRole": "Founder, Origins Coffee Co",
+		"approach": "Created a documentary-style video showing the roasting process and sourcing story. Photographed each coffee origin with moody, editorial style that elevated the product. Built an e-commerce experience that felt personal and story-driven.",
+		"solution": "Launched a dark, immersive Shopify store with rich storytelling for each coffee. Each product page felt like a mini-documentary. Behind-the-scenes content created trust and communicated value effectively.",
+		"results": [
+			"250% of sales target in first 3 months",
+			"Average order value 60% higher than industry standard",
+			"Subscription program launched with 180 members in month one",
+			"Featured in regional food & beverage magazine"
+		],
+		"testimonial": "The work Shawn created didn't just help us sell coffee - it told people why they should care. The photography and video captured what I couldn't put into words.",
+		"timeline": "8 weeks",
+		"images": [
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Origins+1",
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Origins+2",
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Origins+3"
+		]
+	},
+	{
+		"id": "case-3",
+		"slug": "built-different-contracts",
+		"title": "Built Different: Winning Major Contracts",
+		"client": "Built Different Construction",
+		"industry": "Construction",
+		"services": ["Web Design", "Photography"],
+		"featured": true,
+		"thumbnailUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Built+Different+Case",
+		"heroUrl": "https://placehold.co/1920x1080/0a0a0a/d4512a?text=Built+Different+Hero",
+		"summary": "Portfolio website that landed major contracts within 60 days",
+		"challenge": "Built Different had the skills and crew but kept losing bids to companies with better presentation. They needed to look as professional as the national firms while maintaining their scrappy, local identity.",
+		"clientQuote": "We were getting passed over for contracts we knew we could handle. We looked small-time online.",
+		"clientName": "Jake Morrison",
+		"clientRole": "Owner, Built Different Construction",
+		"approach": "Shot gritty, powerful photography of their work and crew that showed capability and craftsmanship. Built a portfolio site with detailed case studies proving their expertise on complex projects. Industrial aesthetic that felt substantial.",
+		"solution": "Launched a bold portfolio site with in-depth project case studies, team credentials, and a gallery that showcased the scale and quality of their work. Made them look like serious contenders.",
+		"results": [
+			"Won 2 six-figure commercial contracts in first month",
+			"40% increase in bid requests",
+			"Hired 3 new crew members to handle growth",
+			"Now competing for projects previously out of reach"
+		],
+		"testimonial": "Within a month of launching, we closed our two biggest deals ever. The website made us look like we could handle it - because we can. Shawn got that.",
+		"timeline": "5 weeks",
+		"images": [
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Built+1",
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Built+2",
+			"https://placehold.co/1200x800/0a0a0a/d4512a?text=Built+3"
+		]
+	}
+]

@@ -5,8 +5,16 @@ dotenv.config();
 
 export const GET: APIRoute = async () => {
 	// Mux API credentials from environment variables
-	const MUX_TOKEN_ID = process.env.ASTRO_MUX_TOKEN_ID;
-	const MUX_TOKEN_SECRET = process.env.ASTRO_MUX_TOKEN_SECRET;
+	const MUX_TOKEN_ID = process.env.MUX_ACCESS_TOKEN;
+	const MUX_TOKEN_SECRET = process.env.MUX_ACCESS_SECRET;
+
+	// CORS headers
+	const corsHeaders = {
+		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Methods": "GET, OPTIONS",
+		"Access-Control-Allow-Headers": "Content-Type",
+		"Content-Type": "application/json",
+	};
 
 	// Check if credentials are configured
 	if (!MUX_TOKEN_ID || !MUX_TOKEN_SECRET) {
@@ -14,13 +22,11 @@ export const GET: APIRoute = async () => {
 			JSON.stringify({
 				error: "Mux API credentials not configured",
 				message:
-					"Please set ASTRO_MUX_TOKEN_ID and ASTRO_MUX_TOKEN_SECRET environment variables",
+					"Please set MUX_TOKEN_ID and MUX_TOKEN_SECRET environment variables",
 			}),
 			{
 				status: 500,
-				headers: {
-					"Content-Type": "application/json",
-				},
+				headers: corsHeaders,
 			},
 		);
 	}
@@ -58,9 +64,7 @@ export const GET: APIRoute = async () => {
 
 		return new Response(JSON.stringify({ videos }), {
 			status: 200,
-			headers: {
-				"Content-Type": "application/json",
-			},
+			headers: corsHeaders,
 		});
 	} catch (error) {
 		const errMessage =
@@ -78,10 +82,19 @@ export const GET: APIRoute = async () => {
 			}),
 			{
 				status: 500,
-				headers: {
-					"Content-Type": "application/json",
-				},
+				headers: corsHeaders,
 			},
 		);
 	}
+};
+
+export const OPTIONS: APIRoute = async () => {
+	return new Response(null, {
+		status: 204,
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "GET, OPTIONS",
+			"Access-Control-Allow-Headers": "Content-Type",
+		},
+	});
 };

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "photo-1",
+    "title": "Fade and Glory",
+    "description": "Raw energy captured at a downtown barber shop",
+    "imageUrl": "https://placehold.co/800x1200/0a0a0a/d4512a?text=Barber+Shop",
+    "muxAssetId": "placeholder-001",
+    "mood": ["dark", "moody", "raw"],
+    "aesthetic": ["grungy", "urban"],
+    "subject": ["people", "spaces"],
+    "industry": ["barbers"]
+  },
+  {
+    "id": "photo-2",
+    "title": "Morning Ritual",
+    "description": "The first pour of the day at a local roastery",
+    "imageUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Coffee+Shop",
+    "muxAssetId": "placeholder-002",
+    "mood": ["moody", "intimate"],
+    "aesthetic": ["industrial", "cinematic"],
+    "subject": ["products", "spaces"],
+    "industry": ["coffee"]
+  },
+  {
+    "id": "photo-3",
+    "title": "Built to Last",
+    "description": "Construction crew at golden hour",
+    "imageUrl": "https://placehold.co/1200x900/0a0a0a/d4512a?text=Construction+Site",
+    "muxAssetId": "placeholder-003",
+    "mood": ["energetic", "raw"],
+    "aesthetic": ["grungy", "industrial"],
+    "subject": ["people", "lifestyle"],
+    "industry": ["construction"]
+  },
+  {
+    "id": "photo-4",
+    "title": "Stage Presence",
+    "description": "Live performance at an intimate venue",
+    "imageUrl": "https://placehold.co/900x1200/0a0a0a/d4512a?text=Band+Performance",
+    "muxAssetId": "placeholder-004",
+    "mood": ["energetic", "dark"],
+    "aesthetic": ["cinematic", "grungy"],
+    "subject": ["people", "events"],
+    "industry": ["music"]
+  },
+  {
+    "id": "photo-5",
+    "title": "Clean Cuts",
+    "description": "Detail shots of precision barbering",
+    "imageUrl": "https://placehold.co/800x800/0a0a0a/d4512a?text=Barber+Detail",
+    "muxAssetId": "placeholder-005",
+    "mood": ["intimate", "moody"],
+    "aesthetic": ["editorial", "cinematic"],
+    "subject": ["people"],
+    "industry": ["barbers"]
+  },
+  {
+    "id": "photo-6",
+    "title": "Urban Grind",
+    "description": "Street-level coffee culture",
+    "imageUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Street+Coffee",
+    "muxAssetId": "placeholder-006",
+    "mood": ["raw", "energetic"],
+    "aesthetic": ["urban", "grungy"],
+    "subject": ["spaces", "lifestyle"],
+    "industry": ["coffee"]
+  },
+  {
+    "id": "photo-7",
+    "title": "Foundation",
+    "description": "The backbone of the city",
+    "imageUrl": "https://placehold.co/1200x1200/0a0a0a/d4512a?text=Construction+Workers",
+    "muxAssetId": "placeholder-007",
+    "mood": ["dark", "raw"],
+    "aesthetic": ["industrial", "grungy"],
+    "subject": ["people"],
+    "industry": ["construction"]
+  },
+  {
+    "id": "photo-8",
+    "title": "Soundcheck",
+    "description": "Behind the scenes with local musicians",
+    "imageUrl": "https://placehold.co/1200x900/0a0a0a/d4512a?text=Band+Rehearsal",
+    "muxAssetId": "placeholder-008",
+    "mood": ["moody", "intimate"],
+    "aesthetic": ["cinematic", "urban"],
+    "subject": ["people", "events"],
+    "industry": ["music"]
+  },
+  {
+    "id": "photo-9",
+    "title": "The Chair",
+    "description": "Iconic barber shop interior",
+    "imageUrl": "https://placehold.co/900x1200/0a0a0a/d4512a?text=Barber+Chair",
+    "muxAssetId": "placeholder-009",
+    "mood": ["dark", "moody"],
+    "aesthetic": ["industrial", "editorial"],
+    "subject": ["spaces"],
+    "industry": ["barbers"]
+  },
+  {
+    "id": "photo-10",
+    "title": "Brew Science",
+    "description": "The art of espresso",
+    "imageUrl": "https://placehold.co/800x1200/0a0a0a/d4512a?text=Espresso+Machine",
+    "muxAssetId": "placeholder-010",
+    "mood": ["moody", "intimate"],
+    "aesthetic": ["editorial", "industrial"],
+    "subject": ["products"],
+    "industry": ["coffee"]
+  },
+  {
+    "id": "photo-11",
+    "title": "Heavy Metal",
+    "description": "Construction equipment in action",
+    "imageUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Heavy+Equipment",
+    "muxAssetId": "placeholder-011",
+    "mood": ["energetic", "raw"],
+    "aesthetic": ["industrial", "grungy"],
+    "subject": ["products", "lifestyle"],
+    "industry": ["construction"]
+  },
+  {
+    "id": "photo-12",
+    "title": "Amplified",
+    "description": "Live music documentary style",
+    "imageUrl": "https://placehold.co/1200x800/0a0a0a/d4512a?text=Concert+Crowd",
+    "muxAssetId": "placeholder-012",
+    "mood": ["energetic", "dark"],
+    "aesthetic": ["cinematic", "urban"],
+    "subject": ["people", "events"],
+    "industry": ["music"]
+  }
+]

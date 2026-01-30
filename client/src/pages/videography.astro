@@ -1,0 +1,118 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import VideographyGallery from "../components/react/VideographyGallery";
+---
+
+<MainLayout
+	title="Videography Portfolio - Shawn Paps Media"
+	description="Cinematic brand videos and event coverage for businesses with grit. From 30-second promos to full documentary-style storytelling."
+>
+	<!-- Hero Section -->
+	<section
+		class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-black"
+	>
+		<div
+			class="absolute inset-0 bg-gradient-to-b from-black via-black-soft to-black z-0"
+		>
+		</div>
+
+		<div class="relative z-10 max-w-6xl mx-auto text-center px-6 py-32">
+			<h1
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-none tracking-tight uppercase"
+			>
+				Videography
+			</h1>
+			<p
+				class="text-xl md:text-2xl text-steel-300 max-w-3xl mx-auto leading-relaxed font-light"
+			>
+				Cinematic brand stories and event coverage that make people feel
+				something. From 30-second social promos to full
+				documentary-style pieces - we create video content that drives
+				results.
+			</p>
+		</div>
+	</section>
+
+	<!-- Video Gallery with Filters -->
+	<VideographyGallery client:load />
+
+	<!-- Process Section -->
+	<section class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-black-soft">
+		<div class="max-w-6xl mx-auto text-center">
+			<h2
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-16 leading-none tracking-tight uppercase"
+			>
+				Our Video Process
+			</h2>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 text-left"
+			>
+				<div class="border-t-4 border-rust-500 pt-8">
+					<div class="text-6xl mb-6">🎬</div>
+					<h3
+						class="text-2xl md:text-3xl font-black text-white mb-4 uppercase"
+					>
+						Pre-Production
+					</h3>
+					<p class="text-lg text-steel-300 leading-relaxed">
+						Strategy session, storyboarding, and planning. We figure
+						out the story before we roll camera.
+					</p>
+				</div>
+
+				<div class="border-t-4 border-rust-500 pt-8">
+					<div class="text-6xl mb-6">📹</div>
+					<h3
+						class="text-2xl md:text-3xl font-black text-white mb-4 uppercase"
+					>
+						Production
+					</h3>
+					<p class="text-lg text-steel-300 leading-relaxed">
+						Professional filming with cinema cameras and lighting.
+						We capture the moments that matter.
+					</p>
+				</div>
+
+				<div class="border-t-4 border-rust-500 pt-8">
+					<div class="text-6xl mb-6">✂️</div>
+					<h3
+						class="text-2xl md:text-3xl font-black text-white mb-4 uppercase"
+					>
+						Post-Production
+					</h3>
+					<p class="text-lg text-steel-300 leading-relaxed">
+						Editing, color grading, sound design. We craft the final
+						piece that tells your story perfectly.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section
+		class="py-24 md:py-32 lg:py-40 px-6 md:px-12 bg-gradient-to-br from-rust-500 via-rust-600 to-rust-700"
+	>
+		<div class="max-w-6xl mx-auto text-center">
+			<h2
+				class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-none tracking-tight uppercase"
+			>
+				Ready to Create Video Content?
+			</h2>
+			<p
+				class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
+			>
+				Whether you need a quick social promo or a full brand
+				documentary, let's talk about bringing your story to life on
+				screen.
+			</p>
+			<a
+				href="/contact"
+				class="inline-block bg-black hover:bg-black-soft text-white font-bold text-lg px-12 py-5 rounded-lg transition-all hover:scale-105 shadow-2xl uppercase tracking-wide"
+			>
+				Start Your Video Project
+			</a>
+		</div>
+	</section>
+</MainLayout>
